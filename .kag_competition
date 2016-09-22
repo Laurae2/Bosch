@@ -1,0 +1,9 @@
+[competition]
+name=bosch
+login_url=https://www.kaggle.com/account/login
+upload_url=https://www.kaggle.com/c/bosch-production-line-performance/submissions/attach
+submission_url=https://www.kaggle.com/c/bosch-production-line-performance/submissions
+sample_submission=data_ori/sample_submission.csv
+[settings]
+maxtime=180
+repeat=20
