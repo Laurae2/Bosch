@@ -1,3 +1,25 @@
+## 3-DataToSparse
+
+DataToSparse does the specific following things (if interpretation is needed):
+
+* Create the sparse matrices of Numeric / Date
+* One-hot encode Categorical > 2 features
+* Binary encode Categorical = 2 features
+* Drop Categorical = 1 feature
+
+Also, it computes the SpookyHash v2 of each column and compare to each other columns. However, it does not seem to work on dense matrices properly (results are way different).
+
+Final matrix dimensions (row ID & Label excluded):
+
+* train_numeric_sparse = 927 columns (2070.1 MB)
+* train_categorical_sparse = 503 columns (838.9 MB)
+* train_data_sparse = 163 columns (319.3 MB)
+
+For 
+
+(TBC)
+
+
 The log of 3-DataToSparse.R:
 
 ```r
