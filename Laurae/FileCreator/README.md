@@ -1,4 +1,4 @@
-## 3-DataToSparse
+## 3-DataToSparse (RAM peak: 45GB RAM (?))
 
 DataToSparse does the specific following things (if interpretation is needed):
 
