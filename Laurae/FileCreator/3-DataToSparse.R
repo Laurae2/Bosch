@@ -174,7 +174,7 @@ for (i in 1:sparsed@Dim[2]) {
   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 }
 
-write.csv(spooky, "categorical_sparse_spooky.csv", row.names = FALSE, quote = FALSE)
+write.csv(spooky, "datasets/categorical_sparse_spooky.csv", row.names = FALSE, quote = FALSE)
 saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/train_categorical_sparse_dedup.rds", compress = TRUE)
 gc()
 sparsed <- readRDS("datasets/test_categorical_sparse.rds")
@@ -195,7 +195,7 @@ for (i in 1:(sparsed@Dim[2] - 1)) {
   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 }
 
-write.csv(spooky, "numeric_sparse_spooky.csv", row.names = FALSE, quote = FALSE)
+write.csv(spooky, "datasets/numeric_sparse_spooky.csv", row.names = FALSE, quote = FALSE)
 saveRDS(sparsed[, c(which(!duplicated(spooky)), sparsed@Dim[2])], file = "datasets/train_numeric_sparse_dedup.rds", compress = TRUE)
 gc()
 sparsed <- readRDS("datasets/test_numeric_sparse.rds")
@@ -217,7 +217,7 @@ for (i in 1:sparsed@Dim[2]) {
   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 }
 
-write.csv(spooky, "date_sparse_spooky.csv", row.names = FALSE, quote = FALSE)
+write.csv(spooky, "datasets/date_sparse_spooky.csv", row.names = FALSE, quote = FALSE)
 saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/train_date_sparse_dedup.rds", compress = TRUE)
 gc()
 sparsed <- readRDS("datasets/test_date_sparse.rds")
@@ -236,17 +236,17 @@ gc()
 
 spooky <- numeric(ncol(sparsed) - 1)
 for (i in 1:(ncol(sparsed) - 1)) {
-  spooky[i] <- fastdigest(sparsed[, i]) # Compute hash only on training data... obviously
+  spooky[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
   if ((i %% 100) == 0) {cat("Done ", i," Spooky hashes.\n", sep = "")}
   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 }
 
-write.csv(spooky, "numeric_spooky.csv", row.names = FALSE, quote = FALSE)
-saveRDS(sparsed[, c(which(!duplicated(spooky)), ncol(sparsed))], file = "datasets/train_numeric_dedup.rds", compress = TRUE)
+write.csv(spooky, "datasets/numeric_spooky.csv", row.names = FALSE, quote = FALSE)
+saveRDS(sparsed[, c(which(!duplicated(spooky)), ncol(sparsed)), with = FALSE], file = "datasets/train_numeric_dedup.rds", compress = TRUE)
 gc()
 sparsed <- readRDS("datasets/test_numeric.rds")
 gc()
-saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/test_numeric_dedup.rds", compress = TRUE)
+saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/test_numeric_dedup.rds", compress = TRUE)
 gc()
 
 
@@ -259,17 +259,17 @@ gc()
 
 spooky <- numeric(ncol(sparsed))
 for (i in 1:ncol(sparsed)) {
-  spooky[i] <- fastdigest(sparsed[, i]) # Compute hash only on training data... obviously
+  spooky[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
   if ((i %% 100) == 0) {cat("Done ", i," Spooky hashes.\n", sep = "")}
   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 }
 
-write.csv(spooky, "categorical_spooky.csv", row.names = FALSE, quote = FALSE)
-saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/train_categorical_dedup.rds", compress = TRUE)
+write.csv(spooky, "datasets/categorical_spooky.csv", row.names = FALSE, quote = FALSE)
+saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/train_categorical_dedup.rds", compress = TRUE)
 gc()
 sparsed <- readRDS("datasets/test_categorical.rds")
 gc()
-saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/test_categorical_dedup.rds", compress = TRUE)
+saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/test_categorical_dedup.rds", compress = TRUE)
 gc()
 
 
@@ -279,23 +279,48 @@ sparsed <- readRDS("datasets/train_date.rds")
 
 spooky <- numeric(ncol(sparsed))
 for (i in 1:ncol(sparsed)) {
-  spooky[i] <- fastdigest(sparsed[, i]) # Compute hash only on training data... obviously
+  spooky[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
   if ((i %% 100) == 0) {cat("Done ", i," Spooky hashes.\n", sep = "")}
   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 }
 
-write.csv(spooky, "date_spooky.csv", row.names = FALSE, quote = FALSE)
-saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/train_date_dedup.rds", compress = TRUE)
+write.csv(spooky, "datasets/date_spooky.csv", row.names = FALSE, quote = FALSE)
+saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/train_date_dedup.rds", compress = TRUE)
 gc()
 sparsed <- readRDS("datasets/test_date.rds")
 gc()
-saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/test_date_dedup.rds", compress = TRUE)
+saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/test_date_dedup.rds", compress = TRUE)
 gc()
 
+
+
+# to get the object size:
+# format(object.size(train_categorical_sparse), units = "MB")
 
 
 rm(sparsed)
 gc()
 train_categorical_sparse <- readRDS("datasets/train_categorical_sparse_dedup.rds")
+print(train_categorical_sparse@Dim[2])
+print(format(object.size(train_categorical_sparse), units = "MB"))
+
 train_numeric_sparse <- readRDS("datasets/train_numeric_sparse_dedup.rds")
+print(train_numeric_sparse@Dim[2])
+print(format(object.size(train_numeric_sparse), units = "MB"))
+
 train_date_sparse <- readRDS("datasets/train_date_sparse_dedup.rds")
+print(train_date_sparse@Dim[2])
+print(format(object.size(train_date_sparse), units = "MB"))
+
+gc()
+train_categorical <- readRDS("datasets/train_categorical_dedup.rds")
+print(ncol(train_categorical))
+print(format(object.size(train_categorical), units = "MB"))
+
+train_numeric <- readRDS("datasets/train_numeric_dedup.rds")
+print(ncol(train_numeric))
+print(format(object.size(train_numeric), units = "MB"))
+
+train_date <- readRDS("datasets/train_date_dedup.rds")
+print(ncol(train_date))
+print(format(object.size(train_date), units = "MB"))
