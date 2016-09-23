@@ -7,7 +7,7 @@ DataToSparse does the specific following things (if interpretation is needed):
 * Binary encode Categorical = 2 features
 * Drop Categorical = 1 feature
 
-Also, it computes the SpookyHash v2 of each column and compare to each other columns. However, it does not seem to work on dense matrices properly (results are way different).
+Also, it computes the SpookyHash v2 of each column and compare to each other columns. It works on both dense and sparse matrices thanks to R serialization procedure (the results are identical between sparse and non sparse).
 
 Final matrix dimensions (row ID & Label excluded):
 
