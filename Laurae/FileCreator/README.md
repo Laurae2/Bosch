@@ -12,12 +12,11 @@ Also, it computes the SpookyHash v2 of each column and compare to each other col
 Final matrix dimensions (row ID & Label excluded):
 
 * train_numeric_sparse = 927 columns (2070.1 MB)
-* train_categorical_sparse = 503 columns (838.9 MB)
-* train_data_sparse = 163 columns (319.3 MB)
-
-For 
-
-(TBC)
+* train_categorical_sparse = 501 columns (838.9 MB)
+* train_data_sparse = 161 columns (319.3 MB)
+* train_numeric_sparse = 927 columns (8390.2 MB) <= agreement
+* train_categorical_sparse = 227 columns (1034.2 MB) <= does not agree because it was not converted to a design matrix obviously
+* train_data_sparse = 161 columns (1463.1 MB) <= agreement
 
 
 The log of 3-DataToSparse.R:
@@ -211,18 +210,26 @@ Vcells 367788541 2806.1  981985619 7492.0 1917727329 14631.1
 > 
 > 
 > 
+```
+
+Fixed run for non-sparse data (due to data.table stupidity, was run separately):
+
+```r
 > # Do the same on categorical non-sparse data
-> 
-> 
+> rm(list = ls())
+> gc()
+          used (Mb) gc trigger    (Mb)   max used    (Mb)
+Ncells 1712672 91.5    2637877   140.9    2637877   140.9
+Vcells 1676867 12.8 2083719268 15897.6 2740953289 20911.9
 > sparsed <- readRDS("datasets/train_numeric.rds")
 > gc()
              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1655782   88.5    2637877   140.9    2637877   140.9
-Vcells 1149880836 8772.9 1700176144 12971.4 1917727329 14631.1
+Ncells    1714627   91.6    2637877   140.9    2637877   140.9
+Vcells 1149916314 8773.2 2083719268 15897.6 2740953289 20911.9
 > 
 > spooky <- numeric(ncol(sparsed) - 1)
 > for (i in 1:(ncol(sparsed) - 1)) {
-+   spooky[i] <- fastdigest(sparsed[, i]) # Compute hash only on training data... obviously
++   spooky[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
 +   if ((i %% 100) == 0) {cat("Done ", i," Spooky hashes.\n", sep = "")}
 +   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 + }
@@ -231,28 +238,28 @@ Done 200 Spooky hashes.
 Done 300 Spooky hashes.
 Done 400 Spooky hashes.
 Done 500 Spooky hashes.
- --- Uniques: 500 ---
+ --- Uniques: 499 ---
 Done 600 Spooky hashes.
 Done 700 Spooky hashes.
 Done 800 Spooky hashes.
 Done 900 Spooky hashes.
 > 
-> write.csv(spooky, "numeric_spooky.csv", row.names = FALSE, quote = FALSE)
-> saveRDS(sparsed[, c(which(!duplicated(spooky)), ncol(sparsed))], file = "datasets/train_numeric_dedup.rds", compress = TRUE)
+> write.csv(spooky, "datasets/numeric_spooky.csv", row.names = FALSE, quote = FALSE)
+> saveRDS(sparsed[, c(which(!duplicated(spooky)), ncol(sparsed)), with = FALSE], file = "datasets/train_numeric_dedup.rds", compress = TRUE)
 > gc()
              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1676541   89.6    2637877   140.9    2637877   140.9
-Vcells 1150133332 8774.9 1700176144 12971.4 1917727329 14631.1
+Ncells    1715564   91.7    2637877   140.9    2637877   140.9
+Vcells 1149925795 8773.3 2500954590 19080.8 2740953289 20911.9
 > sparsed <- readRDS("datasets/test_numeric.rds")
 > gc()
              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1671836   89.3    2637877   140.9    2637877   140.9
-Vcells 1148734344 8764.2 2449805328 18690.6 2296972007 17524.6
-> saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/test_numeric_dedup.rds", compress = TRUE)
+Ncells    1715581   91.7    2637877   140.9    2637877   140.9
+Vcells 1148741961 8764.3 2500954590 19080.8 2740953289 20911.9
+> saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/test_numeric_dedup.rds", compress = TRUE)
 > gc()
              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1671846   89.3    2637877   140.9    2637877   140.9
-Vcells 1148734804 8764.2 2449805328 18690.6 2296972007 17524.6
+Ncells    1715606   91.7    2637877   140.9    2637877   140.9
+Vcells 1148743080 8764.3 2500954590 19080.8 2740953289 20911.9
 > 
 > 
 > 
@@ -262,12 +269,12 @@ Vcells 1148734804 8764.2 2449805328 18690.6 2296972007 17524.6
 > sparsed <- readRDS("datasets/train_categorical.rds")
 > gc()
              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1682833   89.9    2637877   140.9    2637877   140.9
-Vcells 1269491945 9685.5 2449805328 18690.6 2416549318 18436.9
+Ncells    1726559   92.3    2637877   140.9    2637877   140.9
+Vcells 1269499530 9685.6 2500954590 19080.8 2740953289 20911.9
 > 
 > spooky <- numeric(ncol(sparsed))
 > for (i in 1:ncol(sparsed)) {
-+   spooky[i] <- fastdigest(sparsed[, i]) # Compute hash only on training data... obviously
++   spooky[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
 +   if ((i %% 100) == 0) {cat("Done ", i," Spooky hashes.\n", sep = "")}
 +   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 + }
@@ -276,43 +283,43 @@ Done 200 Spooky hashes.
 Done 300 Spooky hashes.
 Done 400 Spooky hashes.
 Done 500 Spooky hashes.
- --- Uniques: 500 ---
+ --- Uniques: 75 ---
 Done 600 Spooky hashes.
 Done 700 Spooky hashes.
 Done 800 Spooky hashes.
 Done 900 Spooky hashes.
 Done 1000 Spooky hashes.
- --- Uniques: 1000 ---
+ --- Uniques: 126 ---
 Done 1100 Spooky hashes.
 Done 1200 Spooky hashes.
 Done 1300 Spooky hashes.
 Done 1400 Spooky hashes.
 Done 1500 Spooky hashes.
- --- Uniques: 1500 ---
+ --- Uniques: 175 ---
 Done 1600 Spooky hashes.
 Done 1700 Spooky hashes.
 Done 1800 Spooky hashes.
 Done 1900 Spooky hashes.
 Done 2000 Spooky hashes.
- --- Uniques: 2000 ---
+ --- Uniques: 205 ---
 Done 2100 Spooky hashes.
 > 
-> write.csv(spooky, "categorical_spooky.csv", row.names = FALSE, quote = FALSE)
-> saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/train_categorical_dedup.rds", compress = TRUE)
+> write.csv(spooky, "datasets/categorical_spooky.csv", row.names = FALSE, quote = FALSE)
+> saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/train_categorical_dedup.rds", compress = TRUE)
 > gc()
              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1685428   90.1    2637877   140.9    2637877   140.9
-Vcells 1269567818 9686.1 2449805328 18690.6 2416549318 18436.9
+Ncells    1725867   92.2    2637877   140.9    2637877   140.9
+Vcells 1269495493 9685.5 2500954590 19080.8 2740953289 20911.9
 > sparsed <- readRDS("datasets/test_categorical.rds")
 > gc()
              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1684011   90.0    2637877   140.9    2637877   140.9
-Vcells 1269502622 9685.6 2940631572 22435.3 2537312645 19358.2
-> saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/test_categorical_dedup.rds", compress = TRUE)
+Ncells    1725865   92.2    2637877   140.9    2637877   140.9
+Vcells 1269495231 9685.5 3001704485 22901.2 2740953289 20911.9
+> saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/test_categorical_dedup.rds", compress = TRUE)
 > gc()
              used   (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1684021   90.0    2637877   140.9    2637877   140.9
-Vcells 1269503082 9685.6 2940631572 22435.3 2537312645 19358.2
+Ncells    1725870   92.2    2637877   140.9    2637877   140.9
+Vcells 1269495617 9685.5 3001704485 22901.2 2740953289 20911.9
 > 
 > 
 > 
@@ -321,7 +328,7 @@ Vcells 1269503082 9685.6 2940631572 22435.3 2537312645 19358.2
 > 
 > spooky <- numeric(ncol(sparsed))
 > for (i in 1:ncol(sparsed)) {
-+   spooky[i] <- fastdigest(sparsed[, i]) # Compute hash only on training data... obviously
++   spooky[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
 +   if ((i %% 100) == 0) {cat("Done ", i," Spooky hashes.\n", sep = "")}
 +   if ((i %% 500) == 0) {cat(" --- Uniques: ", length(unique(spooky[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
 + }
@@ -330,34 +337,34 @@ Done 200 Spooky hashes.
 Done 300 Spooky hashes.
 Done 400 Spooky hashes.
 Done 500 Spooky hashes.
- --- Uniques: 500 ---
+ --- Uniques: 85 ---
 Done 600 Spooky hashes.
 Done 700 Spooky hashes.
 Done 800 Spooky hashes.
 Done 900 Spooky hashes.
 Done 1000 Spooky hashes.
- --- Uniques: 1000 ---
+ --- Uniques: 134 ---
 Done 1100 Spooky hashes.
 > 
-> write.csv(spooky, "date_spooky.csv", row.names = FALSE, quote = FALSE)
-> saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/train_date_dedup.rds", compress = TRUE)
+> write.csv(spooky, "datasets/date_spooky.csv", row.names = FALSE, quote = FALSE)
+> saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/train_date_dedup.rds", compress = TRUE)
 > gc()
              used    (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1673983    89.5    2637877   140.9    2637877   140.9
-Vcells 1371353128 10462.6 2940631572 22435.3 2641144013 20150.4
+Ncells    1715180    91.7    2637877   140.9    2637877   140.9
+Vcells 1371280721 10462.1 3001704485 22901.2 2740953289 20911.9
 > sparsed <- readRDS("datasets/test_date.rds")
 > gc()
              used    (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1672400    89.4    2637877   140.9    2637877   140.9
-Vcells 1371281600 10462.1 2940631572 22435.3 2740953289 20911.9
-> saveRDS(sparsed[, which(!duplicated(spooky))], file = "datasets/test_date_dedup.rds", compress = TRUE)
+Ncells    1715172    91.7    2637877   140.9    2637877   140.9
+Vcells 1371281553 10462.1 3001704485 22901.2 2740953289 20911.9
+> saveRDS(sparsed[, which(!duplicated(spooky)), with = FALSE], file = "datasets/test_date_dedup.rds", compress = TRUE)
 > gc()
              used    (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells    1672410    89.4    2637877   140.9    2637877   140.9
-Vcells 1371282060 10462.1 2940631572 22435.3 2740953289 20911.9
+Ncells    1715177    91.7    2637877   140.9    2637877   140.9
+Vcells 1371281873 10462.1 3001704485 22901.2 2740953289 20911.9
 > rm(sparsed)
 > gc()
           used (Mb) gc trigger    (Mb)   max used    (Mb)
-Ncells 1670083 89.2    2637877   140.9    2637877   140.9
-Vcells 1679392 12.9 2352505257 17948.2 2740953289 20911.9
+Ncells 1712853 91.5    2637877   140.9    2637877   140.9
+Vcells 1679341 12.9 2401363588 18321.0 2740953289 20911.9
 ```
