@@ -3,8 +3,8 @@ Detailed:
 | Date | Model | Data | Parameters | Rounds | Train(M/SD) | Test(M/SD) | LB |
 | :---: | --- | --- | --- | :---: | :---: | :---: | :---: |
 | yes | yes | yes | yes | yes | yes | yes | yes |
-| 09/24/2016 | 5cv_raw_all_8depth | All cleaned | CV = 5-fold <br> Eta = 0.025 <br> Depth = 10 | 131 | 0.377849 <br> 0.003956 | 0.254204 <br> 0.007502 | None |
-| 09/24/2016 | 5cv_raw_all_12depth | All cleaned | CV = 5-fold <br> Eta = 0.025 <br> Depth = 10 | 131 | 0.443671 <br> 0.002146 | 0.253824 <br> 0.009940 | None |
+| 09/24/2016 | 5cv_raw_all_8depth | All cleaned | CV = 5-fold <br> Eta = 0.025 <br> Depth = 8 | 131 | 0.377849 <br> 0.003956 | 0.254204 <br> 0.007502 | None |
+| 09/24/2016 | 5cv_raw_all_12depth | All cleaned | CV = 5-fold <br> Eta = 0.025 <br> Depth = 12 | 131 | 0.443671 <br> 0.002146 | 0.253824 <br> 0.009940 | None |
 | 09/24/2016 | 5cv_raw_all_15depth | All cleaned | CV = 5-fold <br> Eta = 0.025 <br> Depth = 15 | 61 <br> (Stop.) | 0.430237 <br> 0.002979 | 0.238813 <br> 0.012041 | None |
 | 09/24/2016 | 5cv_raw_all_10depth | All cleaned | CV = 5-fold <br> Eta = 0.025 <br> Depth = 10 | 141 | 0.421739 <br> 0.004081 | 0.256067 <br> 0.008422 | None |
 | 09/24/2016 | 5cv_raw_all_5depth | All cleaned | CV = 5-fold <br> Eta = 0.025 <br> Depth = 5 | 47 | 0.242187 <br> 0.002459 | 0.236419 <br> 0.008560 | None |
