@@ -1,0 +1,20 @@
+[created_at]
+2016-09-24 10:18:15.451820
+
+[description]
+t_delta: t_max-t_min
+t_min: lowest timestamp value
+n_timestamp: number of timestamp features
+Response: Response column from numeric
+n_numeric_t: number of numeric features with a timestamp
+n_unknown: number of timestamp features without categorical or numeric counterpart
+t_max: highest timestamp value
+id: product id
+n_categorical_t: number of categorical features with a timestamp
+
+[created_by]
+joostgp
+
+[script]
+eda_product_view.ipnb
+
