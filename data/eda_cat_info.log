@@ -1,0 +1,29 @@
+[created_at]
+2016-09-24 11:19:00.856959
+
+[description]
+nunique: number of unique levels for all samples
+prod_passed_fault_rel: relative number of samples with Response = 1 that have value
+ratio_fault: ratio between prod_passed_fault_rel and prod_passed_rel
+same_most_common: boolean whether samples with Reponse = 1 have same most common level
+name: feature name
+different_most_common: boolean whether samples with Reponse = 1 have different most common level
+nunique_fault: number of unique level for samples with Response 1
+val_most_common: most common level all samples
+val_most_common_fault: most common level for samples with Response 1
+station: station number
+nunique_diff: difference in number of unique levels
+prod_passed_rel: relative number of samples that have value
+unique_fault: string with unique levels for samples with Response 1
+prod_passed: number of samples that have value
+line: line number
+unique: string with unique levels for all samples
+prod_passed_fault: number of samples with Response = 1 that have value
+feature_nr: feature number
+
+[created_by]
+joostgp
+
+[script]
+eda_categorical_per_line_station.ipnb
+
