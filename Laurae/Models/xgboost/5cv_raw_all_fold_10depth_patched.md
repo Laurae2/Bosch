@@ -1819,6 +1819,19 @@ Stopping. Best iteration:
 > best_mcc <- 0
 > for (j in 1:5) {
 +   
++   temp_mcc <- mcc_eval_print(y_prob = predictions1[folded[[j]]], y_true = Y[folded[[j]]])
++   best_mcc <- best_mcc + 0.2 * temp_mcc
++   cat("Fold ", j, ": MCC=", temp_mcc, " | rolling average: ", best_mcc * (5 / j), "\n", sep = "")
++   
++ }
+Fold 1: MCC=0.2729738 | rolling average: 0.2729738
+Fold 2: MCC=0.2489975 | rolling average: 0.2609857
+Fold 3: MCC=0.2462972 | rolling average: 0.2560895
+Fold 4: MCC=0.2509157 | rolling average: 0.2547961
+Fold 5: MCC=0.2519139 | rolling average: 0.2542196
+> best_mcc <- 0
+> for (j in 1:5) {
++   
 +   temp_mcc <- mcc_eval_pred(y_prob = predictions1[folded[[j]]], y_true = Y[folded[[j]]])
 +   cat("Fold ", j, ": threshold=", temp_mcc, " | rolling average: ", best_mcc * (5 / j), "\n", sep = "")
 +   best_mcc <- best_mcc + 0.2 * temp_mcc
