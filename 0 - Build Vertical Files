@@ -1,0 +1,89 @@
+import pandas as pd
+import numpy as np
+
+datapath = 'D:\\Kaggle Project\\0 - Data Files\\'
+train = pd.read_csv(datapath+'train_numeric.csv', sep=',', usecols=['Id','Response'], dtype={'Id':str})
+test = pd.read_csv(datapath+'test_numeric.csv', sep=',', usecols=['Id'], dtype={'Id':str})
+#===============================================================================================================================
+block_size = 200
+#===============================================================================================================================
+def vert_data(inp, f, t):
+    data = inp.copy()
+    data = data[pd.notnull(data[f])]
+    
+    ln = f.split('_')[0]
+    st = f.split('_')[1]
+    ft = f.split('_')[2]
+    ln_srs = [int(ln[1:])]*data.shape[0]
+    st_srs = [int(st[1:])]*data.shape[0]
+    ft_srs = [int(ft[1:])]*data.shape[0]
+    
+    result = pd.DataFrame({'Id':data.Id, 'line':ln_srs, 'station':st_srs, 'feature':ft_srs, 'feature_value':data[f]})
+    if t == 'date':
+        result.feature = result.feature-1
+    if t == 'categorical':
+        result.feature_value = map(lambda x: int(x[1:]), result.feature_value)
+    return result
+
+def get_cols(t):
+    temp = pd.read_csv(datapath+'train_'+t+'.csv', sep=',', nrows=10)
+    names = temp.columns.tolist()
+    names.remove('Id')
+    if 'Response' in names:
+        names.remove('Response')
+    blocks = list(np.arange(0, len(names), block_size))
+    blocks = blocks+[len(names)]
+    return names, blocks
+#===============================================================================================================================
+#===============================================================================================================================
+data_types = ['date','numeric','categorical']
+
+for t in data_types:   
+    print 'Building '+t+' Data...'
+    col_names, col_blocks = get_cols(t)
+    i=0
+    
+    while i< len(col_blocks)-1:
+        out = pd.DataFrame()
+        print ('loading column block: ', str(i))
+        cols = ['Id'] + col_names[ col_blocks[i]:col_blocks[i+1] ]
+        dtype_dict = {'Id':str}
+        if t == 'categorical':
+            for c in cols[1:]:
+                dtype_dict[c] = str
+        else:
+            for c in cols[1:]:
+                dtype_dict[c] = np.float32
+        
+        tr = pd.read_csv(datapath+'train_'+t+'.csv', sep=',', usecols = cols, dtype=dtype_dict)
+        te = pd.read_csv(datapath+'test_'+t+'.csv', sep=',',  usecols = cols, dtype=dtype_dict)
+        X  = tr.append(te)
+    
+        for c in cols[1:]:
+            out = out.append(vert_data(X[['Id',c]], c, t))
+        
+        out = pd.merge(out, train, on=['Id'], how='left')
+        out[np.isnan(out.Response)==False].to_csv(datapath+'train_'+t+'_vert_'+str(i)+'.csv', index=False)
+        
+        out_ts = out[np.isnan(out.Response)==True].copy()
+        out_ts.drop('Response', axis=1, inplace=True)
+        out_ts.to_csv(datapath+'test_'+t+'_vert_'+str(i)+'.csv', index=False)
+        i=i+1
+        del out
+    
+    out = pd.DataFrame()
+    for f in range(len(col_blocks)-1):
+        subfile = pd.read_csv(datapath+'train_'+t+'_vert_'+str(f)+'.csv', sep=',')
+        out = out.append(subfile)
+    out.to_csv(datapath+'train_'+t+'_vertical.csv', index=False)
+    del out
+    
+    out = pd.DataFrame()
+    for f in range(len(col_blocks)-1):
+        subfile = pd.read_csv(datapath+'test_'+t+'_vert_'+str(f)+'.csv', sep=',')
+        out = out.append(subfile)
+    out.to_csv(datapath+'test_'+t+'_vertical.csv', index=False)
+    
+del out
+#===============================================================================================================================
+#===============================================================================================================================
