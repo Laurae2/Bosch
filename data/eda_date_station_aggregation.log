@@ -1,0 +1,25 @@
+[created_at]
+2016-09-25 14:53:32.492452
+
+[description]
+t_std_0: standard deviation time delay R=0
+t_std_1: standard deviation time delay R=1
+std_1: standard deviation timestamp R=1
+std_0: standard deviation timestamp R=0
+t_mean_1: mean time delay R=1
+t_mean_0: mean time delay R=0
+count_1: number of timestamp R=1
+count_0: number of timestamps R=0
+min_0: minimum timestamp R=0
+min_1: minimum timestamp R=1
+max_0: maximum timestamp R=0
+max_1: maxium timestamp R=1
+mean_0: mean timestamp R=0
+mean_1: mean timestamp R=1
+
+[created_by]
+joostgp
+
+[script]
+eda_date.ipnb
+

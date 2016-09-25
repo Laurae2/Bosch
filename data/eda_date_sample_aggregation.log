@@ -1,0 +1,18 @@
+[created_at]
+2016-09-25 14:56:22.290002
+
+[description]
+count: number of stations passed
+min: minimum timestamp (since t=t_min) (always zero, bug)
+max: maxium timestamp (since t=t_min)
+first_station: number of first station passed
+last_station: number of last station passed
+delta_max: maximum time delay between stations
+Response: response of samples
+
+[created_by]
+joostgp
+
+[script]
+eda_date.ipnb
+
