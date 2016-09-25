@@ -1,0 +1,133 @@
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
+lbl = LabelEncoder()
+
+datapath = 'D:\\Kaggle Project\\0 - Data Files\\'
+outpath = 'D:\\Kaggle Project\\0 - Data Files\\Station Data\\'
+#===============================================================================================================================
+#    FUNCTIONS
+#===============================================================================================================================
+#  Set up files for each station with all features for the station
+def remove_dup_cols(datafile_dup):
+    remove = []
+    cols = datafile_dup.columns.tolist()
+    for c in range(len(cols)-1):
+        v = datafile_dup[cols[c]].values
+        for j in range(c+1,len(cols)):
+            if np.array_equal(v,datafile_dup[cols[j]].values):
+                remove.append(cols[j])
+
+    datafile_dup.drop(remove, axis=1, inplace=True)    
+    return datafile_dup
+
+def process_sta(t, s, use, dtyp):
+    tr_data  = pd.read_csv(outpath+'station_'+str(s)+'_'+t+'_tr.csv', sep=',', usecols=use, dtype=dtyp)
+    ts_data  = pd.read_csv(outpath+'station_'+str(s)+'_'+t+'_ts.csv', sep=',', usecols=use, dtype=dtyp)
+    all_data = tr_data.append(ts_data)
+    prefix = t[0]
+    
+    if all_data.shape[0]>0:
+        all_data.feature = map(lambda x: prefix+str(x), all_data.feature)
+        datafile = all_data[['Id','feature','feature_value']].pivot('Id','feature','feature_value')
+        cols = datafile.columns.tolist()
+        
+        if t == 'categorical':
+            for c in cols:
+                datafile[c] = pd.factorize(datafile[c], sort=True)[0]
+            datafile.replace(-1, np.nan, inplace=True)
+        
+        datafile.reset_index(drop=False, inplace=True)
+        datafile.Id = datafile.Id.astype(str)
+        datafile['sta_'+prefix+'_msr_count'] = datafile[cols].count(axis=1)
+        
+        if t == 'date':
+            datafile['sta_date_min'] = datafile[cols].min(axis=1)
+            datafile['sta_date_max'] = datafile[cols].max(axis=1)
+            datafile['sta_tot_msr_time'] = datafile.sta_date_max - datafile.sta_date_min
+            datafile = datafile[['Id','sta_date_min','sta_date_max','sta_tot_msr_time']]
+        
+        datafile = remove_dup_cols(datafile)        
+        
+    else:
+        datafile = pd.DataFrame(columns=['Id'])
+        cols = []
+    del tr_data
+    del ts_data
+    del all_data
+    
+    return datafile, cols
+
+def build_sta_file(s, header, cdata, ndata, ddata):
+    cols = set(cdata.columns.tolist() + ndata.columns.tolist())
+    cols = list(cols - set(['Id']) )
+    
+    datafile = pd.merge(header, ndata, on='Id', how='left')
+    datafile = pd.merge(datafile, cdata, on='Id', how='left')
+    del cdata
+    del ndata
+    
+    feat_cnt = len(cols)
+    NA_cnt   = datafile[cols].isnull().sum(axis=1)
+    datafile = datafile[NA_cnt!=feat_cnt]
+    
+    datafile['sta_tot_msr_count'] = datafile[cols].count(axis=1)
+    datafile = pd.merge(datafile, ddata, on='Id', how='left')
+    del ddata
+    
+    datafile['sta_time_p_msr'] = datafile.sta_tot_msr_time / datafile.sta_tot_msr_count
+    datafile['sta_tot_feature_count'] = [len(cols)]*datafile.shape[0]
+    datafile.tot_feature_count = datafile.sta_tot_feature_count.astype(np.float32)
+    datafile['sta_msr_percent']   = datafile.sta_tot_msr_count / datafile.sta_tot_feature_count
+    
+    return datafile
+
+#===============================================================================================================================
+#===============================================================================================================================
+#  Break up vertical files in to station by station sets
+data_types = ['date','numeric','categorical']
+for t in data_types:   
+    data = pd.read_csv(datapath+'train_'+t+'_vertical.csv', sep=',')
+    print 'splitting '+t+' training data...'
+    for s in range(52):
+        print '...station #:', str(s)
+        data[data.station==s].to_csv(outpath+'station_'+str(s)+'_'+t+'_tr.csv', index=False)
+    del data
+
+for t in data_types:   
+    data = pd.read_csv(datapath+'test_'+t+'_vertical.csv', sep=',')
+    print 'splitting '+t+' test data...'
+    for s in range(52):
+        print '...station #:', str(s)
+        data[data.station==s].to_csv(outpath+'station_'+str(s)+'_'+t+'_ts.csv', index=False)
+    del data
+
+#=========================================================
+#  Process data station-by-station
+
+train = pd.read_csv(datapath+'train_numeric.csv', sep=',', usecols=['Id','Response'], dtype={'Id':str})
+test = pd.read_csv(datapath+'test_numeric.csv', sep=',', usecols=['Id'], dtype={'Id':str})
+hdr = train.append(test)
+del train
+del test
+dtype_cols = {'Id':str, 'feature':np.int32, 'feature_value':np.float32}
+use_cols = ['Id','feature','feature_value']
+
+for s in range(52):
+    'Processing station #', str(s)
+    cat_data, cat_cols = process_sta('categorical', s, use_cols, dtype_cols)
+    num_data, num_cols = process_sta('numeric', s, use_cols, dtype_cols)
+    dat_data, dat_cols = process_sta('date', s, use_cols, dtype_cols)
+    data = build_sta_file(s, hdr, cat_data, num_data, dat_data) 
+    
+    test = data[np.isnan(data.Response)==True].copy()
+    test.drop('Response', axis=1, inplace=True)
+    test.to_csv(outpath+'station_'+str(s)+'_ts.csv', index=False)
+    
+    train = data[np.isnan(data.Response)==False].copy()
+    train.to_csv(outpath+'station_'+str(s)+'_tr.csv', index=False)
+    
+    del data
+    del train
+    del test
+
