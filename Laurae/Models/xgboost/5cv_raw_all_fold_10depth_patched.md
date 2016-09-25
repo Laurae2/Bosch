@@ -1807,3 +1807,71 @@ Will train until test_auc hasn't improved in 40 rounds.
 Stopping. Best iteration:
 [352]	train-auc:0.935947	test-auc:0.740936
 
+
+> write.csv(predictions1, file = "Laurae/20160925_xgb_first/predictions_oof.csv", row.names = FALSE)
+> write.csv(predictions2, file = "Laurae/20160925_xgb_first/predictions_test_mean.csv", row.names = FALSE)
+> write.csv(predictions3, file = "Laurae/20160925_xgb_first/predictions_test_raw.csv", row.names = FALSE)
+> write.csv(features[[1]], file = "Laurae/20160925_xgb_first/best_features1.csv", row.names = FALSE)
+> write.csv(features[[2]], file = "Laurae/20160925_xgb_first/best_features2.csv", row.names = FALSE)
+> write.csv(features[[3]], file = "Laurae/20160925_xgb_first/best_features3.csv", row.names = FALSE)
+> write.csv(features[[4]], file = "Laurae/20160925_xgb_first/best_features4.csv", row.names = FALSE)
+> write.csv(features[[5]], file = "Laurae/20160925_xgb_first/best_features5.csv", row.names = FALSE)
+> best_mcc <- 0
+> for (j in 1:5) {
++   
++   temp_mcc <- mcc_eval_pred(y_prob = predictions1[folded[[j]]], y_true = Y[folded[[j]]])
++   cat("Fold ", j, ": threshold=", temp_mcc, " | rolling average: ", best_mcc * (5 / j), "\n", sep = "")
++   best_mcc <- best_mcc + 0.2 * temp_mcc
++   
++ }
+Fold 1: threshold=0.07854797 | rolling average: 0
+Fold 2: threshold=0.09100538 | rolling average: 0.03927398
+Fold 3: threshold=0.09748501 | rolling average: 0.05651778
+Fold 4: threshold=0.1819299 | rolling average: 0.06675959
+Fold 5: threshold=0.1244477 | rolling average: 0.08979364
+> best_mcc <- 0
+> for (j in 1:5) {
++   
++   temp_mcc <- mcc_eval_pred(y_prob = predictions1[folded[[j]]], y_true = Y[folded[[j]]])
++   best_mcc <- best_mcc + 0.2 * temp_mcc
++   cat("Fold ", j, ": threshold=", temp_mcc, " | rolling average: ", best_mcc * (5 / j), "\n", sep = "")
++   
++ }
+Fold 1: threshold=0.07854797 | rolling average: 0.07854797
+Fold 2: threshold=0.09100538 | rolling average: 0.08477668
+Fold 3: threshold=0.09748501 | rolling average: 0.08901279
+Fold 4: threshold=0.1819299 | rolling average: 0.1122421
+Fold 5: threshold=0.1244477 | rolling average: 0.1146832
+> submission1 <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+> submission1$Response <- as.numeric(predictions2 >= best_mcc)
+> print(sum(submission1$Response == 1))
+[1] 3622
+> write.csv(submission1, file = "Laurae/20160925_xgb_first/submission1.csv", row.names = FALSE)
+> best_mcc <- numeric(1183748)
+> for (j in 1:5) {
++   
++   temp_mcc <- mcc_eval_pred(y_prob = predictions1[folded[[j]]], y_true = Y[folded[[j]]])
++   best_mcc <- best_mcc + as.numeric(predictions3[, j] >= temp_mcc)
++   cat("Fold ", j, ": threshold=", temp_mcc, " | rolling average: ", mean(best_mcc) / j, "\n", sep = "")
++   
++ }
+Fold 1: threshold=0.07854797 | rolling average: 0.003742351
+Fold 2: threshold=0.09100538 | rolling average: 0.00353707
+Fold 3: threshold=0.09748501 | rolling average: 0.003452593
+Fold 4: threshold=0.1819299 | rolling average: 0.003117218
+Fold 5: threshold=0.1244477 | rolling average: 0.003050649
+> submission2 <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+> submission2$Response <- as.numeric(best_mcc >= 3)
+> print(sum(submission2$Response == 1))
+[1] 3635
+> write.csv(submission2, file = "Laurae/20160925_xgb_first/submission2.csv", row.names = FALSE)
+> submission3 <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+> submission3$Response <- as.numeric((submission1$Response + submission2$Response) >= 1) # 0.5 to 1
+> print(sum(submission3$Response == 1))
+[1] 3791
+> write.csv(submission3, file = "Laurae/20160925_xgb_first/submission3.csv", row.names = FALSE)
+> submission4 <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+> submission4$Response <- as.numeric((submission1$Response + submission2$Response) > 1) # 0.5 to 0
+> print(sum(submission4$Response == 1))
+[1] 3466
+> write.csv(submission4, file = "Laurae/20160925_xgb_first/submission4.csv", row.names = FALSE)
