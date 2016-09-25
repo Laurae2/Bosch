@@ -1,0 +1,64 @@
+import pandas as pd
+import numpy as np
+from scipy.stats import skew
+from scipy.stats.mstats import mode
+
+datapath = 'D:\\Kaggle Project\\0 - Data Files\\'
+stapath = 'D:\\Kaggle Project\\0 - Data Files\\Station Data\\'
+#===============================================================================================================================
+#===============================================================================================================================
+
+def dim_reduce(s, datafile):
+    
+    
+    return
+
+
+def sta_feature_stats(s, datafile):
+    out=[]
+    features = list( set(datafile.columns.tolist()) - set(['Id','Response']) )
+    for f in features:
+        feature_type    = f[0]
+        trn_nonNA_rows  = datafile[(np.isnan(datafile[f])==False) & (np.isnan(datafile.Response)==False)].shape[0]
+        tst_nonNA_rows  = datafile[(np.isnan(datafile[f])==False) & (np.isnan(datafile.Response)==True)].shape[0]
+        level_count     = len(datafile[f].value_counts())
+        min_value       = datafile[f].min()
+        per_10          = datafile[f].quantile(.10)
+        per_25          = datafile[f].quantile(.25)
+        med_value       = datafile[f].median()
+        mean_value      = datafile[f].mean()
+        mode_value      = mode(datafile[f])[0][0]
+        mode_count      = mode(datafile[f])[1][0]
+        per75           = datafile[f].quantile(.75)
+        per_90          = datafile[f].quantile(.90)
+        max_value       = datafile[f].max()
+        val_range       = max_value - min_value
+        val_stdev       = datafile[f].std()
+        mean_nonNA_Resp = datafile.Response[np.isnan(datafile[f])==False].mean()
+        corr            = datafile[['Response',f]].corr(method='spearman')
+        Response_corr   = corr.Response[f]
+        out = out + [(s,f,feature_type,trn_nonNA_rows,tst_nonNA_rows,level_count,min_value,per_10,per_25,med_value,mean_value,mode_value,
+                      per75,per_90,max_value,mode_count,val_range,val_stdev,mean_nonNA_Resp,Response_corr)]
+    
+    statfile = pd.DataFrame(out,columns=['station','feature','feature_type','trn_nonNA_rows','tst_nonNA_rows','level_count',\
+                                         'min_value','per_10','per_25','med_value','mean_value','mode_value','per75','per_90','max_value',\
+                                         'mode_count','val_range','val_stdev','mean_nonNA_Resp','Response_corr'])
+    del out
+    return statfile
+
+#===============================================================================================================================
+#===============================================================================================================================
+
+feature_stats = pd.DataFrame()
+for s in range(52):
+    print 'Processing station '+str(s)
+    tr_data  = pd.read_csv(stapath+'station_'+str(s)+'_tr.csv', sep=',', dtype={'Id':str}, index_col='Id')
+    ts_data  = pd.read_csv(stapath+'station_'+str(s)+'_ts.csv', sep=',', dtype={'Id':str}, index_col='Id')
+    data = tr_data.append(ts_data)
+    del tr_data
+    del ts_data
+    
+    sta_f_stats = sta_feature_stats(s, data)
+    feature_stats = feature_stats.append(sta_f_stats)
+
+feature_stats.to_csv(datapath+'Feature Statistics.csv')
