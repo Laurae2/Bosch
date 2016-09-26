@@ -1,0 +1,85 @@
+---
+output: 
+  html_document: 
+    fig_width: 10
+---
+### Loading packages and datas
+```{r, message=FALSE, warning=F}
+library(dplyr)
+library(data.table)
+library(ggplot2)
+library(viridis)
+
+lines_to_read = 100000
+dates.raw = fread("data/train_date.csv", nrows = lines_to_read)
+train_numeric = fread("data/train_numeric.csv", nrows = lines_to_read)
+response = train_numeric$Response
+dates.raw$response = response
+
+```
+
+
+### Counting the number of unique timestamps by stations. When a station has only NA, it's 0 (not 1 as R would like to do)
+```{r, message=FALSE}
+for(s in 0:51){
+      #cat(s, "\n")
+      dates.raw[[paste0("S", as.character(s))]] <- 
+            apply(dates.raw %>% select(contains(paste0("_S",as.character(s),"_"))),
+                  1, function(x) ifelse(all(is.na(x)), 0, length(unique(x))))
+}
+```
+
+
+### From wide to long format
+```{r}
+dates <- dates.raw %>% 
+    melt(id.vars = c("Id", "response"), 
+         measure.vars = paste0("S", as.character(0:51)),
+         value.factor = FALSE,
+         variable.name = "station", 
+         value.name = "num_uniques")
+
+stations_summarized <- dates %>% 
+      group_by(response, station) %>% 
+      summarise(num_uniques = mean(num_uniques))
+```
+
+### Number of uniques by station
+We see a big difference for S24. We will have more informations below with the station's profiles.
+```{r}
+stations_summarized %>% 
+      ggplot(aes(station, num_uniques, fill = factor(response))) +
+      geom_bar(stat = "identity", position = "dodge") +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+### Response 1 rate by number of uniques
+```{r}
+dates %>% 
+    group_by(num_uniques, response) %>% 
+    summarise(total = n()) %>% 
+    ggplot(aes(num_uniques, total, fill = factor(response))) + 
+    geom_bar(stat = "identity", position = "fill") + 
+    coord_cartesian(ylim = c(0.97,1)) +
+    scale_fill_brewer(type = "qual", palette = 3)
+```
+
+
+### Station 24 profile
+```{r}
+for(s in paste0("S", as.character(0:51))){
+    g <- dates %>% 
+        filter(station == s) %>% 
+        group_by(response) %>% 
+        mutate(total_response = n()) %>% 
+        group_by(response, num_uniques) %>% 
+        summarise(frequency = n()/total_response[1]) %>% 
+        arrange(num_uniques, response) %>% 
+        ggplot(aes(factor(num_uniques), frequency, fill = factor(response))) +
+        geom_bar(stat = "identity", position = "dodge") +
+        ggtitle(paste("Number of unique timestamps for station", s)) +
+        xlab("Number of uniques") +
+        ylab("Frequency")
+    print(g)
+}
+```
