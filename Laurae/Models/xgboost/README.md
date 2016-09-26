@@ -15,6 +15,7 @@ Summary:
 
 | Date | Name | Output |
 | --- | --- | --- ||
+| 09/26/2016 | 20160926_xgb_first_errored.md | MCC: 0.2492977 + 0.01117867 **optimizer code error** |
 | 09/26/2016 | 20160925_xgb_first.md | mcc: 0.25981296 + 0.01070031, **LB: 0.25325** |
 | 09/25/2016 | 5cv_raw_all_fold_10depth.md | Need retraining of fold 3 and fold 5 |
 | 09/24/2016 | 5cv_raw_all_8depth.md | [172]	train-mcc:0.377849+0.003956	test-mcc:0.254204+0.007502 |
