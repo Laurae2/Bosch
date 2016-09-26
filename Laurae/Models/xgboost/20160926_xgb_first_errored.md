@@ -8,6 +8,12 @@ Exploring depth  09 : [00023] 0.00589580+0.72915200 (Score: 0.00589580 <<<) - be
 Exploring depth  09 : [00023] 0.00589580+0.72915200 (Score: 0.00589580 <<<) - best is: 9
 Best depth found was: 9.
 
+# post-edit fix:
+Exploring depth  10 : [00036] 0.73356100+0.00742878 (Score: 0.73356100 <<<) - best is: 10
+Exploring depth  08 : [00052] 0.73333060+0.00674360 (Score: 0.73333060    ) - best is: 10
+Exploring depth  12 : [00033] 0.73354440+0.00766266 (Score: 0.73354440    ) - best is: 10
+Exploring depth  09 : [00037] 0.73431480+0.00658483 (Score: 0.73431480 <<<) - best is: 9
+
 
 
 
