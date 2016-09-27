@@ -157,7 +157,10 @@ gc()
 
 # Move minimum to 0 per row
 
-feature_ZeroTimeMin <- sweep(feature_Min, 1, feature_MinMin, "-")
+feature_ZeroTimeMin <- data.table(sweep(feature_Min, 1, feature_MinMin, "-"))
+for (i in 1:52) {
+  colnames(feature_ZeroTimeMin)[i] <- paste("S", i, "_Time0", sep = "")
+}
 saveRDS(feature_ZeroTimeMin, "Laurae/DateFeatures/Time0_features.rds")
 gc()
 
@@ -166,6 +169,9 @@ gc()
 # Get time spent per station: 24, 25, 32
 
 feature_StationTimer <- feature_Max - feature_Min
+for (i in 1:52) {
+  colnames(feature_StationTimer)[i] <- paste("S", i, "_TimeToExitStation", sep = "")
+}
 saveRDS(feature_StationTimer, "Laurae/DateFeatures/TimeToExitStation_features.rds")
 gc()
 
@@ -189,9 +195,15 @@ dev.off()
 # Get station order
 
 feature_StationOrder <- data.table(t(pbapply(feature_ZeroTimeMin, 1, function(x) {r <- rank(x) / sum(!is.na(x)); r[is.na(x)] <- NA; r})))
+for (i in 1:52) {
+  colnames(feature_StationOrder)[i] <- paste("S", i, "_StationOrder", sep = "")
+}
 saveRDS(feature_StationOrder, "Laurae/DateFeatures/StationOrder_features.rds")
 gc()
 feature_StationOrderUnexact <- data.table(t(pbapply(feature_ZeroTimeMin, 1, function(x) {r <- rank(x, ties.method = "first") / sum(!is.na(x)); r[is.na(x)] <- NA; r * sum(!is.na(x))})))
+for (i in 1:52) {
+  colnames(feature_StationOrderUnexact)[i] <- paste("S", i, "_StationOrderUnexact", sep = "")
+}
 saveRDS(feature_StationOrderUnexact, "Laurae/DateFeatures/StationOrderUnexact_features.rds")
 gc()
 temporary <- as.data.frame(cbind(label = Y, feature_StationOrder[1:1183747, ]))
@@ -206,12 +218,16 @@ dev.off()
 # Get time spent to switch station
 
 feature_StationSwitch <- data.table(t(pbapply(feature_ZeroTimeMin, 1, function(x) {r <- sort(x); r <- c(r[2:length(r)] - r[1:(length(r) - 1)], rep(NA, sum(is.na(x)) + 1))})))
-colnames(feature_StationSwitch) <- colnames(feature_ZeroTimeMin)
+for (i in 1:52) {
+  colnames(feature_StationSwitch)[i] <- paste("S", i, "_StationSwitchSorted", sep = "")
+}
 saveRDS(feature_StationSwitch, "Laurae/DateFeatures/StationTimeSwitchSorted_features.rds")
 gc()
 temp_feature <- cbind(feature_StationSwitch, feature_StationOrderUnexact)
 feature_StationSwitchOnStation <- data.table(t(pbapply(temp_feature, 1, function(x) {nas <- !is.na(x[53:104]); r <- rep(NA, 52); r[which(nas)[1:(sum(nas) - 1)]] <- x[1:52][1:(sum(nas) - 1)]; r})))
-colnames(feature_StationSwitchOnStation) <- colnames(feature_ZeroTimeMin)
+for (i in 1:52) {
+  colnames(feature_StationSwitchOnStation)[i] <- paste("S", i, "_StationTimeSwitchOnStation", sep = "")
+}
 saveRDS(feature_StationSwitchOnStation, "Laurae/DateFeatures/StationTimeSwitchOnStation_features.rds")
 gc()
 
