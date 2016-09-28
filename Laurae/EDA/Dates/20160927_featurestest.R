@@ -219,7 +219,30 @@ jpeg(filename = "Laurae/DateFeatures/FirstLastStations_plot.jpg", width = 574, h
 tableplot(temporary, select = 1:3, sortCol = 1, nBins = 172, scales = "lin")
 dev.off()
 
+# x <- as.numeric(feature_ZeroTimeMin[1, ])
+# z <- which(!is.na(x))
+# y <- diff(x[z])
+# w <- x
+# w[z[2:length(z)]] <- y
+# w
+# z
 
+# Get timing per station
+
+feature_StationTiming <- pbapply(feature_ZeroTimeMin, 1, function(x) {z <- which(!is.na(x)); if(length(z) < 2) {w <- rep(NA, 52)} else {y <- diff(x[z]); w <- x; w[z[1:(length(z) - 1)]] <- y}; w})
+feature_StationTiming <- data.table(t(feature_StationTiming))
+for (i in 1:52) {
+  colnames(feature_StationTiming)[i] <- paste("S", i, "_StationTiming", sep = "")
+}
+saveRDS(feature_StationTiming, "Laurae/DateFeatures/StationTiming_features.rds")
+
+temporary <- as.data.frame(cbind(label = Y, StationTiming = feature_StationTiming[1:1183747]))
+
+#tableplot(temporary, select = 1:53, sortCol = 1, nBins = 172, scales = "lin")
+
+jpeg(filename = "Laurae/DateFeatures/StationTiming_plot.jpg", width = 5740, height = 1320, units = "px", pointsize = 6)
+tableplot(temporary, select = 1:53, sortCol = 1, nBins = 172, scales = "lin")
+dev.off()
 
 # DEPRECATED
 # 
