@@ -31,7 +31,19 @@ def load_data_file(f, ftype='pkl', nrows=None):
 def read_last_column(csv_file):
     sample = pd.read_csv(os.path.join(const.BASE_PATH,csv_file), nrows=1)
     
-    return pd.read_csv(os.path.join(const.BASE_PATH,csv_file),usecols=[sample.shape[1]-1])
+    return pd.read_csv(os.path.join(const.BASE_PATH,csv_file), usecols=[0, sample.shape[1]-1], index_col=0)
+
+def read_first_column(csv_file):
+    
+    return pd.read_csv(os.path.join(const.BASE_PATH, csv_file + '.csv'), usecols=[0])
+    
+def get_responses():
+    y = read_last_column('train_numeric.csv')
+    
+    n_1 = y[y.Response==1].index.values
+    n_0 = y[y.Response==0].index.values
+    
+    return y, n_1, n_0
        
 def get_columns_csv(csv_file):
     ''' gets data columns for csv file identifier '''
