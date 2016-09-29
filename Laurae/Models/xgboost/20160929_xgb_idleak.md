@@ -1,3 +1,4 @@
+```
 > #xgb.opt.depth(initial = 11, min_depth = 1, max_depth = 20, patience = 2, sd_effect = 0, worst_score = 0, learner = my_learner, better = max_better)
 > 
 > Laurae.xgb.opt.depth.best <- 11
