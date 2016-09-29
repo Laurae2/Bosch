@@ -1,3 +1,4 @@
+```r
 > xgb.opt.depth(initial = 11, min_depth = 1, max_depth = 20, patience = 2, sd_effect = 0, worst_score = 0, learner = my_learner, better = max_better)
 
 Exploring depth  11 : [00039] 0.74537160+0.00662581 (Score: 0.74537160 <<<) - best is: 11
