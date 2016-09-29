@@ -100,3 +100,55 @@ Will train until test_auc hasn't improved in 50 rounds.
 [48]	train-auc:0.571604+0.008698	test-auc:0.521880+0.005777 
 [49]	train-auc:0.573198+0.008778	test-auc:0.522099+0.005170 
 [50]	train-auc:0.575110+0.008914	test-auc:0.521701+0.006520 
+
+
+
+# Joost feature
+> gc(verbose = FALSE) #frees up RAM
+            used   (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   1547469   82.7    6145200  328.2  12002346  641.0
+Vcells 687023048 5241.6 1143268102 8722.5 899476061 6862.5
+> data_xgb <- xgb.DMatrix(data = as.matrix(joosted$joost), label = joosted$Response)
+> gc(verbose = FALSE) #frees up RAM
+            used   (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   1547323   82.7    4916160  262.6  12002346  641.0
+Vcells 687019576 5241.6 1143268102 8722.5 899476061 6862.5
+> set.seed(11111) #ensures reproducibility
+> modelization.cv <- xgb.cv(data = data_xgb,
++                           nthread = 2,
++                           folds = folded,
++                           max_depth = 10,
++                           eta = 0.1,
++                           gamma = 0,
++                           subsample = 1.00,
++                           colsample_bytree = 1.00,
++                           nrounds = 100000,
++                           booster = "gbtree",
++                           objective = "binary:logistic",
++                           eval_metric = "auc",
++                           verbose = TRUE,
++                           early_stopping_rounds = 50,
++                           maximize = TRUE)
+[1]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 50 rounds.
+
+[2]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[3]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[4]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[5]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[6]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[7]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[8]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[9]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[10]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[11]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[12]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[13]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[14]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[15]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[16]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[17]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[18]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[19]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
+[20]	train-auc:0.523769+0.000665	test-auc:0.523768+0.002662 
