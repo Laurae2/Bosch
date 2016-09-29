@@ -89,3 +89,32 @@ modelization.cv <- xgb.cv(data = data_xgb,
                           verbose = TRUE,
                           early_stopping_rounds = 50,
                           maximize = TRUE)
+
+
+
+
+# Joost's feature
+
+joost <- fread("Laurae/feature_set_ID.csv", header = FALSE)
+colnames(joost) <- c("Id", "joost")
+joosted <- merge(joost, train, by = "Id", all.y = TRUE)
+
+data_xgb <- xgb.DMatrix(data = as.matrix(joosted$joost), label = joosted$Response)
+
+gc(verbose = FALSE) #frees up RAM
+set.seed(11111) #ensures reproducibility
+modelization.cv <- xgb.cv(data = data_xgb,
+                          nthread = 2,
+                          folds = folded,
+                          max_depth = 10,
+                          eta = 0.1,
+                          gamma = 0,
+                          subsample = 1.00,
+                          colsample_bytree = 1.00,
+                          nrounds = 100000,
+                          booster = "gbtree",
+                          objective = "binary:logistic",
+                          eval_metric = "auc",
+                          verbose = TRUE,
+                          early_stopping_rounds = 50,
+                          maximize = TRUE)
