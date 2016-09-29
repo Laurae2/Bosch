@@ -17,8 +17,8 @@ Detailed:
 
 * 1 = average
 * 2 = vote
-* 21 = vote by 1 needed only
-* 2n = vote by n needed only
+* 5 = vote by 1 needed only
+* 4+n = vote by n needed only (6=2, 7=3, 8=4, 9=5)
 * 3 = hybrid (average + vote, if 1 says yes then yes)
 * 4 = hybrid (average + vote, if 1 says yes then no)
 
