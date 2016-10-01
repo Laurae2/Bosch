@@ -63,7 +63,7 @@ train_date <- readRDS("datasets/train_date.rds")
 test_date <- readRDS("datasets/test_date.rds")
 
 
-data_date <- rbind(train_date[, 2:2141, with = FALSE], test_date[, 2:2141, with = FALSE])
+data_date <- rbind(train_date[, 2:1157, with = FALSE], test_date[, 2:1157, with = FALSE])
 gc()
 
 rm(train_date, test_date)
