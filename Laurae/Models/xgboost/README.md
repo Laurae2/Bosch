@@ -3,6 +3,7 @@ Detailed:
 | Date | Model | Data | Parameters | Rounds | Train(M/SD) | Test(M/SD) | LB |
 | :---: | --- | --- | --- | :---: | :---: | :---: | :---: |
 | yes | yes | yes | yes | yes | yes | yes | yes |
+| 10/02/2016 | 20160930 <br> xgb<br>mcc.R | Mini num <br> Mini cat <br> Date 0927 <br> Clust50 <br> ƒt=387 <br> ƒr=101 <br> ƒe=286 <br> MCC direct | CV = 5-fold <br> Eta = 0.025 <br> Depth = 9 | 235 <br> 211 <br> 155 <br> 249 <br> 270 |  | MCC <br> f1 0.3048437 <br> f2 0.2735438 <br> f3 0.2719351 <br> f4 0.2769864 <br> f5 0.2840936 | 1 0.26763 |
 | 10/02/2016 | 20160930 <br> xgb<br>date<br>cluster50.R | Mini num <br> Mini cat <br> Date 0927 <br> Clust50 <br> ƒt=387 <br> ƒr=101 <br> ƒe=286 | CV = 5-fold <br> Eta = 0.025 <br> Depth = 11 | 320 <br> 422 <br> 279 <br> 355 <br> 385 | AUC <br> f1 0.958979 <br> f2 0.973624 <br> f3 0.940869 <br> f4 0.964204 <br> f5 0.958801 | AUC <br> f1 0.758666 <br> f2 0.764451 <br> f3 0.749182 <br> f4 0.754087 <br> f5 0.748808 <br> <br> MCC <br> f1 0.2932568 <br> f2 0.2695989 <br> f3 0.276825 <br> f4 0.2705896 <br> f5 0.2713924 | 1 0.26818 <br> 3 0.26884 <br> 9 0.24028 |
 | 09/30/2016 | 20160930 <br> xgb<br>superlarge.R | Mini num <br> Mini cat <br> Date 0927 <br> Num 0929 <br> ƒt=533 <br> ƒr=101 <br> ƒe=432 | CV = 5-fold <br> Eta = 0.025 <br> Depth = 9 | 283 <br> 384 <br> 321 <br> 386 <br> 370 | AUC <br> f1 0.911098 <br> f2 0.942580 <br> f3 0.921557 <br> f4 0.941313 <br> f5 0.933019 | AUC <br> f1 0.751313 <br> f2 0.757571 <br> f3 0.739247 <br> f4 0.748441 <br> f5 0.744933 <br> <br> MCC <br> f1 0.2935352 <br> f2 0.2730313 <br> f3 0.271903 <br> f4 0.2647218 <br> f5 0.2698435 | 1 0.26125 |
 | 09/29/2016 | 20160929 <br> xgb<br>idleak.R | Mini num <br> Mini cat <br> Date 0927 <br> ID Joost <br> ƒt=337 <br> ƒr=102 <br> ƒe=235 <br> **Leakage** | CV = 5-fold <br> Eta = 0.025 <br> Depth = 11 | 238 <br> 303 <br> 275 <br> 374 <br> 256 | AUC <br> f1 0.913541 <br> f2 0.955060 <br> f3 0.937687 <br> f4 0.964857 <br> f5 0.925639 | AUC <br> f1 0.758393 <br> f2 0.759451 <br> f3 0.744818 <br> f4 0.748764 <br> f5 0.747239 <br> <br> MCC <br> f1 0.2921457 <br> f2 0.2748663 <br> f3 0.2808746 <br> f4 0.2613375 <br> f5 0.2711212 | 1 0.25667 |
@@ -28,6 +29,7 @@ Summary:
 
 | Date | Name | Output |
 | --- | --- | --- ||
+| 10/02/2016 | 20161002_xgb_mcc.md | MCC: 0.2822805 + 0.01345149, **LB: 0.26763** |
 | 10/02/2016 | 20161002_xgb_date_cluster50.md | MCC: 0.2763326 + 0.009866643, **LB: 0.26884** |
 | 09/30/2016 | 20160930_xgb_superlarge.md | MCC: 0.274607 + 0.01105082, **LB: 0.26125** |
 | 09/29/2016 | 20160929_xgb_idleak.md | MCC: 0.276069 + 0.01145097, **LB: 0.25667** |
