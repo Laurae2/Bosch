@@ -1,0 +1,105 @@
+
+
+
+Fold 1
+
+[1]	train-auc:0.871715	test-auc:0.870301 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.894167	test-auc:0.889816 
+[21]	train-auc:0.904244	test-auc:0.899461 
+[31]	train-auc:0.907186	test-auc:0.903791 
+[41]	train-auc:0.907410	test-auc:0.902278 
+[51]	train-auc:0.909917	test-auc:0.902414 
+Stopping. Best iteration:
+[30]	train-auc:0.907041	test-auc:0.903859
+
+
+
+
+Fold 2
+
+[1]	train-auc:0.878631	test-auc:0.865362 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.882265	test-auc:0.866794 
+[21]	train-auc:0.904379	test-auc:0.884628 
+[31]	train-auc:0.906625	test-auc:0.893453 
+[41]	train-auc:0.908609	test-auc:0.896370 
+[51]	train-auc:0.910357	test-auc:0.897779 
+[61]	train-auc:0.912196	test-auc:0.900982 
+[71]	train-auc:0.914915	test-auc:0.903222 
+[81]	train-auc:0.918015	test-auc:0.902758 
+[91]	train-auc:0.921831	test-auc:0.904418 
+[101]	train-auc:0.924493	test-auc:0.904701 
+[111]	train-auc:0.927743	test-auc:0.904897 
+[121]	train-auc:0.931547	test-auc:0.904142 
+[131]	train-auc:0.935688	test-auc:0.903593 
+[141]	train-auc:0.938517	test-auc:0.905038 
+[151]	train-auc:0.941336	test-auc:0.905443 
+[161]	train-auc:0.944261	test-auc:0.904334 
+[171]	train-auc:0.946434	test-auc:0.904351 
+Stopping. Best iteration:
+[145]	train-auc:0.939898	test-auc:0.905561
+
+
+
+
+Fold 3
+
+[1]	train-auc:0.870174	test-auc:0.876389 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.893404	test-auc:0.896123 
+[21]	train-auc:0.900528	test-auc:0.905287 
+[31]	train-auc:0.903194	test-auc:0.907797 
+[41]	train-auc:0.905978	test-auc:0.909007 
+[51]	train-auc:0.908054	test-auc:0.909125 
+[61]	train-auc:0.912629	test-auc:0.909829 
+[71]	train-auc:0.915848	test-auc:0.910492 
+[81]	train-auc:0.919708	test-auc:0.911474 
+[91]	train-auc:0.922173	test-auc:0.911089 
+[101]	train-auc:0.924809	test-auc:0.911462 
+[111]	train-auc:0.927200	test-auc:0.910919 
+Stopping. Best iteration:
+[81]	train-auc:0.919708	test-auc:0.911474
+
+
+
+
+Fold 4
+
+[1]	train-auc:0.727058	test-auc:0.727158 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.877988	test-auc:0.881884 
+[21]	train-auc:0.899148	test-auc:0.899799 
+[31]	train-auc:0.905195	test-auc:0.903913 
+[41]	train-auc:0.907335	test-auc:0.904118 
+[51]	train-auc:0.908848	test-auc:0.905460 
+[61]	train-auc:0.912346	test-auc:0.907749 
+[71]	train-auc:0.913794	test-auc:0.907263 
+[81]	train-auc:0.916320	test-auc:0.907085 
+Stopping. Best iteration:
+[56]	train-auc:0.910635	test-auc:0.908101
+
+
+
+
+Fold 5
+
+[1]	train-auc:0.727626	test-auc:0.727857 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.894847	test-auc:0.897263 
+[21]	train-auc:0.904273	test-auc:0.902935 
+[31]	train-auc:0.905850	test-auc:0.902398 
+[41]	train-auc:0.907622	test-auc:0.901823 
+Stopping. Best iteration:
+[20]	train-auc:0.904266	test-auc:0.903043
+
