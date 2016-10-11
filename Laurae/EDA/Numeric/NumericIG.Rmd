@@ -1,0 +1,104 @@
+---
+title: "Numeric Information Gain"
+output: html_notebook
+---
+
+# Preload
+
+Preload things.
+
+```{r}
+options(java.parameters = "- Xmx49152m") # ensures stupidly high enough memory, or CRASH
+setwd("E:/")
+library(recommenderlab)
+library(data.table)
+library(FSelector)
+library(DT)
+train <- readRDS("datasets/train_numeric.rds")
+gc(verbose = TRUE)
+knitr::opts_chunk$set(root.dir = "E:/") # not working??! 
+```
+
+# Information Gain
+
+## Precompute all information gain values
+
+```{r}
+ig_frame <- data.frame(matrix(nrow = 968, ncol = 2))
+colnames(ig_frame) <- c("Feature", "Information_Gain")
+ig_frame$Feature <- colnames(train)[2:969]
+pb <- winProgressBar(title = "Information Gain computation", label = paste("[", format(Sys.time(), "%a %b %d %Y %X"), "] Preparing computation...", sep = ""), min = 0, max = 968, initial = 0, width = 520)
+for (i in 1:968) {
+  setWinProgressBar(pb, value = i, title = "Information Gain computation", label = paste("[", format(Sys.time(), "%a %b %d %Y %X"), "] Doing feature ", colnames(train)[i + 1], " (", sprintf("%03d", i), " / 968 = ", sprintf("%05.2f", 100 * i / 968), "%)...", sep = ""))
+  temp_frame <- as.data.frame(train[, c(i + 1, 970), with = FALSE])
+  ig_frame$Information_Gain[i] <- information.gain(Response ~ ., data = temp_frame)$attr_importance
+  gc(verbose = FALSE)
+}
+close(pb)
+```
+
+## Setup feature names properly
+
+```{r}
+feature_names <- fread("E:/Laurae/date_feat_lut_V2.txt", header = TRUE)
+feature_names <- feature_names[!name_num == "", ]
+feature_names <- feature_names[, c(1, 2, 3, 7), with = FALSE]
+
+# Append
+
+all_frame <- merge(ig_frame, feature_names, by.x = "Feature", by.y = "name_num")
+all_frame <- all_frame[, c(1, 3, 4, 5, 2)]
+colnames(all_frame) <- c("Feature", "Line", "Station", "Number", "Information_Gain")
+all_frame <- all_frame[order(all_frame$Number), ]
+rownames(all_frame) <- NULL
+all_frame$Relative_Gain <- 1 - ((max(all_frame$Information_Gain, na.rm = TRUE) - all_frame$Information_Gain) / (max(all_frame$Information_Gain, na.rm = TRUE) - min(all_frame$Information_Gain, na.rm = TRUE)))
+gc(verbose = TRUE)
+all_frame$NotMissing <- apply(train[, c(2:969), with = FALSE], 2, function(x) {sum(!is.na(x)) / 1183747})
+gc(verbose = TRUE)
+fwrite(all_frame, "E:/Laurae/NumericIG/NumericIG.csv")
+```
+
+## Pretty print DT
+
+```{r}
+datatable(all_frame,
+          filter = "top",
+          class = "cell-border stripe",
+          extensions = c("AutoFill",
+                         #"Buttons",
+                         "ColReorder",
+                         "KeyTable",
+                         "Responsive",
+                         "RowReorder"),
+          options = list(pageLength = 20,
+                         lengthMenu = c(5, 10, 15, 20, 25, 50, 100, 500, 1000),
+                         order = list(list(5, "desc")),
+                         autofill = TRUE,
+                         #dom = "Bfrtip",
+                         #buttons = c("copy", "csv", "excel", "pdf", "print"),
+                         colReorder = TRUE,
+                         keys = TRUE,
+                         rowReorder = TRUE)
+          ) %>% formatStyle('Information_Gain',
+                             background = styleColorBar(range(all_frame$Information_Gain, na.rm = TRUE, finite = TRUE), 'lightgreen'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatStyle('Relative_Gain',
+                             background = styleColorBar(range(all_frame$Relative_Gain, na.rm = TRUE, finite = TRUE), 'lightblue'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatStyle('Coverage',
+                             background = styleColorBar(c(0, 1), 'lightgrey'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatRound(columns = c("Information_Gain"),
+                            digits = 8) %>%
+                formatPercentage(columns = c("Relative_Gain"),
+                                 digits = 4) %>%
+                formatPercentage(columns = c("Coverage"),
+                                 digits = 4)
+```
+
