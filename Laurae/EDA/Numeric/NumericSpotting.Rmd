@@ -1,0 +1,63 @@
+---
+title: "Numeric Clustering"
+author: "Laurae"
+date: "October 06, 2016"
+output: html_notebook
+---
+
+# Introduction
+
+This prints the Empirical Cumulative Density Function (ECDF) of all numeric features.
+
+# Plot interpretation
+
+The gap of Response ECDF at the furthest right correspond to the NAs.
+
+The plots are titled the following:
+
+* Title: ECDF of Response vs Feature
+* Subtitle: NA = amount of NAs (Missing: % of missing -> Response: % of responses accounting to missing)
+
+The X axis depicts the numeric feature assessed, while the Y axis is for the ECDF of Response vs the numeric feature.
+
+# Setting up work
+
+```{r}
+# Load libraries
+library(data.table)
+library(recommenderlab)
+library(pbapply)
+
+# Set your working directory there =)
+setwd("E:/")
+
+# Load data
+data <- readRDS("datasets/train_numeric.rds")
+gc(verbose = TRUE)
+```
+
+# Plotting madness =)
+
+```{r}
+for (i in 1:969) {
+  
+  cat("[", format(Sys.time(), "%a %b %d %Y %X"), "] Doing feature ", sprintf("%03d", i), "...  \n", sep = "")
+  #ecdfed <- ecdf(data[[i]])
+  #plot(ecdfed)
+  temp_NA <- sum(is.na(data[[i]]))
+  if ((min(data[[i]], na.rm = TRUE) == max(data[[i]], na.rm = TRUE)) | (sum(is.na(data[[i]])) == 1183747)) {
+    # do nothing
+  } else {
+    plot(sort(data[[i]], na.last = TRUE), (1:1183747)/1183747,
+         type = "s",
+         ylim = c(0, 1),
+         main = paste("Empirical Cumulative Density Function (ECDF) of Response vs ", colnames(data)[i], "\nNA = ", temp_NA, " (Missing: ", sprintf("%05.2f", 100 * temp_NA / 1183747), "% -> Response: ", sprintf("%05.2f", 100 * sum(data$Response[is.na(data[[i]])]) / 6879), "%)", sep = ""),
+         xlab = colnames(data)[i],
+         ylab = "f(Response)"
+    )
+  }
+  gc(verbose = FALSE)
+  
+}
+```
+
