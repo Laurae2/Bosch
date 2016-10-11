@@ -1,0 +1,113 @@
+---
+title: "Numeric Clustering"
+author: "Laurae"
+date: "October 06, 2016"
+output: html_notebook
+---
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+Correlation matrices were pre-computed and stored as RDS files.
+
+The basics on k-medoids with missing values on correlation matrices:
+
+* Prepare data using NA either -2 (Pos) or 2 (Neg)
+* Compute the correlation matrix on each prepared data
+* Correlation matrices are then averaged to nullify the effect of missing values' side
+* Do the same, using Kendall's (tau-b?)
+* Transform the correlation matrix to a dissimilarity matrix (1->0 = best, -1->2 = worst)
+* Find the best k amount of clusters (we use silhouette average width here)
+* Compute the k_best-medoids
+
+```{r}
+# Load libraries
+library(data.table)
+library(tabplot) # install.packages("https://cran.r-project.org/src/contrib/Archive/tabplot/tabplot_1.1.tar.gz", repos=NULL, type="source")
+library(cluster)
+setwd("E:/")
+
+data <- readRDS("datasets/train_numeric.rds")
+data <- as.matrix(data)
+gc()
+cor_table1 <- readRDS("Laurae/NumericCluster/pearsonPos.rds")
+cor_table2 <- readRDS("Laurae/NumericCluster/pearsonNeg.rds")
+cor_table3 <- readRDS("Laurae/NumericCluster/kendallPos.rds")
+cor_table4 <- readRDS("Laurae/NumericCluster/kendallNeg.rds")
+
+cor_pearson <- (1 - ((cor_table1 + cor_table2) / 2)) / 2 # Merge missing values and convert to dissimilarity matrix
+cor_kendall <- (1 - ((cor_table3 + cor_table4) / 2)) / 2 # Merge missing values and convert to dissimilarity matrix
+gc()
+
+# These are parameters
+good_k <- 72
+cor_used <- cor_pearson
+metric_type <- "manhattan" # either manhattan or euclidean
+super_fast <- TRUE # keep TRUE for permutation method
+grad_method <- 2 # keep 2
+```
+
+# Setting up "pretty print"
+
+```{r}
+pprint_helper <- function(data) {
+    out <- paste(names(data), collapse = " | ")
+    out <- c(out, paste(rep("---", ncol(data)), collapse = " | "))
+    invisible(apply(data, 1, function(x) {
+        out <<- c(out, paste(x, collapse = " | "))
+    }))
+    return(out)
+}
+pprint <- function(data) {
+    cat(pprint_helper(data), sep = "\n")
+}
+```
+
+# Find the best k amount of clusters using Silhouette average width
+
+```{r}
+silhouettes <- data.frame(matrix(nrow = 0, ncol = 2))
+colnames(silhouettes) <- c("Clusters", "Width")
+j <- 1
+for (i in 2:150) {
+  set.seed(11111) # k-medoids is deterministic by nature, no "randomness" so this line is not needed but still
+  silhouettes[j, ] <- c(i, pam(x = cor_used, k = i, diss = TRUE, metric = metric_type, stand = FALSE, do.swap = super_fast, pamonce = grad_method, trace.lev = 1)$silinfo$avg.width)
+  gc(verbose = FALSE)
+  j <- j + 1
+}
+best_k <- silhouettes$Clusters[which.max(silhouettes$Width)]
+cat("silhouette-optimal number of clusters: ", best_k, "\n", sep = "")
+pprint(silhouettes)
+
+plot(silhouettes$Clusters, silhouettes$Width, type = "h", main = "Clustering assessment", xlab = "k-clusters", ylab = "Average silhouette width")
+axis(1, best_k, paste("best", best_k, sep = "\n"), col = "red", col.axis = "red")
+```
+
+# Compute the k_best-medoids
+
+```{r}
+
+set.seed(11111) # k-medoids is deterministic by nature, no "randomness" so this line is not needed but still
+clustering <- pam(x = cor_used, k = good_k, diss = TRUE, metric = metric_type, stand = FALSE, do.swap = super_fast, pamonce = grad_method, trace.lev = 2)
+print(plot(clustering, dist = cor_used, which.plots = 1))
+silhouettes <- silhouette(clustering$clustering, dist = cor_used)
+print(plot(silhouettes))
+
+```
+
+# Plot the features
+
+```{r, fig.width = 14}
+for (i in 1:best_k) {
+  
+  cat("Doing Cluster ", i, "...  \n", sep = "")
+  medoids <- which(clustering$clustering == i)
+  mini_data <- as.data.frame(data[, c(1, medoids + 1, 970)])
+  colnames(mini_data) <- paste("v", sub("F", "", sub("S", "", sub("L", "", colnames(mini_data)))), sep = "")
+  gc(verbose = FALSE)
+  plotted <- tableplot(mini_data, select = (1:(length(medoids) + 2)), sortCol = (which(medoids == clustering$medoids[i]) + 1), nBins = 43, scales = "lin", bias_brokenX = 1, plot = FALSE) # some charts may be severely overplotted!
+  plot(plotted, title = paste("Cluster ", i, " (sorted by ", colnames(mini_data)[(which(medoids == clustering$medoids[i]) + 1)], ")", sep = ""), showTitle = TRUE, fontsize = 7, rotateNames = 75, legend.lines = 6) # some parameters are not working, intentionally left them
+  gc(verbose = FALSE)
+  
+}
+```
+
