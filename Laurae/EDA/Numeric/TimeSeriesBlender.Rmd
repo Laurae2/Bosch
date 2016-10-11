@@ -1,0 +1,129 @@
+---
+title: "Time-series Auto-blender"
+output: html_notebook
+---
+
+Demonstration of the "Auto-blender":
+
+* Find the differentiation order
+* Use auto-tuned ARIMA with the differentiation order found
+* Do a lot of plotting for debuggin purposes
+
+```{r, fig.height=9, fig.width=12}
+# Suppose:
+# - train -> data.table
+# - test -> data.table
+# - i -> feature name of the feature to look for, ID REMOVED
+
+setwd("E:/")
+library(recommenderlab)
+library(data.table)
+library(FSelector)
+library(DT)
+library(forecast)
+library(TTR)
+library(jpeg)
+train <- readRDS("datasets/train_numeric.rds")[, c(2:970), with = FALSE]
+test <- readRDS("datasets/test_numeric.rds")[, c(2:969), with = FALSE]
+gc(verbose = TRUE)
+
+
+# Select data
+
+i <- "L3_S29_F3455"
+
+mini_train <- train[, c(i, "Response"), with = FALSE]
+
+
+
+# Graphics
+# oldw <- getOption("warn")
+# options(warn = -1)
+
+# jpeg(filename = "E:/Laurae/TimeSeriesBlender/temp1.png", width = 960, height = 720, units = "px")
+
+opar <- par()
+par(mfrow = c(2, 2))
+
+# ~~ First plot
+mini_ranked <- cbind(mini_train, Id = 1:1183747)
+mini_ranked <- mini_ranked[order(mini_ranked[[i]]), ]
+mini_table <- table(mini_ranked[[i]])
+plot(mini_table, main = "Table")
+
+# ~~ Second, Third, Fourth plot
+mini_table <- as.data.frame.matrix(table(mini_train))
+colnames(mini_table) <- c("Negative", "Positive")
+mini_table[[i]] <- as.numeric(rownames(mini_table))
+mini_table <- mini_table[, c(3, 1, 2)]
+plot(mini_table[, -2], main = "Positives Plot")
+plot(mini_table[, -3], main = "Negatives Plot")
+mini_temp <- mini_table$Positive / mini_table$Negative
+mini_temp[is.na(mini_temp)] <- 0
+plot(x = mini_table[[i]], y = mini_temp, main = "Positives/Negatives Plot", xlab = colnames(mini_table)[1], ylab = "Positives / Negatives")
+
+# par(opar)
+
+# dev.off()
+
+# plot(1:2, type = "n", axes = FALSE, frame.plot = FALSE, xlab = "", ylab = "")
+# rasterImage(readJPEG("E:/Laurae/TimeSeriesBlender/temp1.png", native = TRUE), 1, 1, 2, 2)
+# dev.off()
+
+# options(warn = oldw)
+
+
+# Do time-series things
+
+# oldw <- getOption("warn")
+# options(warn = -1)
+
+# jpeg(filename = "E:/Laurae/TimeSeriesBlender/temp2.png", width = 960, height = 720, units = "px")
+
+opar <- par()
+par(mfrow = c(2, 1))
+
+mini_data <- rbind(mini_train[, i, with = FALSE], test[, i, with = FALSE])
+mini_tabled <- as.matrix(table(mini_data[[i]]))
+mini_tabled <- cbind(mini_tabled, as.numeric(rownames(mini_tabled)))
+colnames(mini_tabled) <- c("Quantity", i)
+mini_diff <- ndiffs(mini_tabled[, i])
+cat("Non-seasonal differentiation: ", mini_diff, " \n", sep = "")
+
+mini_modulo <- aggregate(mini_train, by = list(mini_train[[i]]), FUN=sum)[, -2]
+colnames(mini_modulo)[1] <- i
+plot(mini_modulo, main = "Cyclic data", type = "h")
+
+mini_parsed <- aggregate(mini_data, by = list(mini_data[[i]]), FUN=sum)[, -2]
+
+set.seed(11111) # ensures reproducibility
+mini_arima <- auto.arima(y = mini_parsed, d = mini_diff, trace = TRUE, stepwise = FALSE, approximation = FALSE, max.order = 10)
+print(mini_arima)
+
+mini_merger <- data.table(data.frame(V = c(as.numeric(mini_arima$x), NA), Residuals = c(as.numeric(mini_arima$residuals), NA)))
+mini_train2 <- merge(cbind(mini_train, Order = 1:1183747), mini_merger, by.x = i, by.y = "V", all.x = TRUE)
+mini_train2 <- mini_train2[order(mini_train2$Order), ]
+mini_modulo <- aggregate(mini_train2[, c(2, 4), with = FALSE], by = list(mini_train2$Residuals), FUN=sum)[, -3]
+colnames(mini_modulo)[1] <- i
+mini_train2 <- mini_train2[, c(1, 4), with = FALSE]
+
+plot(x = mini_modulo[[i]], y = mini_modulo$Response, main = "Uncylic Data", type = "h", xlab = i, ylab = "Response")
+
+mini_test2 <- merge(cbind(mini_data[1183748:2367495, ], Order = 1:1183748), mini_merger, by.x = i, by.y = "V", all.x = TRUE)
+mini_test2 <- mini_test2[order(mini_test2$Order), ]
+mini_test2 <- mini_test2[, c(1, 3), with = FALSE]
+
+fwrite(mini_train2, paste("E:/Laurae/TimeSeries/", i, "_train.csv", sep = ""))
+fwrite(mini_test2, paste("E:/Laurae/TimeSeries/", i, "_test.csv", sep = ""))
+
+par(opar)
+
+# dev.off()
+
+# options(warn = oldw)
+
+# plot(1:2, type = "n", axes = FALSE, frame.plot = FALSE, xlab = "", ylab = "")
+# rasterImage(readJPEG("E:/Laurae/TimeSeriesBlender/temp2.png", native = TRUE), 1, 1, 2, 2)
+# dev.off()
+
+```
