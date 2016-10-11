@@ -1,0 +1,176 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+options(java.parameters = "- Xmx16384m") # ensures stupidly high enough memory, or CRASH
+setwd("E:/")
+library(recommenderlab)
+library(data.table)
+train <- readRDS("datasets/train_numeric.rds")
+knitr::opts_chunk$set(root.dir = "E:/") # not working??! 
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+# Shooting with time-series
+
+```{r}
+library(TTR)
+library(forecast)
+library(tseries)
+library(FSelector)
+```
+
+
+# Analyzing L3_S29_F3455
+
+```{r}
+gc(verbose = FALSE)
+mini_train <- train[, c("L3_S29_F3455", "Response")]
+mini_ranked <- cbind(mini_train, Id = 1:1183747)
+mini_ranked <- mini_ranked[order(L3_S29_F3455), ]
+mini_table <- table(mini_ranked$L3_S29_F3455)
+plot(mini_table)
+mini_vect <- as.numeric(mini_table)
+plot(x = 1:length(mini_vect), y = mini_vect)
+mini_better <- as.data.frame(mini_table)
+mini_better$Var1 <- as.numeric(levels(mini_better$Var1))
+mini_train <- train[, c("L3_S29_F3455", "Response")]
+# fwrite(as.data.frame(mini_table), "E:/Laurae/NumericJunkbook/L3_S29_F3455.csv")
+```
+
+# Playing with better weapons now
+
+```{r}
+gc(verbose = FALSE)
+mini_table <- as.data.frame.matrix(table(mini_train)) # it was removing 1 observation... well NAs
+# mini_table <- unique(mini_train$L3_S29_F3455)
+# mini_table <- mini_table[order(mini_table)]
+colnames(mini_table) <- c("Negative", "Positive")
+mini_table$L3_S29_F3455 <- as.numeric(rownames(mini_table))
+mini_table <- mini_table[, c(3, 1, 2)]
+plot(mini_table[, -1])
+plot(mini_table[, -2])
+plot(mini_table[, -3])
+plot(x = mini_table$L3_S29_F3455, y = mini_table$Negative / mini_table$Positive)
+mini_temp <- mini_table$Positive / mini_table$Negative
+mini_temp[is.na(mini_temp)] <- 0
+plot(x = mini_table$L3_S29_F3455, y = mini_temp)
+```
+
+# Try Joost's idea
+
+```{r}
+mini_modulo <- mini_table
+mini_modulo$L3_S29_F3455 <- mini_table$L3_S29_F3455 %% 0.26
+mini_modulo <- aggregate(mini_table, by = list(mini_table$L3_S29_F3455), FUN=sum)[, -1]
+plot(mini_modulo[, -1])
+plot(mini_modulo[, -2])
+plot(mini_modulo[, -3])
+plot(x = mini_modulo$L3_S29_F3455, y = mini_modulo$Negative / mini_modulo$Positive)
+mini_temp <- mini_modulo$Positive / mini_modulo$Negative
+mini_temp[is.na(mini_temp)] <- 0
+plot(x = mini_modulo$L3_S29_F3455, y = mini_temp)
+```
+
+```{r}
+# Choose variable
+mini_ts <- ts(data = mini_table$L3_S29_F3455)
+
+# Try fitting BATS
+mini_fit <- tbats(mini_ts)
+plot(mini_fit)
+
+# Try Augmented Dickey-Fuller test: is stationary? (H0 = non-stationary = seasonal, Ha = stationary = no seasonality)
+mini_adf <- adf.test(as.numeric(mini_ts))
+mini_adf
+
+# Try Kwiatkowski-Phillips-Schmidt-Shin test: is not stationary? (H0 = stationary = non-seasonality, Ha = non-stationary = seasonal)
+mini_kpss <- kpss.test(as.numeric(mini_ts))
+mini_kpss
+```
+
+```{r}
+# Choose variable
+mini_ts <- ts(data = mini_table$L3_S29_F3455)
+
+# If found stationary: try differencing
+mini_diff <- ndiffs(as.numeric(mini_ts))
+mini_ts <- ts(diff(as.numeric(mini_ts), differences = mini_diff))
+plot(mini_ts)
+
+# Try looking for autocorrelation
+Box.test(mini_ts, lag = 50, type = "Ljung-Box") # p-value < significance => no evidence
+acf(mini_ts, lag.max = 50)
+
+# Try fitting BATS
+mini_fit <- tbats(mini_ts)
+plot(mini_fit)
+
+# Try Augmented Dickey-Fuller test: is stationary? (H0 = non-stationary = seasonal, Ha = stationary = no seasonality)
+mini_adf <- adf.test(as.numeric(mini_ts))
+mini_adf
+
+# Try Kwiatkowski-Phillips-Schmidt-Shin test: is not stationary? (H0 = stationary = non-seasonality, Ha = non-stationary = seasonal)
+mini_kpss <- kpss.test(as.numeric(mini_ts))
+mini_kpss
+
+# Try STL bazooka
+# mini_stl <- stl(as.numeric(mini_ts), s.window = "periodic")
+
+# Try ETS bazooka
+mini_ets <- ets(mini_ts)
+plot(mini_ets)
+```
+
+# Final decomposed feature
+
+```{r}
+mini_modulo <- aggregate(mini_train, by = list(mini_train$L3_S29_F3455), FUN=sum)[, -2]
+colnames(mini_modulo)[1] <- "L3_S29_F3455"
+plot(mini_modulo, main = "Cyclic data")
+mini_diffs <- ndiffs(mini_modulo$L3_S29_F3455)
+mini_diff <- data.frame(matrix(nrow = nrow(mini_modulo) - mini_diffs, ncol = 2))
+colnames(mini_diff) <- c("L3_S29_F3455", "Response")
+mini_diff$L3_S29_F3455 <- diff(mini_modulo$L3_S29_F3455, differences = mini_diffs)
+mini_diff$Response <- diff(mini_modulo$Response, differences = mini_diffs)
+plot(mini_diff, main = "De-Cyclic data")
+```
+
+# Try auto ARIMA
+
+```{r}
+set.seed(11111) # ensures reproducibility
+mini_arima <- auto.arima(y = mini_modulo$L3_S29_F3455, trace = TRUE, d = 2, stepwise = FALSE, approximation = FALSE) # differencing order = 2 found earlier
+mini_arima
+plot(mini_arima)
+plot(mini_modulo, main = "Initial plot for comparison")
+plot(x = mini_arima$residuals, y = mini_modulo$Response, main = "Residuals of de-cyclicization vs Response - much better!")
+plot(x = mini_arima$fitted, y = mini_arima$residuals, main = "Fitted values of de-cycliczation vs Residuals of de-cyclicization")
+```
+
+# Test on the real data
+
+```{r}
+gc(verbose = FALSE)
+mini_fitted <- data.table(data.frame(L3_S29_F3455 = as.numeric(mini_arima$x), Residuals = as.numeric(mini_arima$residuals)))
+mini_fitted <- rbind(mini_fitted, data.table(data.frame(L3_S29_F3455 = NA, Residuals = NA))) # convoluted way of adding a row, thanks data.table
+mini_data <- merge(cbind(mini_train, Order = 1:1183747), mini_fitted, by = "L3_S29_F3455")
+mini_data <- mini_data[order(Order)]
+mini_datadf <- as.data.frame(mini_data)
+mini_compare <- as.data.frame(train[, c("L3_S33_F3859", "Response")])
+cat("Information Gain: ", information.gain(Response ~ L3_S29_F3455, data = mini_datadf)$attr_importance, " vs ", information.gain(Response ~ Residuals, data = mini_datadf)$attr_importance, " (compared to best: ", information.gain(Response ~ L3_S33_F3859, data = mini_compare)$attr_importance, ")\n", sep = "")
+cat("Gain Ratio: ", gain.ratio(Response ~ L3_S29_F3455, data = mini_datadf)$attr_importance, " vs ", gain.ratio(Response ~ Residuals, data = mini_datadf)$attr_importance, " (compared to best: ", gain.ratio(Response ~ L3_S33_F3859, data = mini_compare)$attr_importance, ")\n", sep = "")
+cat("Symmetrical uncertainty: ", symmetrical.uncertainty(Response ~ L3_S29_F3455, data = mini_datadf)$attr_importance, " vs ", symmetrical.uncertainty(Response ~ Residuals, data = mini_datadf)$attr_importance, " (compared to best: ", symmetrical.uncertainty(Response ~ L3_S33_F3859, data = mini_compare)$attr_importance, ")\n", sep = "")
+#fwrite(mini_data, "E:/Laurae/NumericJunkbook/L3_S29_F3455_better.csv")
+```
+
+# Now, need to add testing data...
