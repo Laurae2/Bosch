@@ -18,9 +18,14 @@ library(DT)
 #train <- readRDS("datasets/train_numeric.rds")
 #date <- readRDS("Laurae/DateFeaturesMore/Min_features.rds")
 train <- readRDS("Laurae/NumericCMI_exact/train_numeric_discrete.rds")
-date <- fread("Laurae/Joost/eda_product_flow_sample_paths_station.csv", data.table = FALSE)[1:1183747, "u_arr_ix"]
+date <- readRDS("Laurae/NumericCMI_exact/train_date_discrete.rds")
+my_date <- fread("Laurae/Joost/eda_product_flow_sample_paths_station.csv", data.table = FALSE)[1:1183747, "u_arr_ix"]
 ig_frame1 <- fread("Laurae/NumericCMI_exact/CMI_numeric.csv", data.table = FALSE)[, c("Feature", "Levels", "IG_Numeric", "CMI", "NotMissing")]
 ig_frame1$Number <- 1:968
+ig_frame2 <- fread("Laurae/NumericCMI_exact/CMI_date.csv", data.table = FALSE)[, c("Feature", "Levels", "IG_Date", "NotMissing")]
+ig_frame2$CMI <- rep(NA, 128)
+ig_frame2 <- ig_frame2[, c(1, 2, 3, 5, 4)]
+ig_frame2$Number <- 1:128
 feature_names <- fread("Laurae/date_feat_lut_V2.txt", header = TRUE)
 feature_names <- feature_names[!name_num == "", ]
 feature_names <- feature_names[, c("name_num", "station_V2", "line", "station", "feature_nr"), with = FALSE]
@@ -43,15 +48,27 @@ pb <- winProgressBar(title = "Numeric Mutual Information computation", label = p
 for (i in 1:968) {
   setWinProgressBar(pb, value = i, title = "Numeric Mutual Information computation", label = paste("[", format(Sys.time(), "%a %b %d %Y %X"), "] Doing feature ", colnames(train)[i + 1], " (", sprintf("%03d", i), " / 968 = ", sprintf("%05.2f", 100 * i / 968), "%)...", sep = ""))
   #ig_frame1$IG_Numeric[i] <- condinformation(X = train[[my_feature]], Y = train$Response, S = NULL, method = "emp")
-  ig_frame1$CMI[i] <- condinformation(X = train[[colnames(train)[i + 1]]], Y = train$Response, S = date, method = "emp")
+  ig_frame1$CMI[i] <- condinformation(X = train[[colnames(train)[i + 1]]], Y = train$Response, S = my_date, method = "emp")
   gc(verbose = FALSE)
 }
-close(pb)
+invisible(close(pb))
+```
+
+```{r}
+pb <- winProgressBar(title = "Date Mutual Information computation", label = paste("[", format(Sys.time(), "%a %b %d %Y %X"), "] Preparing computation...", sep = ""), min = 0, max = 128, initial = 0, width = 520)
+for (i in 1:128) {
+  setWinProgressBar(pb, value = i, title = "Date Mutual Information computation", label = paste("[", format(Sys.time(), "%a %b %d %Y %X"), "] Doing feature ", colnames(date)[i], " (", sprintf("%03d", i), " / 128 = ", sprintf("%05.2f", 100 * i / 128), "%)...", sep = ""))
+  #ig_frame1$IG_Numeric[i] <- condinformation(X = train[[my_feature]], Y = train$Response, S = NULL, method = "emp")
+  ig_frame2$CMI[i] <- condinformation(X = date[[colnames(date)[i]]], Y = train$Response, S = my_date, method = "emp")
+  gc(verbose = FALSE)
+}
+invisible(close(pb))
 ```
 
 ## Setup feature names properly for Numeric
 
 ```{r}
+#all_frame <- fread("E:/Laurae/NumericCMI_exact_path/CMI_numeric_path.csv", data.table = FALSE)
 all_frame <- merge(ig_frame1, feature_names, by = "Feature", all.x = TRUE)
 all_frame <- all_frame[, c(1, 7, 8, 9, 10, 2, 3, 4, 5, 6)]
 all_frame <- all_frame[order(all_frame$Number), ]
@@ -62,11 +79,14 @@ all_frame$CMI_Rank <- 969 - rank(all_frame$CMI, ties.method = "max")
 #all_frame$Relative_Gain <- 1 - ((max(all_frame$Information_Gain, na.rm = TRUE) - all_frame$Information_Gain) / (max(all_frame$Information_Gain, na.rm = TRUE) - min(all_frame$Information_Gain, na.rm = TRUE)))
 gc(verbose = TRUE)
 fwrite(all_frame, "E:/Laurae/NumericCMI_exact_path/CMI_numeric_path.csv")
+all_frame$Line <- as.factor(all_frame$Line)
+all_frame$Station <- as.factor(all_frame$Station)
+all_frame$Orig_St <- as.factor(all_frame$Orig_St)
 ```
 
 ## Pretty print DT for Numeric
 
-Reference: IG(date) = 0.004231348
+Reference: IG(my_date) = 0.004231348
 
 ```{r}
 datatable(all_frame,
@@ -108,6 +128,73 @@ datatable(all_frame,
                              backgroundRepeat = 'no-repeat',
                              backgroundPosition = 'center') %>%
                 formatRound(columns = c("IG_Numeric"),
+                            digits = 8) %>%
+                formatRound(columns = c("CMI"),
+                            digits = 8) %>%
+                formatPercentage(columns = c("NotMissing"),
+                                 digits = 4)
+```
+
+## Setup feature names properly for Date
+
+```{r}
+#all_frame <- fread("E:/Laurae/NumericCMI_exact_path/CMI_date_path.csv", data.table = FALSE)
+all_frame <- merge(ig_frame2, feature_names, by = "Feature", all.x = TRUE)
+all_frame <- all_frame[, c(1, 2, 3, 4, 5, 6)]
+all_frame <- all_frame[order(all_frame$Number), ]
+rownames(all_frame) <- NULL
+all_frame$Number <- NULL
+all_frame$Date_Rank <- 129 - rank(all_frame$IG_Date, ties.method = "max")
+all_frame$CMI_Rank <- 129 - rank(all_frame$CMI, ties.method = "max")
+#all_frame$Relative_Gain <- 1 - ((max(all_frame$Information_Gain, na.rm = TRUE) - all_frame$Information_Gain) / (max(all_frame$Information_Gain, na.rm = TRUE) - min(all_frame$Information_Gain, na.rm = TRUE)))
+gc(verbose = TRUE)
+fwrite(all_frame, "E:/Laurae/NumericCMI_exact_path/CMI_date_path.csv")
+```
+
+## Pretty print DT for Date
+
+Reference: IG(my_date) = 0.004231348
+
+```{r}
+datatable(all_frame,
+          filter = "top",
+          class = "cell-border stripe",
+          extensions = c("AutoFill",
+                         #"Buttons",
+                         "ColReorder",
+                         "KeyTable",
+                         "Responsive",
+                         "RowReorder"),
+          options = list(pageLength = 20,
+                         lengthMenu = c(5, 10, 15, 20, 25, 50, 100, 500),
+                         order = list(list(4, "desc")),
+                         autofill = TRUE,
+                         #dom = "Bfrtip",
+                         #buttons = c("copy", "csv", "excel", "pdf", "print"),
+                         colReorder = TRUE,
+                         keys = TRUE,
+                         rowReorder = TRUE)
+          ) %>% formatStyle('IG_Date',
+                             background = styleColorBar(range(all_frame$IG_Date, na.rm = TRUE, finite = TRUE), 'lightgreen'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatStyle('CMI',
+                             background = styleColorBar(range(all_frame$CMI, na.rm = TRUE, finite = TRUE), 'pink'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatStyle('NotMissing',
+                             background = styleColorBar(c(0, 1), 'lightgrey'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatStyle('Levels',
+                             background = styleColorBar(range(all_frame$Levels, na.rm = TRUE, finite = TRUE), 'lightgrey'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatRound(columns = c("IG_Date"),
                             digits = 8) %>%
                 formatRound(columns = c("CMI"),
                             digits = 8) %>%
