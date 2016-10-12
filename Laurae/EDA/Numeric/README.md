@@ -28,13 +28,17 @@ Automated clustering based on a dissimilarity correlation matrix with k chosen b
 
 Creates approximately 5,000 plots (500 MB file) for EDA.
 
+### NumericIG.Rmd (NumericIG.nb.html)
+
+Information Gain on Numeric features (approximated version).
+
 ### NumericCMI_exact.Rmd (NumericCMI_exact.nb.html, CMI_numeric.csv, CMI_date.csv)
 
-Conditional Mutual Information on Numeric vs Date, by station.
+Conditional Mutual Information (exact version) on Numeric vs Date, by station.
 
 ### NumericCMI_exact_path.Rmd (NumericCMI_exact_path.nb.html, CMI_numeric_path.csv, CMI_date_path.csv)
 
-Conditional Mutual Information on Numeric vs Path, by feature.
+Conditional Mutual Information (exact version) on Numeric vs Path, by feature.
 
 ## L3_S29_F3455
 
