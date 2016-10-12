@@ -1,0 +1,107 @@
+---
+title: "Spooky Table"
+output: html_notebook
+---
+
+Computes the spooky hashes and prints them in a pretty table for all features so that analysis is possible.
+
+```{r}
+library(fastdigest)
+library(DT)
+library(data.table)
+setwd("E:/")
+
+sparsed <- readRDS("datasets/train_numeric.rds")
+gc()
+
+spooky1 <- numeric(ncol(sparsed) - 1)
+for (i in 1:(ncol(sparsed))) {
+  spooky1[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
+  if ((i %% 50) == 0) {cat("Done ", i," Numeric Spooky hashes.\n", sep = "")}
+  if ((i %% 200) == 0) {cat(" --- Uniques: ", length(unique(spooky1[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
+}
+
+spooky1 <- data.frame(Names = colnames(sparsed), Hash = spooky1, unicity = !duplicated(spooky1), is_dup = (duplicated(spooky1) | duplicated(spooky1, fromLast = TRUE)))
+write.csv(spooky1, "Laurae/SpookyGen/numeric_spooky.csv", row.names = TRUE, quote = FALSE)
+
+gc(verbose = FALSE)
+rm(sparsed)
+gc(verbose = FALSE)
+sparsed <- readRDS("datasets/train_categorical.rds")
+gc(verbose = FALSE)
+
+spooky2 <- numeric(ncol(sparsed))
+for (i in 1:ncol(sparsed)) {
+  spooky2[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
+  if ((i %% 50) == 0) {cat("Done ", i," Categorical spooky hashes.\n", sep = "")}
+  if ((i %% 200) == 0) {cat(" --- Uniques: ", length(unique(spooky2[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
+}
+
+spooky2 <- data.frame(Names = colnames(sparsed), Hash = spooky2, unicity = !duplicated(spooky2), is_dup = (duplicated(spooky2) | duplicated(spooky2, fromLast = TRUE)))
+write.csv(spooky2, "Laurae/SpookyGen/categorical_spooky.csv", row.names = TRUE, quote = FALSE)
+
+gc(verbose = FALSE)
+rm(sparsed)
+gc(verbose = FALSE)
+sparsed <- readRDS("datasets/train_date.rds")
+gc(verbose = FALSE)
+
+spooky3 <- numeric(ncol(sparsed))
+for (i in 1:ncol(sparsed)) {
+  spooky3[i] <- fastdigest(sparsed[[i]]) # Compute hash only on training data... obviously
+  if ((i %% 50) == 0) {cat("Done ", i," Date Spooky hashes.\n", sep = "")}
+  if ((i %% 200) == 0) {cat(" --- Uniques: ", length(unique(spooky3[1:i])), " ---\n", sep = ""); gc(verbose = FALSE)}
+}
+
+spooky3 <- data.frame(Names = colnames(sparsed), Hash = spooky3, unicity = !duplicated(spooky3), is_dup = (duplicated(spooky3) | duplicated(spooky3, fromLast = TRUE)))
+write.csv(spooky3, "Laurae/SpookyGen/date_spooky.csv", row.names = TRUE, quote = FALSE)
+
+rm(sparsed)
+gc(verbose = TRUE)
+```
+
+## Numeric Spooky Hash
+
+```{r}
+datatable(spooky1,
+          filter = "top",
+          class = "cell-border stripe",
+          extensions = c("AutoFill",
+                         "Buttons"),
+          options = list(pageLength = 20,
+                         lengthMenu = c(5, 10, 15, 20, 25, 50, 100, 500, 1000, 2500),
+                         autofill = TRUE,
+                         dom = "Bfrtip",
+                         buttons = c("copy", "csv", "excel", "pdf", "print")))
+```
+
+## Categorical Spooky Hash
+
+```{r}
+datatable(spooky2,
+          filter = "top",
+          class = "cell-border stripe",
+          extensions = c("AutoFill",
+                         "Buttons"),
+          options = list(pageLength = 20,
+                         lengthMenu = c(5, 10, 15, 20, 25, 50, 100, 500, 1000, 2500),
+                         autofill = TRUE,
+                         dom = "Bfrtip",
+                         buttons = c("copy", "csv", "excel", "pdf", "print")))
+```
+
+## Date Spooky Hash
+
+```{r}
+datatable(spooky3,
+          filter = "top",
+          class = "cell-border stripe",
+          extensions = c("AutoFill",
+                         "Buttons"),
+          options = list(pageLength = 20,
+                         lengthMenu = c(5, 10, 15, 20, 25, 50, 100, 500, 1000, 2500),
+                         autofill = TRUE,
+                         dom = "Bfrtip",
+                         buttons = c("copy", "csv", "excel", "pdf", "print")))
+```
+
