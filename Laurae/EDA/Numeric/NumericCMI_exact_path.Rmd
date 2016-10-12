@@ -1,0 +1,116 @@
+---
+title: "Numeric (Conditional) Mutual Information"
+output:
+  html_notebook:
+    css: discretization.css
+---
+
+# Preload
+
+Preload things.
+
+```{r}
+setwd("E:/")
+library(recommenderlab)
+library(data.table)
+library(infotheo)
+library(DT)
+#train <- readRDS("datasets/train_numeric.rds")
+#date <- readRDS("Laurae/DateFeaturesMore/Min_features.rds")
+train <- readRDS("Laurae/NumericCMI_exact/train_numeric_discrete.rds")
+date <- fread("Laurae/Joost/eda_product_flow_sample_paths_station.csv", data.table = FALSE)[1:1183747, "u_arr_ix"]
+ig_frame1 <- fread("Laurae/NumericCMI_exact/CMI_numeric.csv", data.table = FALSE)[, c("Feature", "Levels", "IG_Numeric", "CMI", "NotMissing")]
+ig_frame1$Number <- 1:968
+feature_names <- fread("Laurae/date_feat_lut_V2.txt", header = TRUE)
+feature_names <- feature_names[!name_num == "", ]
+feature_names <- feature_names[, c("name_num", "station_V2", "line", "station", "feature_nr"), with = FALSE]
+colnames(feature_names) <- c("Feature", "Station", "Line", "Orig_St", "Feat_Nb")
+gc(verbose = TRUE)
+knitr::opts_chunk$set(root.dir = "E:/") # not working??! 
+```
+
+# Information Gain
+
+## Precompute all information gain values
+
+Formulas:
+
+Mutual Information = I(X, Y) = H(X, Y) - H(X | Y) - H(Y | X), understand un-sided
+Conditional Mutual Information = I(X, Y | Z) = H(Z | X) + H(X) + H(Z | Y) + H(Y) - H(Z | X, Y) - H(X, Y) - H(Z) = I(X, Y) + H(Z | X) - H(Z | Y) - H(Z | X, Y) - H(Z), with guarantee of I(X, Y | Z) > 0 and being one-sided
+
+```{r}
+pb <- winProgressBar(title = "Numeric Mutual Information computation", label = paste("[", format(Sys.time(), "%a %b %d %Y %X"), "] Preparing computation...", sep = ""), min = 0, max = 968, initial = 0, width = 520)
+for (i in 1:968) {
+  setWinProgressBar(pb, value = i, title = "Numeric Mutual Information computation", label = paste("[", format(Sys.time(), "%a %b %d %Y %X"), "] Doing feature ", colnames(train)[i + 1], " (", sprintf("%03d", i), " / 968 = ", sprintf("%05.2f", 100 * i / 968), "%)...", sep = ""))
+  #ig_frame1$IG_Numeric[i] <- condinformation(X = train[[my_feature]], Y = train$Response, S = NULL, method = "emp")
+  ig_frame1$CMI[i] <- condinformation(X = train[[colnames(train)[i + 1]]], Y = train$Response, S = date, method = "emp")
+  gc(verbose = FALSE)
+}
+close(pb)
+```
+
+## Setup feature names properly for Numeric
+
+```{r}
+all_frame <- merge(ig_frame1, feature_names, by = "Feature", all.x = TRUE)
+all_frame <- all_frame[, c(1, 7, 8, 9, 10, 2, 3, 4, 5, 6)]
+all_frame <- all_frame[order(all_frame$Number), ]
+rownames(all_frame) <- NULL
+all_frame$Number <- NULL
+all_frame$Num_Rank <- 969 - rank(all_frame$IG_Numeric, ties.method = "max")
+all_frame$CMI_Rank <- 969 - rank(all_frame$CMI, ties.method = "max")
+#all_frame$Relative_Gain <- 1 - ((max(all_frame$Information_Gain, na.rm = TRUE) - all_frame$Information_Gain) / (max(all_frame$Information_Gain, na.rm = TRUE) - min(all_frame$Information_Gain, na.rm = TRUE)))
+gc(verbose = TRUE)
+fwrite(all_frame, "E:/Laurae/NumericCMI_exact_path/CMI_numeric_path.csv")
+```
+
+## Pretty print DT for Numeric
+
+Reference: IG(date) = 0.004231348
+
+```{r}
+datatable(all_frame,
+          filter = "top",
+          class = "cell-border stripe",
+          extensions = c("AutoFill",
+                         #"Buttons",
+                         "ColReorder",
+                         "KeyTable",
+                         "Responsive",
+                         "RowReorder"),
+          options = list(pageLength = 20,
+                         lengthMenu = c(5, 10, 15, 20, 25, 50, 100, 500, 1000),
+                         order = list(list(8, "desc")),
+                         autofill = TRUE,
+                         #dom = "Bfrtip",
+                         #buttons = c("copy", "csv", "excel", "pdf", "print"),
+                         colReorder = TRUE,
+                         keys = TRUE,
+                         rowReorder = TRUE)
+          ) %>% formatStyle('IG_Numeric',
+                             background = styleColorBar(range(all_frame$IG_Numeric, na.rm = TRUE, finite = TRUE), 'lightgreen'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatStyle('CMI',
+                             background = styleColorBar(range(all_frame$CMI, na.rm = TRUE, finite = TRUE), 'pink'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatStyle('NotMissing',
+                             background = styleColorBar(c(0, 1), 'lightgrey'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatStyle('Levels',
+                             background = styleColorBar(range(all_frame$Levels, na.rm = TRUE, finite = TRUE), 'lightgrey'),
+                             backgroundSize = '100% 90%',
+                             backgroundRepeat = 'no-repeat',
+                             backgroundPosition = 'center') %>%
+                formatRound(columns = c("IG_Numeric"),
+                            digits = 8) %>%
+                formatRound(columns = c("CMI"),
+                            digits = 8) %>%
+                formatPercentage(columns = c("NotMissing"),
+                                 digits = 4)
+```
