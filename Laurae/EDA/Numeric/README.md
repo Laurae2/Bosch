@@ -1,5 +1,9 @@
 # Numeric EDA
 
+NEWS
+
+* 14/10/2016 => CMI_IV.nb.html
+
 ## Feature Engineering
 
 ### 20160929_features_more.R
@@ -39,6 +43,10 @@ Conditional Mutual Information (exact version) on Numeric vs Date, by station.
 ### NumericCMI_exact_path.Rmd (NumericCMI_exact_path.nb.html, CMI_numeric_path.csv, CMI_date_path.csv)
 
 Conditional Mutual Information (exact version) on Numeric vs Path, by feature.
+
+### CMI_IV.nb.html
+
+Information Value per feature (Recursive splitting).
 
 ## L3_S29_F3455
 
