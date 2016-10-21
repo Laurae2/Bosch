@@ -20,4 +20,5 @@ Summary:
 | --- | --- | --- ||
 | 10/09/2016 | predictions from fold| MCC: MCC: 0.4201132 + 0.01067357, **LB: 0.42702** |
 | 10/10/2016 | predictions from fold| MCC: MCC: 0.4206768 + 0.01863066, **LB: 0.43080** |
-| 10/10/2016 | train on the whole dataset and use the cv best mcc as the treshold| MCC: MCC: 0.4206768 + 0.01863066, **LB: 0.43711** |
+| 10/20/2016 | train on the whole dataset and use the cv best mcc as the treshold rf + xgb| MCC: MCC: 0.457929892251
+, **LB: 0.47551	** |
