@@ -103,3 +103,15 @@ Submission average validated threshold on all MCC positives: 2249
 
 Submission average of overfit+validated threshold positives: 2748
 
+Submission with all data overfitted threshold on all MCC positives: 3559. Threshold=0.278142
+
+Submission with all data average validated threshold on all MCC positives: 2316. Threshold=0.4719942
+
+Submission with all data average of overfit+validated threshold positives: 2809. Threshold=0.3750681
+
+Submission with all data by taking the amount of positives of overfitted threshold on all MCC positives: 3592. Threshold=0.274597
+
+Submission with all data by taking the amount of positives of average validated threshold on all MCC positives: 2249. Threshold=0.48954
+
+Submission with all data by taking the amount of positives of average of overfit+validated threshold positives: 2748. Threshold=0.386521
+

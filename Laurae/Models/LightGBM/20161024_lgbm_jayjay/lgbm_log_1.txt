@@ -1,0 +1,939 @@
+[LightGBM] [Info] Loading parameters .. finished
+[LightGBM] [Error] Feature 844 only contains one value, will be ignored
+[LightGBM] [Error] Feature 845 only contains one value, will be ignored
+[LightGBM] [Error] Feature 849 only contains one value, will be ignored
+[LightGBM] [Error] Feature 850 only contains one value, will be ignored
+[LightGBM] [Error] Feature 877 only contains one value, will be ignored
+[LightGBM] [Error] Feature 879 only contains one value, will be ignored
+[LightGBM] [Error] Feature 880 only contains one value, will be ignored
+[LightGBM] [Error] Feature 881 only contains one value, will be ignored
+[LightGBM] [Error] Feature 883 only contains one value, will be ignored
+[LightGBM] [Error] Feature 886 only contains one value, will be ignored
+[LightGBM] [Info] Finish loading data, use 38.380256 seconds
+[LightGBM] [Info] Number of postive:5504,  number of negative:941495
+[LightGBM] [Info] Number of data:946999, Number of features:879
+[LightGBM] [Info] Finish training initilization.
+[LightGBM] [Info] Start train
+[LightGBM] [Info] Iteration:1, training's auc: 0.938223
+[LightGBM] [Info] Iteration:1, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.821857
+[LightGBM] [Info] 4.322658 seconds elapsed, finished 1 iteration
+[LightGBM] [Info] Iteration:2, training's auc: 0.947677
+[LightGBM] [Info] Iteration:2, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.858646
+[LightGBM] [Info] 7.766794 seconds elapsed, finished 2 iteration
+[LightGBM] [Info] Iteration:3, training's auc: 0.950761
+[LightGBM] [Info] Iteration:3, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.875244
+[LightGBM] [Info] 10.270390 seconds elapsed, finished 3 iteration
+[LightGBM] [Info] Iteration:4, training's auc: 0.952416
+[LightGBM] [Info] Iteration:4, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.884422
+[LightGBM] [Info] 13.817470 seconds elapsed, finished 4 iteration
+[LightGBM] [Info] Iteration:5, training's auc: 0.952279
+[LightGBM] [Info] Iteration:5, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.888443
+[LightGBM] [Info] 16.192095 seconds elapsed, finished 5 iteration
+[LightGBM] [Info] Iteration:6, training's auc: 0.953710
+[LightGBM] [Info] Iteration:6, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.891437
+[LightGBM] [Info] 18.252066 seconds elapsed, finished 6 iteration
+[LightGBM] [Info] Iteration:7, training's auc: 0.953391
+[LightGBM] [Info] Iteration:7, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.893552
+[LightGBM] [Info] 20.607146 seconds elapsed, finished 7 iteration
+[LightGBM] [Info] Iteration:8, training's auc: 0.953285
+[LightGBM] [Info] Iteration:8, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.895372
+[LightGBM] [Info] 22.646832 seconds elapsed, finished 8 iteration
+[LightGBM] [Info] Iteration:9, training's auc: 0.954213
+[LightGBM] [Info] Iteration:9, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.896799
+[LightGBM] [Info] 26.483111 seconds elapsed, finished 9 iteration
+[LightGBM] [Info] Iteration:10, training's auc: 0.953777
+[LightGBM] [Info] Iteration:10, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.897223
+[LightGBM] [Info] 28.373178 seconds elapsed, finished 10 iteration
+[LightGBM] [Info] Iteration:11, training's auc: 0.953685
+[LightGBM] [Info] Iteration:11, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.897224
+[LightGBM] [Info] 30.315920 seconds elapsed, finished 11 iteration
+[LightGBM] [Info] Iteration:12, training's auc: 0.953878
+[LightGBM] [Info] Iteration:12, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.897566
+[LightGBM] [Info] 32.465754 seconds elapsed, finished 12 iteration
+[LightGBM] [Info] Iteration:13, training's auc: 0.953914
+[LightGBM] [Info] Iteration:13, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.899330
+[LightGBM] [Info] 34.423497 seconds elapsed, finished 13 iteration
+[LightGBM] [Info] Iteration:14, training's auc: 0.954440
+[LightGBM] [Info] Iteration:14, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.899467
+[LightGBM] [Info] 37.878756 seconds elapsed, finished 14 iteration
+[LightGBM] [Info] Iteration:15, training's auc: 0.954236
+[LightGBM] [Info] Iteration:15, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.899884
+[LightGBM] [Info] 39.826983 seconds elapsed, finished 15 iteration
+[LightGBM] [Info] Iteration:16, training's auc: 0.954336
+[LightGBM] [Info] Iteration:16, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.900784
+[LightGBM] [Info] 41.876035 seconds elapsed, finished 16 iteration
+[LightGBM] [Info] Iteration:17, training's auc: 0.954612
+[LightGBM] [Info] Iteration:17, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.900875
+[LightGBM] [Info] 44.211766 seconds elapsed, finished 17 iteration
+[LightGBM] [Info] Iteration:18, training's auc: 0.955137
+[LightGBM] [Info] Iteration:18, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.900645
+[LightGBM] [Info] 46.277757 seconds elapsed, finished 18 iteration
+[LightGBM] [Info] Iteration:19, training's auc: 0.955424
+[LightGBM] [Info] Iteration:19, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902177
+[LightGBM] [Info] 48.690455 seconds elapsed, finished 19 iteration
+[LightGBM] [Info] Iteration:20, training's auc: 0.955334
+[LightGBM] [Info] Iteration:20, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902299
+[LightGBM] [Info] 51.630543 seconds elapsed, finished 20 iteration
+[LightGBM] [Info] Iteration:21, training's auc: 0.955376
+[LightGBM] [Info] Iteration:21, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902686
+[LightGBM] [Info] 53.662199 seconds elapsed, finished 21 iteration
+[LightGBM] [Info] Iteration:22, training's auc: 0.955507
+[LightGBM] [Info] Iteration:22, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902189
+[LightGBM] [Info] 55.670423 seconds elapsed, finished 22 iteration
+[LightGBM] [Info] Iteration:23, training's auc: 0.955379
+[LightGBM] [Info] Iteration:23, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902828
+[LightGBM] [Info] 58.958495 seconds elapsed, finished 23 iteration
+[LightGBM] [Info] Iteration:24, training's auc: 0.955380
+[LightGBM] [Info] Iteration:24, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902170
+[LightGBM] [Info] 62.618782 seconds elapsed, finished 24 iteration
+[LightGBM] [Info] Iteration:25, training's auc: 0.955623
+[LightGBM] [Info] Iteration:25, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902334
+[LightGBM] [Info] 65.948536 seconds elapsed, finished 25 iteration
+[LightGBM] [Info] Iteration:26, training's auc: 0.955609
+[LightGBM] [Info] Iteration:26, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902100
+[LightGBM] [Info] 70.628772 seconds elapsed, finished 26 iteration
+[LightGBM] [Info] Iteration:27, training's auc: 0.955553
+[LightGBM] [Info] Iteration:27, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902805
+[LightGBM] [Info] 76.274113 seconds elapsed, finished 27 iteration
+[LightGBM] [Info] Iteration:28, training's auc: 0.955525
+[LightGBM] [Info] Iteration:28, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.902892
+[LightGBM] [Info] 78.911346 seconds elapsed, finished 28 iteration
+[LightGBM] [Info] Iteration:29, training's auc: 0.955490
+[LightGBM] [Info] Iteration:29, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903656
+[LightGBM] [Info] 80.871086 seconds elapsed, finished 29 iteration
+[LightGBM] [Info] Iteration:30, training's auc: 0.955404
+[LightGBM] [Info] Iteration:30, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904404
+[LightGBM] [Info] 83.316758 seconds elapsed, finished 30 iteration
+[LightGBM] [Info] Iteration:31, training's auc: 0.955362
+[LightGBM] [Info] Iteration:31, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904509
+[LightGBM] [Info] 87.444488 seconds elapsed, finished 31 iteration
+[LightGBM] [Info] Iteration:32, training's auc: 0.955251
+[LightGBM] [Info] Iteration:32, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904841
+[LightGBM] [Info] 91.444405 seconds elapsed, finished 32 iteration
+[LightGBM] [Info] Iteration:33, training's auc: 0.955183
+[LightGBM] [Info] Iteration:33, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904313
+[LightGBM] [Info] 96.322049 seconds elapsed, finished 33 iteration
+[LightGBM] [Info] Iteration:34, training's auc: 0.955135
+[LightGBM] [Info] Iteration:34, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904436
+[LightGBM] [Info] 100.209817 seconds elapsed, finished 34 iteration
+[LightGBM] [Info] Iteration:35, training's auc: 0.955142
+[LightGBM] [Info] Iteration:35, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904542
+[LightGBM] [Info] 102.459788 seconds elapsed, finished 35 iteration
+[LightGBM] [Info] Iteration:36, training's auc: 0.955172
+[LightGBM] [Info] Iteration:36, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904735
+[LightGBM] [Info] 104.849169 seconds elapsed, finished 36 iteration
+[LightGBM] [Info] Iteration:37, training's auc: 0.955203
+[LightGBM] [Info] Iteration:37, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904568
+[LightGBM] [Info] 107.795679 seconds elapsed, finished 37 iteration
+[LightGBM] [Info] Iteration:38, training's auc: 0.955145
+[LightGBM] [Info] Iteration:38, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904482
+[LightGBM] [Info] 110.436801 seconds elapsed, finished 38 iteration
+[LightGBM] [Info] Iteration:39, training's auc: 0.955225
+[LightGBM] [Info] Iteration:39, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904359
+[LightGBM] [Info] 113.095224 seconds elapsed, finished 39 iteration
+[LightGBM] [Info] Iteration:40, training's auc: 0.955230
+[LightGBM] [Info] Iteration:40, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904705
+[LightGBM] [Info] 116.006196 seconds elapsed, finished 40 iteration
+[LightGBM] [Info] Iteration:41, training's auc: 0.955319
+[LightGBM] [Info] Iteration:41, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904950
+[LightGBM] [Info] 117.862621 seconds elapsed, finished 41 iteration
+[LightGBM] [Info] Iteration:42, training's auc: 0.955337
+[LightGBM] [Info] Iteration:42, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904677
+[LightGBM] [Info] 119.661246 seconds elapsed, finished 42 iteration
+[LightGBM] [Info] Iteration:43, training's auc: 0.955382
+[LightGBM] [Info] Iteration:43, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904999
+[LightGBM] [Info] 121.462932 seconds elapsed, finished 43 iteration
+[LightGBM] [Info] Iteration:44, training's auc: 0.955359
+[LightGBM] [Info] Iteration:44, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905165
+[LightGBM] [Info] 125.111419 seconds elapsed, finished 44 iteration
+[LightGBM] [Info] Iteration:45, training's auc: 0.955578
+[LightGBM] [Info] Iteration:45, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905575
+[LightGBM] [Info] 127.565606 seconds elapsed, finished 45 iteration
+[LightGBM] [Info] Iteration:46, training's auc: 0.955547
+[LightGBM] [Info] Iteration:46, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905603
+[LightGBM] [Info] 130.172534 seconds elapsed, finished 46 iteration
+[LightGBM] [Info] Iteration:47, training's auc: 0.955637
+[LightGBM] [Info] Iteration:47, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906273
+[LightGBM] [Info] 132.914652 seconds elapsed, finished 47 iteration
+[LightGBM] [Info] Iteration:48, training's auc: 0.955811
+[LightGBM] [Info] Iteration:48, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906271
+[LightGBM] [Info] 137.890665 seconds elapsed, finished 48 iteration
+[LightGBM] [Info] Iteration:49, training's auc: 0.955798
+[LightGBM] [Info] Iteration:49, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906468
+[LightGBM] [Info] 140.495287 seconds elapsed, finished 49 iteration
+[LightGBM] [Info] Iteration:50, training's auc: 0.955860
+[LightGBM] [Info] Iteration:50, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906198
+[LightGBM] [Info] 142.393735 seconds elapsed, finished 50 iteration
+[LightGBM] [Info] Iteration:51, training's auc: 0.955860
+[LightGBM] [Info] Iteration:51, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906639
+[LightGBM] [Info] 144.228052 seconds elapsed, finished 51 iteration
+[LightGBM] [Info] Iteration:52, training's auc: 0.955945
+[LightGBM] [Info] Iteration:52, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907348
+[LightGBM] [Info] 146.040565 seconds elapsed, finished 52 iteration
+[LightGBM] [Info] Iteration:53, training's auc: 0.956101
+[LightGBM] [Info] Iteration:53, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907169
+[LightGBM] [Info] 149.495331 seconds elapsed, finished 53 iteration
+[LightGBM] [Info] Iteration:54, training's auc: 0.956259
+[LightGBM] [Info] Iteration:54, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907043
+[LightGBM] [Info] 151.316983 seconds elapsed, finished 54 iteration
+[LightGBM] [Info] Iteration:55, training's auc: 0.956397
+[LightGBM] [Info] Iteration:55, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907176
+[LightGBM] [Info] 153.142215 seconds elapsed, finished 55 iteration
+[LightGBM] [Info] Iteration:56, training's auc: 0.956426
+[LightGBM] [Info] Iteration:56, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907025
+[LightGBM] [Info] 154.984001 seconds elapsed, finished 56 iteration
+[LightGBM] [Info] Iteration:57, training's auc: 0.956489
+[LightGBM] [Info] Iteration:57, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907315
+[LightGBM] [Info] 156.864227 seconds elapsed, finished 57 iteration
+[LightGBM] [Info] Iteration:58, training's auc: 0.956681
+[LightGBM] [Info] Iteration:58, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907055
+[LightGBM] [Info] 158.667812 seconds elapsed, finished 58 iteration
+[LightGBM] [Info] Iteration:59, training's auc: 0.956926
+[LightGBM] [Info] Iteration:59, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907403
+[LightGBM] [Info] 161.587827 seconds elapsed, finished 59 iteration
+[LightGBM] [Info] Iteration:60, training's auc: 0.957194
+[LightGBM] [Info] Iteration:60, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907184
+[LightGBM] [Info] 163.696616 seconds elapsed, finished 60 iteration
+[LightGBM] [Info] Iteration:61, training's auc: 0.957241
+[LightGBM] [Info] Iteration:61, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907269
+[LightGBM] [Info] 165.794431 seconds elapsed, finished 61 iteration
+[LightGBM] [Info] Iteration:62, training's auc: 0.957414
+[LightGBM] [Info] Iteration:62, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906955
+[LightGBM] [Info] 167.753213 seconds elapsed, finished 62 iteration
+[LightGBM] [Info] Iteration:63, training's auc: 0.957511
+[LightGBM] [Info] Iteration:63, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906800
+[LightGBM] [Info] 169.702859 seconds elapsed, finished 63 iteration
+[LightGBM] [Info] Iteration:64, training's auc: 0.957536
+[LightGBM] [Info] Iteration:64, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907356
+[LightGBM] [Info] 171.531729 seconds elapsed, finished 64 iteration
+[LightGBM] [Info] Iteration:65, training's auc: 0.957776
+[LightGBM] [Info] Iteration:65, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907300
+[LightGBM] [Info] 175.237471 seconds elapsed, finished 65 iteration
+[LightGBM] [Info] Iteration:66, training's auc: 0.957869
+[LightGBM] [Info] Iteration:66, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907036
+[LightGBM] [Info] 178.403030 seconds elapsed, finished 66 iteration
+[LightGBM] [Info] Iteration:67, training's auc: 0.957991
+[LightGBM] [Info] Iteration:67, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906775
+[LightGBM] [Info] 180.667168 seconds elapsed, finished 67 iteration
+[LightGBM] [Info] Iteration:68, training's auc: 0.958128
+[LightGBM] [Info] Iteration:68, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907342
+[LightGBM] [Info] 182.564897 seconds elapsed, finished 68 iteration
+[LightGBM] [Info] Iteration:69, training's auc: 0.958170
+[LightGBM] [Info] Iteration:69, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907181
+[LightGBM] [Info] 184.501105 seconds elapsed, finished 69 iteration
+[LightGBM] [Info] Iteration:70, training's auc: 0.958540
+[LightGBM] [Info] Iteration:70, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907744
+[LightGBM] [Info] 187.908880 seconds elapsed, finished 70 iteration
+[LightGBM] [Info] Iteration:71, training's auc: 0.959725
+[LightGBM] [Info] Iteration:71, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908269
+[LightGBM] [Info] 189.917637 seconds elapsed, finished 71 iteration
+[LightGBM] [Info] Iteration:72, training's auc: 0.960145
+[LightGBM] [Info] Iteration:72, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908354
+[LightGBM] [Info] 191.945531 seconds elapsed, finished 72 iteration
+[LightGBM] [Info] Iteration:73, training's auc: 0.960583
+[LightGBM] [Info] Iteration:73, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908378
+[LightGBM] [Info] 193.904765 seconds elapsed, finished 73 iteration
+[LightGBM] [Info] Iteration:74, training's auc: 0.961318
+[LightGBM] [Info] Iteration:74, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908929
+[LightGBM] [Info] 195.951876 seconds elapsed, finished 74 iteration
+[LightGBM] [Info] Iteration:75, training's auc: 0.961500
+[LightGBM] [Info] Iteration:75, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908954
+[LightGBM] [Info] 199.194937 seconds elapsed, finished 75 iteration
+[LightGBM] [Info] Iteration:76, training's auc: 0.962063
+[LightGBM] [Info] Iteration:76, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909255
+[LightGBM] [Info] 201.437211 seconds elapsed, finished 76 iteration
+[LightGBM] [Info] Iteration:77, training's auc: 0.962203
+[LightGBM] [Info] Iteration:77, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908753
+[LightGBM] [Info] 203.477510 seconds elapsed, finished 77 iteration
+[LightGBM] [Info] Iteration:78, training's auc: 0.962876
+[LightGBM] [Info] Iteration:78, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908774
+[LightGBM] [Info] 205.588188 seconds elapsed, finished 78 iteration
+[LightGBM] [Info] Iteration:79, training's auc: 0.963585
+[LightGBM] [Info] Iteration:79, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908553
+[LightGBM] [Info] 207.591659 seconds elapsed, finished 79 iteration
+[LightGBM] [Info] Iteration:80, training's auc: 0.963678
+[LightGBM] [Info] Iteration:80, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908468
+[LightGBM] [Info] 209.617494 seconds elapsed, finished 80 iteration
+[LightGBM] [Info] Iteration:81, training's auc: 0.963919
+[LightGBM] [Info] Iteration:81, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908306
+[LightGBM] [Info] 213.102373 seconds elapsed, finished 81 iteration
+[LightGBM] [Info] Iteration:82, training's auc: 0.964155
+[LightGBM] [Info] Iteration:82, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908408
+[LightGBM] [Info] 215.254329 seconds elapsed, finished 82 iteration
+[LightGBM] [Info] Iteration:83, training's auc: 0.965398
+[LightGBM] [Info] Iteration:83, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908215
+[LightGBM] [Info] 217.283411 seconds elapsed, finished 83 iteration
+[LightGBM] [Info] Iteration:84, training's auc: 0.965725
+[LightGBM] [Info] Iteration:84, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908156
+[LightGBM] [Info] 219.317272 seconds elapsed, finished 84 iteration
+[LightGBM] [Info] Iteration:85, training's auc: 0.966287
+[LightGBM] [Info] Iteration:85, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908517
+[LightGBM] [Info] 221.451702 seconds elapsed, finished 85 iteration
+[LightGBM] [Info] Iteration:86, training's auc: 0.966784
+[LightGBM] [Info] Iteration:86, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908422
+[LightGBM] [Info] 224.915009 seconds elapsed, finished 86 iteration
+[LightGBM] [Info] Iteration:87, training's auc: 0.966892
+[LightGBM] [Info] Iteration:87, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908462
+[LightGBM] [Info] 227.264400 seconds elapsed, finished 87 iteration
+[LightGBM] [Info] Iteration:88, training's auc: 0.967054
+[LightGBM] [Info] Iteration:88, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909077
+[LightGBM] [Info] 229.371168 seconds elapsed, finished 88 iteration
+[LightGBM] [Info] Iteration:89, training's auc: 0.970169
+[LightGBM] [Info] Iteration:89, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909179
+[LightGBM] [Info] 231.584957 seconds elapsed, finished 89 iteration
+[LightGBM] [Info] Iteration:90, training's auc: 0.971322
+[LightGBM] [Info] Iteration:90, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908906
+[LightGBM] [Info] 233.802751 seconds elapsed, finished 90 iteration
+[LightGBM] [Info] Iteration:91, training's auc: 0.972137
+[LightGBM] [Info] Iteration:91, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908714
+[LightGBM] [Info] 238.057655 seconds elapsed, finished 91 iteration
+[LightGBM] [Info] Iteration:92, training's auc: 0.972491
+[LightGBM] [Info] Iteration:92, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908532
+[LightGBM] [Info] 240.331530 seconds elapsed, finished 92 iteration
+[LightGBM] [Info] Iteration:93, training's auc: 0.972944
+[LightGBM] [Info] Iteration:93, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908683
+[LightGBM] [Info] 242.590297 seconds elapsed, finished 93 iteration
+[LightGBM] [Info] Iteration:94, training's auc: 0.973231
+[LightGBM] [Info] Iteration:94, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908271
+[LightGBM] [Info] 244.885589 seconds elapsed, finished 94 iteration
+[LightGBM] [Info] Iteration:95, training's auc: 0.973607
+[LightGBM] [Info] Iteration:95, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908192
+[LightGBM] [Info] 247.177958 seconds elapsed, finished 95 iteration
+[LightGBM] [Info] Iteration:96, training's auc: 0.973891
+[LightGBM] [Info] Iteration:96, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908378
+[LightGBM] [Info] 251.172546 seconds elapsed, finished 96 iteration
+[LightGBM] [Info] Iteration:97, training's auc: 0.974691
+[LightGBM] [Info] Iteration:97, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908173
+[LightGBM] [Info] 253.552729 seconds elapsed, finished 97 iteration
+[LightGBM] [Info] Iteration:98, training's auc: 0.975023
+[LightGBM] [Info] Iteration:98, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908104
+[LightGBM] [Info] 256.017789 seconds elapsed, finished 98 iteration
+[LightGBM] [Info] Iteration:99, training's auc: 0.975529
+[LightGBM] [Info] Iteration:99, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907970
+[LightGBM] [Info] 258.358456 seconds elapsed, finished 99 iteration
+[LightGBM] [Info] Iteration:100, training's auc: 0.976090
+[LightGBM] [Info] Iteration:100, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908387
+[LightGBM] [Info] 261.089952 seconds elapsed, finished 100 iteration
+[LightGBM] [Info] Iteration:101, training's auc: 0.976568
+[LightGBM] [Info] Iteration:101, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908377
+[LightGBM] [Info] 264.330400 seconds elapsed, finished 101 iteration
+[LightGBM] [Info] Iteration:102, training's auc: 0.976931
+[LightGBM] [Info] Iteration:102, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908093
+[LightGBM] [Info] 266.814813 seconds elapsed, finished 102 iteration
+[LightGBM] [Info] Iteration:103, training's auc: 0.977500
+[LightGBM] [Info] Iteration:103, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907620
+[LightGBM] [Info] 269.300491 seconds elapsed, finished 103 iteration
+[LightGBM] [Info] Iteration:104, training's auc: 0.978084
+[LightGBM] [Info] Iteration:104, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907673
+[LightGBM] [Info] 271.806796 seconds elapsed, finished 104 iteration
+[LightGBM] [Info] Iteration:105, training's auc: 0.979111
+[LightGBM] [Info] Iteration:105, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907534
+[LightGBM] [Info] 275.869903 seconds elapsed, finished 105 iteration
+[LightGBM] [Info] Iteration:106, training's auc: 0.979756
+[LightGBM] [Info] Iteration:106, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907350
+[LightGBM] [Info] 278.554342 seconds elapsed, finished 106 iteration
+[LightGBM] [Info] Iteration:107, training's auc: 0.980047
+[LightGBM] [Info] Iteration:107, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907509
+[LightGBM] [Info] 281.245836 seconds elapsed, finished 107 iteration
+[LightGBM] [Info] Iteration:108, training's auc: 0.980646
+[LightGBM] [Info] Iteration:108, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907015
+[LightGBM] [Info] 283.805679 seconds elapsed, finished 108 iteration
+[LightGBM] [Info] Iteration:109, training's auc: 0.981194
+[LightGBM] [Info] Iteration:109, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907169
+[LightGBM] [Info] 287.555659 seconds elapsed, finished 109 iteration
+[LightGBM] [Info] Iteration:110, training's auc: 0.981453
+[LightGBM] [Info] Iteration:110, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907664
+[LightGBM] [Info] 290.347645 seconds elapsed, finished 110 iteration
+[LightGBM] [Info] Iteration:111, training's auc: 0.981921
+[LightGBM] [Info] Iteration:111, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907397
+[LightGBM] [Info] 292.879958 seconds elapsed, finished 111 iteration
+[LightGBM] [Info] Iteration:112, training's auc: 0.982489
+[LightGBM] [Info] Iteration:112, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906998
+[LightGBM] [Info] 295.635689 seconds elapsed, finished 112 iteration
+[LightGBM] [Info] Iteration:113, training's auc: 0.983380
+[LightGBM] [Info] Iteration:113, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906982
+[LightGBM] [Info] 298.358013 seconds elapsed, finished 113 iteration
+[LightGBM] [Info] Iteration:114, training's auc: 0.983952
+[LightGBM] [Info] Iteration:114, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906675
+[LightGBM] [Info] 302.189208 seconds elapsed, finished 114 iteration
+[LightGBM] [Info] Iteration:115, training's auc: 0.984864
+[LightGBM] [Info] Iteration:115, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906647
+[LightGBM] [Info] 304.959380 seconds elapsed, finished 115 iteration
+[LightGBM] [Info] Iteration:116, training's auc: 0.985765
+[LightGBM] [Info] Iteration:116, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906493
+[LightGBM] [Info] 307.558476 seconds elapsed, finished 116 iteration
+[LightGBM] [Info] Iteration:117, training's auc: 0.986500
+[LightGBM] [Info] Iteration:117, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906293
+[LightGBM] [Info] 310.367274 seconds elapsed, finished 117 iteration
+[LightGBM] [Info] Iteration:118, training's auc: 0.987025
+[LightGBM] [Info] Iteration:118, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907097
+[LightGBM] [Info] 314.813503 seconds elapsed, finished 118 iteration
+[LightGBM] [Info] Iteration:119, training's auc: 0.987505
+[LightGBM] [Info] Iteration:119, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907641
+[LightGBM] [Info] 317.642787 seconds elapsed, finished 119 iteration
+[LightGBM] [Info] Iteration:120, training's auc: 0.988214
+[LightGBM] [Info] Iteration:120, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908268
+[LightGBM] [Info] 320.527608 seconds elapsed, finished 120 iteration
+[LightGBM] [Info] Iteration:121, training's auc: 0.988724
+[LightGBM] [Info] Iteration:121, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908376
+[LightGBM] [Info] 323.482612 seconds elapsed, finished 121 iteration
+[LightGBM] [Info] Iteration:122, training's auc: 0.989216
+[LightGBM] [Info] Iteration:122, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908642
+[LightGBM] [Info] 327.639079 seconds elapsed, finished 122 iteration
+[LightGBM] [Info] Iteration:123, training's auc: 0.989611
+[LightGBM] [Info] Iteration:123, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908882
+[LightGBM] [Info] 330.681115 seconds elapsed, finished 123 iteration
+[LightGBM] [Info] Iteration:124, training's auc: 0.989884
+[LightGBM] [Info] Iteration:124, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908882
+[LightGBM] [Info] 333.575338 seconds elapsed, finished 124 iteration
+[LightGBM] [Info] Iteration:125, training's auc: 0.990253
+[LightGBM] [Info] Iteration:125, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908618
+[LightGBM] [Info] 336.780503 seconds elapsed, finished 125 iteration
+[LightGBM] [Info] Iteration:126, training's auc: 0.990753
+[LightGBM] [Info] Iteration:126, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908537
+[LightGBM] [Info] 340.671319 seconds elapsed, finished 126 iteration
+[LightGBM] [Info] Iteration:127, training's auc: 0.991253
+[LightGBM] [Info] Iteration:127, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908647
+[LightGBM] [Info] 343.859169 seconds elapsed, finished 127 iteration
+[LightGBM] [Info] Iteration:128, training's auc: 0.991621
+[LightGBM] [Info] Iteration:128, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909123
+[LightGBM] [Info] 346.923363 seconds elapsed, finished 128 iteration
+[LightGBM] [Info] Iteration:129, training's auc: 0.992020
+[LightGBM] [Info] Iteration:129, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909510
+[LightGBM] [Info] 351.778119 seconds elapsed, finished 129 iteration
+[LightGBM] [Info] Iteration:130, training's auc: 0.992414
+[LightGBM] [Info] Iteration:130, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909604
+[LightGBM] [Info] 355.047100 seconds elapsed, finished 130 iteration
+[LightGBM] [Info] Iteration:131, training's auc: 0.992820
+[LightGBM] [Info] Iteration:131, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909613
+[LightGBM] [Info] 358.517654 seconds elapsed, finished 131 iteration
+[LightGBM] [Info] Iteration:132, training's auc: 0.993191
+[LightGBM] [Info] Iteration:132, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909731
+[LightGBM] [Info] 361.865130 seconds elapsed, finished 132 iteration
+[LightGBM] [Info] Iteration:133, training's auc: 0.993522
+[LightGBM] [Info] Iteration:133, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909788
+[LightGBM] [Info] 366.027741 seconds elapsed, finished 133 iteration
+[LightGBM] [Info] Iteration:134, training's auc: 0.993903
+[LightGBM] [Info] Iteration:134, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909511
+[LightGBM] [Info] 369.322664 seconds elapsed, finished 134 iteration
+[LightGBM] [Info] Iteration:135, training's auc: 0.994234
+[LightGBM] [Info] Iteration:135, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.909053
+[LightGBM] [Info] 372.583788 seconds elapsed, finished 135 iteration
+[LightGBM] [Info] Iteration:136, training's auc: 0.994535
+[LightGBM] [Info] Iteration:136, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908711
+[LightGBM] [Info] 377.430182 seconds elapsed, finished 136 iteration
+[LightGBM] [Info] Iteration:137, training's auc: 0.994924
+[LightGBM] [Info] Iteration:137, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908437
+[LightGBM] [Info] 380.792044 seconds elapsed, finished 137 iteration
+[LightGBM] [Info] Iteration:138, training's auc: 0.995231
+[LightGBM] [Info] Iteration:138, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908158
+[LightGBM] [Info] 384.102279 seconds elapsed, finished 138 iteration
+[LightGBM] [Info] Iteration:139, training's auc: 0.995509
+[LightGBM] [Info] Iteration:139, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908579
+[LightGBM] [Info] 388.126408 seconds elapsed, finished 139 iteration
+[LightGBM] [Info] Iteration:140, training's auc: 0.995814
+[LightGBM] [Info] Iteration:140, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.908287
+[LightGBM] [Info] 391.769284 seconds elapsed, finished 140 iteration
+[LightGBM] [Info] Iteration:141, training's auc: 0.996075
+[LightGBM] [Info] Iteration:141, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907936
+[LightGBM] [Info] 395.210103 seconds elapsed, finished 141 iteration
+[LightGBM] [Info] Iteration:142, training's auc: 0.996360
+[LightGBM] [Info] Iteration:142, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907913
+[LightGBM] [Info] 398.638962 seconds elapsed, finished 142 iteration
+[LightGBM] [Info] Iteration:143, training's auc: 0.996604
+[LightGBM] [Info] Iteration:143, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907719
+[LightGBM] [Info] 403.628870 seconds elapsed, finished 143 iteration
+[LightGBM] [Info] Iteration:144, training's auc: 0.996839
+[LightGBM] [Info] Iteration:144, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907397
+[LightGBM] [Info] 406.970836 seconds elapsed, finished 144 iteration
+[LightGBM] [Info] Iteration:145, training's auc: 0.997052
+[LightGBM] [Info] Iteration:145, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907075
+[LightGBM] [Info] 410.277072 seconds elapsed, finished 145 iteration
+[LightGBM] [Info] Iteration:146, training's auc: 0.997267
+[LightGBM] [Info] Iteration:146, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907371
+[LightGBM] [Info] 415.138496 seconds elapsed, finished 146 iteration
+[LightGBM] [Info] Iteration:147, training's auc: 0.997436
+[LightGBM] [Info] Iteration:147, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907127
+[LightGBM] [Info] 418.465628 seconds elapsed, finished 147 iteration
+[LightGBM] [Info] Iteration:148, training's auc: 0.997599
+[LightGBM] [Info] Iteration:148, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.907222
+[LightGBM] [Info] 422.021543 seconds elapsed, finished 148 iteration
+[LightGBM] [Info] Iteration:149, training's auc: 0.997765
+[LightGBM] [Info] Iteration:149, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906741
+[LightGBM] [Info] 425.959305 seconds elapsed, finished 149 iteration
+[LightGBM] [Info] Iteration:150, training's auc: 0.997930
+[LightGBM] [Info] Iteration:150, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906236
+[LightGBM] [Info] 429.806763 seconds elapsed, finished 150 iteration
+[LightGBM] [Info] Iteration:151, training's auc: 0.998064
+[LightGBM] [Info] Iteration:151, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905707
+[LightGBM] [Info] 433.321881 seconds elapsed, finished 151 iteration
+[LightGBM] [Info] Iteration:152, training's auc: 0.998187
+[LightGBM] [Info] Iteration:152, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905582
+[LightGBM] [Info] 436.749128 seconds elapsed, finished 152 iteration
+[LightGBM] [Info] Iteration:153, training's auc: 0.998301
+[LightGBM] [Info] Iteration:153, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905601
+[LightGBM] [Info] 441.635037 seconds elapsed, finished 153 iteration
+[LightGBM] [Info] Iteration:154, training's auc: 0.998421
+[LightGBM] [Info] Iteration:154, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905666
+[LightGBM] [Info] 445.175971 seconds elapsed, finished 154 iteration
+[LightGBM] [Info] Iteration:155, training's auc: 0.998520
+[LightGBM] [Info] Iteration:155, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905390
+[LightGBM] [Info] 448.550416 seconds elapsed, finished 155 iteration
+[LightGBM] [Info] Iteration:156, training's auc: 0.998618
+[LightGBM] [Info] Iteration:156, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905468
+[LightGBM] [Info] 453.344824 seconds elapsed, finished 156 iteration
+[LightGBM] [Info] Iteration:157, training's auc: 0.998713
+[LightGBM] [Info] Iteration:157, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905847
+[LightGBM] [Info] 456.693154 seconds elapsed, finished 157 iteration
+[LightGBM] [Info] Iteration:158, training's auc: 0.998807
+[LightGBM] [Info] Iteration:158, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906076
+[LightGBM] [Info] 460.150324 seconds elapsed, finished 158 iteration
+[LightGBM] [Info] Iteration:159, training's auc: 0.998886
+[LightGBM] [Info] Iteration:159, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905935
+[LightGBM] [Info] 465.004924 seconds elapsed, finished 159 iteration
+[LightGBM] [Info] Iteration:160, training's auc: 0.998973
+[LightGBM] [Info] Iteration:160, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905751
+[LightGBM] [Info] 468.555322 seconds elapsed, finished 160 iteration
+[LightGBM] [Info] Iteration:161, training's auc: 0.999055
+[LightGBM] [Info] Iteration:161, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906002
+[LightGBM] [Info] 472.048644 seconds elapsed, finished 161 iteration
+[LightGBM] [Info] Iteration:162, training's auc: 0.999136
+[LightGBM] [Info] Iteration:162, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906136
+[LightGBM] [Info] 476.035807 seconds elapsed, finished 162 iteration
+[LightGBM] [Info] Iteration:163, training's auc: 0.999202
+[LightGBM] [Info] Iteration:163, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906038
+[LightGBM] [Info] 480.117309 seconds elapsed, finished 163 iteration
+[LightGBM] [Info] Iteration:164, training's auc: 0.999263
+[LightGBM] [Info] Iteration:164, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906229
+[LightGBM] [Info] 483.626662 seconds elapsed, finished 164 iteration
+[LightGBM] [Info] Iteration:165, training's auc: 0.999323
+[LightGBM] [Info] Iteration:165, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906632
+[LightGBM] [Info] 487.219983 seconds elapsed, finished 165 iteration
+[LightGBM] [Info] Iteration:166, training's auc: 0.999383
+[LightGBM] [Info] Iteration:166, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906357
+[LightGBM] [Info] 492.151241 seconds elapsed, finished 166 iteration
+[LightGBM] [Info] Iteration:167, training's auc: 0.999429
+[LightGBM] [Info] Iteration:167, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906323
+[LightGBM] [Info] 495.797308 seconds elapsed, finished 167 iteration
+[LightGBM] [Info] Iteration:168, training's auc: 0.999478
+[LightGBM] [Info] Iteration:168, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906590
+[LightGBM] [Info] 499.694912 seconds elapsed, finished 168 iteration
+[LightGBM] [Info] Iteration:169, training's auc: 0.999516
+[LightGBM] [Info] Iteration:169, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906866
+[LightGBM] [Info] 504.970717 seconds elapsed, finished 169 iteration
+[LightGBM] [Info] Iteration:170, training's auc: 0.999557
+[LightGBM] [Info] Iteration:170, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906645
+[LightGBM] [Info] 508.661208 seconds elapsed, finished 170 iteration
+[LightGBM] [Info] Iteration:171, training's auc: 0.999593
+[LightGBM] [Info] Iteration:171, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906677
+[LightGBM] [Info] 512.497882 seconds elapsed, finished 171 iteration
+[LightGBM] [Info] Iteration:172, training's auc: 0.999629
+[LightGBM] [Info] Iteration:172, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906711
+[LightGBM] [Info] 517.904938 seconds elapsed, finished 172 iteration
+[LightGBM] [Info] Iteration:173, training's auc: 0.999662
+[LightGBM] [Info] Iteration:173, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906556
+[LightGBM] [Info] 521.787295 seconds elapsed, finished 173 iteration
+[LightGBM] [Info] Iteration:174, training's auc: 0.999689
+[LightGBM] [Info] Iteration:174, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906435
+[LightGBM] [Info] 525.695280 seconds elapsed, finished 174 iteration
+[LightGBM] [Info] Iteration:175, training's auc: 0.999719
+[LightGBM] [Info] Iteration:175, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906536
+[LightGBM] [Info] 530.463072 seconds elapsed, finished 175 iteration
+[LightGBM] [Info] Iteration:176, training's auc: 0.999742
+[LightGBM] [Info] Iteration:176, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906351
+[LightGBM] [Info] 534.288318 seconds elapsed, finished 176 iteration
+[LightGBM] [Info] Iteration:177, training's auc: 0.999764
+[LightGBM] [Info] Iteration:177, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906276
+[LightGBM] [Info] 538.069164 seconds elapsed, finished 177 iteration
+[LightGBM] [Info] Iteration:178, training's auc: 0.999785
+[LightGBM] [Info] Iteration:178, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906307
+[LightGBM] [Info] 543.475572 seconds elapsed, finished 178 iteration
+[LightGBM] [Info] Iteration:179, training's auc: 0.999804
+[LightGBM] [Info] Iteration:179, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906215
+[LightGBM] [Info] 547.296503 seconds elapsed, finished 179 iteration
+[LightGBM] [Info] Iteration:180, training's auc: 0.999820
+[LightGBM] [Info] Iteration:180, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905999
+[LightGBM] [Info] 550.983053 seconds elapsed, finished 180 iteration
+[LightGBM] [Info] Iteration:181, training's auc: 0.999835
+[LightGBM] [Info] Iteration:181, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906103
+[LightGBM] [Info] 556.290533 seconds elapsed, finished 181 iteration
+[LightGBM] [Info] Iteration:182, training's auc: 0.999850
+[LightGBM] [Info] Iteration:182, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906295
+[LightGBM] [Info] 559.948892 seconds elapsed, finished 182 iteration
+[LightGBM] [Info] Iteration:183, training's auc: 0.999863
+[LightGBM] [Info] Iteration:183, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906338
+[LightGBM] [Info] 563.837792 seconds elapsed, finished 183 iteration
+[LightGBM] [Info] Iteration:184, training's auc: 0.999875
+[LightGBM] [Info] Iteration:184, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906395
+[LightGBM] [Info] 569.186360 seconds elapsed, finished 184 iteration
+[LightGBM] [Info] Iteration:185, training's auc: 0.999888
+[LightGBM] [Info] Iteration:185, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.906323
+[LightGBM] [Info] 573.023924 seconds elapsed, finished 185 iteration
+[LightGBM] [Info] Iteration:186, training's auc: 0.999899
+[LightGBM] [Info] Iteration:186, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905890
+[LightGBM] [Info] 576.790357 seconds elapsed, finished 186 iteration
+[LightGBM] [Info] Iteration:187, training's auc: 0.999909
+[LightGBM] [Info] Iteration:187, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905855
+[LightGBM] [Info] 581.656405 seconds elapsed, finished 187 iteration
+[LightGBM] [Info] Iteration:188, training's auc: 0.999918
+[LightGBM] [Info] Iteration:188, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905908
+[LightGBM] [Info] 585.372505 seconds elapsed, finished 188 iteration
+[LightGBM] [Info] Iteration:189, training's auc: 0.999927
+[LightGBM] [Info] Iteration:189, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905755
+[LightGBM] [Info] 589.130311 seconds elapsed, finished 189 iteration
+[LightGBM] [Info] Iteration:190, training's auc: 0.999933
+[LightGBM] [Info] Iteration:190, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905719
+[LightGBM] [Info] 594.774266 seconds elapsed, finished 190 iteration
+[LightGBM] [Info] Iteration:191, training's auc: 0.999940
+[LightGBM] [Info] Iteration:191, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905677
+[LightGBM] [Info] 598.909123 seconds elapsed, finished 191 iteration
+[LightGBM] [Info] Iteration:192, training's auc: 0.999946
+[LightGBM] [Info] Iteration:192, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905436
+[LightGBM] [Info] 602.762582 seconds elapsed, finished 192 iteration
+[LightGBM] [Info] Iteration:193, training's auc: 0.999953
+[LightGBM] [Info] Iteration:193, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905283
+[LightGBM] [Info] 607.790617 seconds elapsed, finished 193 iteration
+[LightGBM] [Info] Iteration:194, training's auc: 0.999958
+[LightGBM] [Info] Iteration:194, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905272
+[LightGBM] [Info] 611.500579 seconds elapsed, finished 194 iteration
+[LightGBM] [Info] Iteration:195, training's auc: 0.999963
+[LightGBM] [Info] Iteration:195, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905265
+[LightGBM] [Info] 615.457871 seconds elapsed, finished 195 iteration
+[LightGBM] [Info] Iteration:196, training's auc: 0.999968
+[LightGBM] [Info] Iteration:196, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904847
+[LightGBM] [Info] 620.492050 seconds elapsed, finished 196 iteration
+[LightGBM] [Info] Iteration:197, training's auc: 0.999971
+[LightGBM] [Info] Iteration:197, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904864
+[LightGBM] [Info] 624.379473 seconds elapsed, finished 197 iteration
+[LightGBM] [Info] Iteration:198, training's auc: 0.999974
+[LightGBM] [Info] Iteration:198, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904878
+[LightGBM] [Info] 628.503193 seconds elapsed, finished 198 iteration
+[LightGBM] [Info] Iteration:199, training's auc: 0.999977
+[LightGBM] [Info] Iteration:199, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904766
+[LightGBM] [Info] 633.486159 seconds elapsed, finished 199 iteration
+[LightGBM] [Info] Iteration:200, training's auc: 0.999980
+[LightGBM] [Info] Iteration:200, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904581
+[LightGBM] [Info] 637.069924 seconds elapsed, finished 200 iteration
+[LightGBM] [Info] Iteration:201, training's auc: 0.999982
+[LightGBM] [Info] Iteration:201, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904735
+[LightGBM] [Info] 640.754394 seconds elapsed, finished 201 iteration
+[LightGBM] [Info] Iteration:202, training's auc: 0.999984
+[LightGBM] [Info] Iteration:202, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904527
+[LightGBM] [Info] 645.740616 seconds elapsed, finished 202 iteration
+[LightGBM] [Info] Iteration:203, training's auc: 0.999986
+[LightGBM] [Info] Iteration:203, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904615
+[LightGBM] [Info] 649.733500 seconds elapsed, finished 203 iteration
+[LightGBM] [Info] Iteration:204, training's auc: 0.999987
+[LightGBM] [Info] Iteration:204, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904853
+[LightGBM] [Info] 653.767643 seconds elapsed, finished 204 iteration
+[LightGBM] [Info] Iteration:205, training's auc: 0.999989
+[LightGBM] [Info] Iteration:205, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.905007
+[LightGBM] [Info] 658.682685 seconds elapsed, finished 205 iteration
+[LightGBM] [Info] Iteration:206, training's auc: 0.999990
+[LightGBM] [Info] Iteration:206, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904738
+[LightGBM] [Info] 662.555410 seconds elapsed, finished 206 iteration
+[LightGBM] [Info] Iteration:207, training's auc: 0.999992
+[LightGBM] [Info] Iteration:207, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904579
+[LightGBM] [Info] 666.317958 seconds elapsed, finished 207 iteration
+[LightGBM] [Info] Iteration:208, training's auc: 0.999992
+[LightGBM] [Info] Iteration:208, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904576
+[LightGBM] [Info] 671.509980 seconds elapsed, finished 208 iteration
+[LightGBM] [Info] Iteration:209, training's auc: 0.999993
+[LightGBM] [Info] Iteration:209, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904644
+[LightGBM] [Info] 675.635161 seconds elapsed, finished 209 iteration
+[LightGBM] [Info] Iteration:210, training's auc: 0.999994
+[LightGBM] [Info] Iteration:210, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904618
+[LightGBM] [Info] 679.514317 seconds elapsed, finished 210 iteration
+[LightGBM] [Info] Iteration:211, training's auc: 0.999995
+[LightGBM] [Info] Iteration:211, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904762
+[LightGBM] [Info] 684.789266 seconds elapsed, finished 211 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=507
+[LightGBM] [Info] Iteration:212, training's auc: 0.999995
+[LightGBM] [Info] Iteration:212, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904586
+[LightGBM] [Info] 689.039310 seconds elapsed, finished 212 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=505
+[LightGBM] [Info] Iteration:213, training's auc: 0.999996
+[LightGBM] [Info] Iteration:213, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904438
+[LightGBM] [Info] 694.582780 seconds elapsed, finished 213 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=490
+[LightGBM] [Info] Iteration:214, training's auc: 0.999996
+[LightGBM] [Info] Iteration:214, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904512
+[LightGBM] [Info] 698.682811 seconds elapsed, finished 214 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=497
+[LightGBM] [Info] Iteration:215, training's auc: 0.999997
+[LightGBM] [Info] Iteration:215, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904531
+[LightGBM] [Info] 702.613279 seconds elapsed, finished 215 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=470
+[LightGBM] [Info] Iteration:216, training's auc: 0.999997
+[LightGBM] [Info] Iteration:216, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904612
+[LightGBM] [Info] 707.998813 seconds elapsed, finished 216 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=469
+[LightGBM] [Info] Iteration:217, training's auc: 0.999998
+[LightGBM] [Info] Iteration:217, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904579
+[LightGBM] [Info] 711.610065 seconds elapsed, finished 217 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=479
+[LightGBM] [Info] Iteration:218, training's auc: 0.999998
+[LightGBM] [Info] Iteration:218, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904451
+[LightGBM] [Info] 715.654844 seconds elapsed, finished 218 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=454
+[LightGBM] [Info] Iteration:219, training's auc: 0.999998
+[LightGBM] [Info] Iteration:219, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904520
+[LightGBM] [Info] 720.555125 seconds elapsed, finished 219 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=462
+[LightGBM] [Info] Iteration:220, training's auc: 0.999998
+[LightGBM] [Info] Iteration:220, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904363
+[LightGBM] [Info] 724.891966 seconds elapsed, finished 220 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=441
+[LightGBM] [Info] Iteration:221, training's auc: 0.999999
+[LightGBM] [Info] Iteration:221, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904148
+[LightGBM] [Info] 728.285864 seconds elapsed, finished 221 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=457
+[LightGBM] [Info] Iteration:222, training's auc: 0.999999
+[LightGBM] [Info] Iteration:222, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904030
+[LightGBM] [Info] 733.177789 seconds elapsed, finished 222 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=436
+[LightGBM] [Info] Iteration:223, training's auc: 0.999999
+[LightGBM] [Info] Iteration:223, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903989
+[LightGBM] [Info] 736.481491 seconds elapsed, finished 223 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=455
+[LightGBM] [Info] Iteration:224, training's auc: 0.999999
+[LightGBM] [Info] Iteration:224, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903921
+[LightGBM] [Info] 740.786940 seconds elapsed, finished 224 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=427
+[LightGBM] [Info] Iteration:225, training's auc: 0.999999
+[LightGBM] [Info] Iteration:225, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904063
+[LightGBM] [Info] 745.497880 seconds elapsed, finished 225 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=430
+[LightGBM] [Info] Iteration:226, training's auc: 0.999999
+[LightGBM] [Info] Iteration:226, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904164
+[LightGBM] [Info] 748.797492 seconds elapsed, finished 226 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=442
+[LightGBM] [Info] Iteration:227, training's auc: 0.999999
+[LightGBM] [Info] Iteration:227, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904245
+[LightGBM] [Info] 752.886216 seconds elapsed, finished 227 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=412
+[LightGBM] [Info] Iteration:228, training's auc: 0.999999
+[LightGBM] [Info] Iteration:228, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904138
+[LightGBM] [Info] 757.815224 seconds elapsed, finished 228 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=414
+[LightGBM] [Info] Iteration:229, training's auc: 0.999999
+[LightGBM] [Info] Iteration:229, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904298
+[LightGBM] [Info] 761.043756 seconds elapsed, finished 229 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=430
+[LightGBM] [Info] Iteration:230, training's auc: 1.000000
+[LightGBM] [Info] Iteration:230, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904162
+[LightGBM] [Info] 764.936766 seconds elapsed, finished 230 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=406
+[LightGBM] [Info] Iteration:231, training's auc: 1.000000
+[LightGBM] [Info] Iteration:231, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904089
+[LightGBM] [Info] 768.575198 seconds elapsed, finished 231 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=409
+[LightGBM] [Info] Iteration:232, training's auc: 1.000000
+[LightGBM] [Info] Iteration:232, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904093
+[LightGBM] [Info] 772.410084 seconds elapsed, finished 232 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=398
+[LightGBM] [Info] Iteration:233, training's auc: 1.000000
+[LightGBM] [Info] Iteration:233, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904085
+[LightGBM] [Info] 775.747099 seconds elapsed, finished 233 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=415
+[LightGBM] [Info] Iteration:234, training's auc: 1.000000
+[LightGBM] [Info] Iteration:234, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904094
+[LightGBM] [Info] 779.513573 seconds elapsed, finished 234 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=398
+[LightGBM] [Info] Iteration:235, training's auc: 1.000000
+[LightGBM] [Info] Iteration:235, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904164
+[LightGBM] [Info] 784.198034 seconds elapsed, finished 235 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=388
+[LightGBM] [Info] Iteration:236, training's auc: 1.000000
+[LightGBM] [Info] Iteration:236, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904269
+[LightGBM] [Info] 787.362739 seconds elapsed, finished 236 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=407
+[LightGBM] [Info] Iteration:237, training's auc: 1.000000
+[LightGBM] [Info] Iteration:237, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904356
+[LightGBM] [Info] 791.234150 seconds elapsed, finished 237 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=394
+[LightGBM] [Info] Iteration:238, training's auc: 1.000000
+[LightGBM] [Info] Iteration:238, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904304
+[LightGBM] [Info] 796.341596 seconds elapsed, finished 238 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=397
+[LightGBM] [Info] Iteration:239, training's auc: 1.000000
+[LightGBM] [Info] Iteration:239, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904316
+[LightGBM] [Info] 799.647326 seconds elapsed, finished 239 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=383
+[LightGBM] [Info] Iteration:240, training's auc: 1.000000
+[LightGBM] [Info] Iteration:240, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904317
+[LightGBM] [Info] 802.809478 seconds elapsed, finished 240 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=391
+[LightGBM] [Info] Iteration:241, training's auc: 1.000000
+[LightGBM] [Info] Iteration:241, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904400
+[LightGBM] [Info] 807.439286 seconds elapsed, finished 241 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=375
+[LightGBM] [Info] Iteration:242, training's auc: 1.000000
+[LightGBM] [Info] Iteration:242, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904402
+[LightGBM] [Info] 811.052171 seconds elapsed, finished 242 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=381
+[LightGBM] [Info] Iteration:243, training's auc: 1.000000
+[LightGBM] [Info] Iteration:243, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904346
+[LightGBM] [Info] 814.288039 seconds elapsed, finished 243 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=385
+[LightGBM] [Info] Iteration:244, training's auc: 1.000000
+[LightGBM] [Info] Iteration:244, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904324
+[LightGBM] [Info] 818.195615 seconds elapsed, finished 244 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=370
+[LightGBM] [Info] Iteration:245, training's auc: 1.000000
+[LightGBM] [Info] Iteration:245, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904197
+[LightGBM] [Info] 822.630892 seconds elapsed, finished 245 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=365
+[LightGBM] [Info] Iteration:246, training's auc: 1.000000
+[LightGBM] [Info] Iteration:246, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904158
+[LightGBM] [Info] 825.649245 seconds elapsed, finished 246 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=371
+[LightGBM] [Info] Iteration:247, training's auc: 1.000000
+[LightGBM] [Info] Iteration:247, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904212
+[LightGBM] [Info] 829.344589 seconds elapsed, finished 247 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=371
+[LightGBM] [Info] Iteration:248, training's auc: 1.000000
+[LightGBM] [Info] Iteration:248, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904188
+[LightGBM] [Info] 834.161947 seconds elapsed, finished 248 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=352
+[LightGBM] [Info] Iteration:249, training's auc: 1.000000
+[LightGBM] [Info] Iteration:249, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903960
+[LightGBM] [Info] 837.155693 seconds elapsed, finished 249 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=345
+[LightGBM] [Info] Iteration:250, training's auc: 1.000000
+[LightGBM] [Info] Iteration:250, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904092
+[LightGBM] [Info] 840.213047 seconds elapsed, finished 250 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=347
+[LightGBM] [Info] Iteration:251, training's auc: 1.000000
+[LightGBM] [Info] Iteration:251, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904098
+[LightGBM] [Info] 843.278719 seconds elapsed, finished 251 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=365
+[LightGBM] [Info] Iteration:252, training's auc: 1.000000
+[LightGBM] [Info] Iteration:252, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904122
+[LightGBM] [Info] 848.611093 seconds elapsed, finished 252 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=351
+[LightGBM] [Info] Iteration:253, training's auc: 1.000000
+[LightGBM] [Info] Iteration:253, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904070
+[LightGBM] [Info] 851.756901 seconds elapsed, finished 253 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=355
+[LightGBM] [Info] Iteration:254, training's auc: 1.000000
+[LightGBM] [Info] Iteration:254, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904062
+[LightGBM] [Info] 855.509583 seconds elapsed, finished 254 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=343
+[LightGBM] [Info] Iteration:255, training's auc: 1.000000
+[LightGBM] [Info] Iteration:255, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.904053
+[LightGBM] [Info] 859.951730 seconds elapsed, finished 255 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=339
+[LightGBM] [Info] Iteration:256, training's auc: 1.000000
+[LightGBM] [Info] Iteration:256, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903815
+[LightGBM] [Info] 863.063454 seconds elapsed, finished 256 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=337
+[LightGBM] [Info] Iteration:257, training's auc: 1.000000
+[LightGBM] [Info] Iteration:257, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903911
+[LightGBM] [Info] 866.750829 seconds elapsed, finished 257 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=330
+[LightGBM] [Info] Iteration:258, training's auc: 1.000000
+[LightGBM] [Info] Iteration:258, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903838
+[LightGBM] [Info] 869.925089 seconds elapsed, finished 258 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=338
+[LightGBM] [Info] Iteration:259, training's auc: 1.000000
+[LightGBM] [Info] Iteration:259, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903823
+[LightGBM] [Info] 873.892252 seconds elapsed, finished 259 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=328
+[LightGBM] [Info] Iteration:260, training's auc: 1.000000
+[LightGBM] [Info] Iteration:260, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903781
+[LightGBM] [Info] 877.401518 seconds elapsed, finished 260 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=323
+[LightGBM] [Info] Iteration:261, training's auc: 1.000000
+[LightGBM] [Info] Iteration:261, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903792
+[LightGBM] [Info] 880.486624 seconds elapsed, finished 261 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=326
+[LightGBM] [Info] Iteration:262, training's auc: 1.000000
+[LightGBM] [Info] Iteration:262, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903684
+[LightGBM] [Info] 885.061847 seconds elapsed, finished 262 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=324
+[LightGBM] [Info] Iteration:263, training's auc: 1.000000
+[LightGBM] [Info] Iteration:263, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903706
+[LightGBM] [Info] 888.179704 seconds elapsed, finished 263 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=328
+[LightGBM] [Info] Iteration:264, training's auc: 1.000000
+[LightGBM] [Info] Iteration:264, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903797
+[LightGBM] [Info] 891.738358 seconds elapsed, finished 264 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=325
+[LightGBM] [Info] Iteration:265, training's auc: 1.000000
+[LightGBM] [Info] Iteration:265, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903707
+[LightGBM] [Info] 894.723243 seconds elapsed, finished 265 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=314
+[LightGBM] [Info] Iteration:266, training's auc: 1.000000
+[LightGBM] [Info] Iteration:266, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903719
+[LightGBM] [Info] 899.155665 seconds elapsed, finished 266 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=319
+[LightGBM] [Info] Iteration:267, training's auc: 1.000000
+[LightGBM] [Info] Iteration:267, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903664
+[LightGBM] [Info] 902.521248 seconds elapsed, finished 267 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=313
+[LightGBM] [Info] Iteration:268, training's auc: 1.000000
+[LightGBM] [Info] Iteration:268, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903601
+[LightGBM] [Info] 905.418004 seconds elapsed, finished 268 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=312
+[LightGBM] [Info] Iteration:269, training's auc: 1.000000
+[LightGBM] [Info] Iteration:269, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903569
+[LightGBM] [Info] 909.461646 seconds elapsed, finished 269 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=318
+[LightGBM] [Info] Iteration:270, training's auc: 1.000000
+[LightGBM] [Info] Iteration:270, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903429
+[LightGBM] [Info] 913.287582 seconds elapsed, finished 270 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=309
+[LightGBM] [Info] Iteration:271, training's auc: 1.000000
+[LightGBM] [Info] Iteration:271, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903451
+[LightGBM] [Info] 916.091187 seconds elapsed, finished 271 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=314
+[LightGBM] [Info] Iteration:272, training's auc: 1.000000
+[LightGBM] [Info] Iteration:272, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903430
+[LightGBM] [Info] 919.102694 seconds elapsed, finished 272 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=302
+[LightGBM] [Info] Iteration:273, training's auc: 1.000000
+[LightGBM] [Info] Iteration:273, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903266
+[LightGBM] [Info] 923.531351 seconds elapsed, finished 273 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=305
+[LightGBM] [Info] Iteration:274, training's auc: 1.000000
+[LightGBM] [Info] Iteration:274, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903265
+[LightGBM] [Info] 926.526101 seconds elapsed, finished 274 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=300
+[LightGBM] [Info] Iteration:275, training's auc: 1.000000
+[LightGBM] [Info] Iteration:275, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903217
+[LightGBM] [Info] 930.042130 seconds elapsed, finished 275 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=300
+[LightGBM] [Info] Iteration:276, training's auc: 1.000000
+[LightGBM] [Info] Iteration:276, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903317
+[LightGBM] [Info] 932.958122 seconds elapsed, finished 276 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=299
+[LightGBM] [Info] Iteration:277, training's auc: 1.000000
+[LightGBM] [Info] Iteration:277, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903392
+[LightGBM] [Info] 937.061205 seconds elapsed, finished 277 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=289
+[LightGBM] [Info] Iteration:278, training's auc: 1.000000
+[LightGBM] [Info] Iteration:278, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903280
+[LightGBM] [Info] 940.616071 seconds elapsed, finished 278 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=296
+[LightGBM] [Info] Iteration:279, training's auc: 1.000000
+[LightGBM] [Info] Iteration:279, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903254
+[LightGBM] [Info] 943.472120 seconds elapsed, finished 279 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=291
+[LightGBM] [Info] Iteration:280, training's auc: 1.000000
+[LightGBM] [Info] Iteration:280, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903282
+[LightGBM] [Info] 947.746644 seconds elapsed, finished 280 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=290
+[LightGBM] [Info] Iteration:281, training's auc: 1.000000
+[LightGBM] [Info] Iteration:281, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903113
+[LightGBM] [Info] 951.248072 seconds elapsed, finished 281 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=287
+[LightGBM] [Info] Iteration:282, training's auc: 1.000000
+[LightGBM] [Info] Iteration:282, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903185
+[LightGBM] [Info] 954.147327 seconds elapsed, finished 282 iteration
+[LightGBM] [Info] cannot find more split with gain = -inf , current #leaves=290
+[LightGBM] [Info] Iteration:283, training's auc: 1.000000
+[LightGBM] [Info] Iteration:283, E:/Laurae/20161024_lgbm_jayjay/lgbm_val_1.csv's auc: 0.903300
+[LightGBM] [Info] 957.350634 seconds elapsed, finished 283 iteration
+[LightGBM] [Info] Early stopping at iteration 283, the best iteration round is 133
+[LightGBM] [Info] Finish train
