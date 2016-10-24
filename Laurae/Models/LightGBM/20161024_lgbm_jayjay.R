@@ -14,8 +14,9 @@ setwd("E:/")
 
 my_script_is_using <- "E:/Laurae/20161024_lgbm_jayjay"
 my_lgbm_is_at <- "C:/Compiled/LightGBM/windows/x64/Release/lightgbm.exe"
-my_script_subbed <- strsplit(gsub("/", "\\\\", my_script_is_using), "\\\\")
-my_script_subbed <- my_script_subbed[[1]][length(my_script_subbed[[1]])]
+my_script_subbed <- basename(my_script_is_using) # more safe to get last directory of path
+#my_script_subbed <- strsplit(gsub("/", "\\\\", my_script_is_using), "\\\\")
+#my_script_subbed <- my_script_subbed[[1]][length(my_script_subbed[[1]])]
 
 
 # Load from RDS
