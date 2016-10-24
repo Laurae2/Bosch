@@ -1,0 +1,105 @@
+Fold 1 converged after 133 iterations.
+Fold 2 converged after 87 iterations.
+Fold 3 converged after 93 iterations.
+Fold 4 converged after 89 iterations.
+Fold 5 converged after 79 iterations.
+Iterations: 96.2 + 21.19434
+
+
+Cross-validated best features list (top 1-50):
+c("sameL0_Number1", "sameL1_Number1", "CATEGORICAL_Last_____1", 
+"GF1", "sameL3_Number1", "GF0", "sameL3", "BAC60_Sum_S3", "FOR60_Sum_S3", 
+"L1_S24_F1723", "DATE_S33max", "DATE_L3kurt", "FOR30_Sum_S", 
+"BAC30_Sum_S", "BAC100_Sum", "FOR100_Sum", "Kurtosis", "FOR165_log_lag", 
+"L3_S33_F3857", "Id", "L1_S24_F1632", "L3_S30_F3754", "FOR100_log_lag_L3", 
+"BAC100_log_lag_L3", "FOR165_Sum", "L3_S33_F3859", "Range", "L3_S30_F3744", 
+"L3_S30_F3759", "L0max_L3max", "L3max_L0min", "BAC165_Sum", "BAC100_log_lag", 
+"S33max_S29min", "L3_S33_F3865", "L0_Max", "FOR100_log_lag", 
+"L3_S30_F3774", "L3_S30_F3749", "L3_L3_Unique_Count", "BAC165_log_lag", 
+"L1_S24_F1844", "L3_S30_F3804", "BAC165_log_lag_L3", "CATEGORICAL_Last_____2", 
+"L3_S30_F3809", "L3_S29_F3351", "DATE_S34max", "DATE_S32max", 
+"L3_S29_F3345")
+
+
+Cross-validated best features list (top 51-100):
+c("Response_Minus1", "L3_S29_F3324", "L3_S29_F3348", "L0_S1_F28", 
+"L3_S29_F3373", "L3_S29_F3321", "L3_S30_F3554", "FOR165_log_lag_L3", 
+"L3_S30_F3494", "L3_S30_F3704", "L3_S30_F3769", "L0_S0_F20_Mult_L0_S0_F20", 
+"L3_S29_F3342", "L3_S30_F3829", "L0_Mean", "L3_S29_F3427", "L3_S29_F3379", 
+"L3_S29_F3333", "L3_S29_F3354", "L3_S36_F3920", "S33min_S30min", 
+"L3_S29_F3339", "L3_S29_F3327", "L3_S29_F3315", "Response_Minus1_Number1", 
+"L0_Min", "sameL0", "L3_S29_F3479", "L3_S30_F3574", "L1_S24_F1846", 
+"L0_S1_F24", "L3_S30_F3794", "L3_S30_F3609", "L3_S29_F3336", 
+"L3_S30_F3544", "L3_S30_F3519", "L3_S29_F3330", "L3_S29_F3376", 
+"L3_S29_F3382", "L3_S30_F3604", "L3_S30_F3524", "FOR60_log_lag_S34", 
+"L0_S0_F20", "L2_Min", "FOR165_log_lag_L2", "L0_S0_F18", "L0_S0_F16", 
+"L3_S30_F3534", "L3_S30_F3784", "L0_S9_F180")
+
+
+Cross-validated best features list (top 101-150):
+c("L3_S30_F3514", "BAC60_log_lag_S34", "L3_S30_F3639", "DATE_S35max", 
+"L3_S29_F3433", "BAC165_log_lag_L1", "L3_S29_F3318", "BAC165_log_lag_L2", 
+"L3_S30_F3819", "L0_S4_F104", "L0_S0_F0", "L3_S30_F3709", "L3_S30_F3764", 
+"L3_S30_F3504", "DATE_S36max", "L3_S30_F3624", "L3_S29_F3407", 
+"L3_S30_F3509", "L3_S30_F3629", "L2max_S37max", "L0_S0_F2", "FOR30_log_lag_S34", 
+"BAC165_log_lag_L0", "DATE_S30max", "BAC60_log_lag_S33", "FOR165_log_lag_L0", 
+"L3_S29_F3430", "BAC165_LAG2_Missing_Value_Count_ResponseMinus1", 
+"FOR60_log_lag_S33", "L0_S2_F36", "BAC100_log_lag_L1", "L3_Range", 
+"S29min_S37min", "L3_Max", "L3_S29_F3473", "L3_S30_F3799", "L3_S30_F3579", 
+"FOR165_log_lag_L1", "FOR165_LAG_Missing_Value_Count_ResponseMinus1", 
+"L3max_S30max", "L0_S3_F100", "L3_Min", "DATE_S37max", "FOR165_LAG3_Missing_Value_Count_ResponseMinus1", 
+"BAC165_LAG_Missing_Value_Count_ResponseMinus1", "FOR165_LAG3_Count_Mult_ResponseMinus1", 
+"BAC100_LAG_Missing_Value_Count_ResponseMinus1", "FOR165_LAG_Count_Mult_ResponseMinus1", 
+"L0_S2_F44", "FOR165_LAG2_Missing_Value_Count_ResponseMinus1"
+)
+
+
+Cross-validated best features list (top 151-200):
+c("L0_S10_F244", "L0_S5_F114", "FOR60_log_lag_S30", "L0_S4_F109", 
+"BAC165_LAG2_Count_Mult_ResponseMinus1", "L0_S2_F60", "L3_S29_F3436", 
+"FOR100_log_lag_L2", "BAC30_log_lag_S33", "BAC100_log_lag_L2", 
+"L0_S5_F116", "FOR100_LAG_Missing_Value_Count_ResponseMinus1", 
+"BAC30_log_lag_S30", "FOR165_LAG1_Missing_Value_Count_ResponseMinus1", 
+"L0_S3_F96", "CATEGORICAL_Unique_Count", "L3_S30_F3669", "S30min_S37min", 
+"L3_S29_F3461", "BAC100_LAG_Count_Mult_ResponseMinus1", "BAC165_LAG_Count_Mult_ResponseMinus1", 
+"BAC100_LAG3_Missing_Value_Count_ResponseMinus1", "L0_S7_F138", 
+"FOR165_LAG2_Count_Mult_ResponseMinus1", "L0_Range", "BAC30_log_lag_S34", 
+"L0_S6_F132", "FOR100_LAG3_Missing_Value_Count_ResponseMinus1", 
+"FOR165_LAG0_Missing_Value_Count_ResponseMinus1", "BAC165_LAG1_Missing_Value_Count_ResponseMinus1", 
+"BAC165_LAG1_Count_Mult_ResponseMinus1", "L0_S2_F64", "FOR100_LAG_Count_Mult_ResponseMinus1", 
+"Min", "L0_S3_F72", "Unique_Count", "CATEGORICAL_Missing_Value_Count", 
+"FOR165_LAG0_Count_Mult_ResponseMinus1", "FOR100_LAG2_Missing_Value_Count_ResponseMinus1", 
+"FOR165_LAG1_Count_Mult_ResponseMinus1", "BAC165_LAG0_Count_Mult_ResponseMinus1", 
+"FOR100_log_lag_L1", "L0_S6_F122", "FOR100_LAG2_Count_Mult_ResponseMinus1", 
+"Mean", "L3_S29_F3357", "BAC165_LAG3_Count_Mult_ResponseMinus1", 
+"BAC165_LAG3_Missing_Value_Count_ResponseMinus1", "BAC100_LAG2_Missing_Value_Count_ResponseMinus1", 
+"L0_S11_F310")
+
+See the screenshots for more accuracy about the gain
+
+
+Fold 1: AUC=0.9097929
+Fold 2: AUC=0.9143739
+Fold 3: AUC=0.9162648
+Fold 4: AUC=0.9182757
+Fold 5: AUC=0.9131933
+AUC: 0.9143801 + 0.003208555
+Average AUC using all data: 0.8892231
+
+
+Fold 1: MCC=0.4690533, threshold=0.570551
+Fold 2: MCC=0.4674957, threshold=0.360965
+Fold 3: MCC=0.4791705, threshold=0.275783
+Fold 4: MCC=0.4673969, threshold=0.383032
+Fold 5: MCC=0.4768543, threshold=0.292102
+MCC: 0.4719942 + 0.005593307
+Average MCC on all data (5 fold): 0.4617437, threshold=0.4719942
+Average MCC using all data: 0.4689656, threshold=0.278142
+
+
+Submission overfitted threshold on all MCC positives: 3592
+
+Submission average validated threshold on all MCC positives: 2249
+
+Submission average of overfit+validated threshold positives: 2748
+
