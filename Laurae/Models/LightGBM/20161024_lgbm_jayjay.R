@@ -14,6 +14,8 @@ setwd("E:/")
 
 my_script_is_using <- "E:/Laurae/20161024_lgbm_jayjay"
 my_lgbm_is_at <- "C:/Compiled/LightGBM/windows/x64/Release/lightgbm.exe"
+my_script_subbed <- strsplit(gsub("/", "\\\\", my_script_is_using), "\\\\")
+my_script_subbed <- my_script_subbed[[1]][length(my_script_subbed[[1]])]
 
 
 # Load from RDS
@@ -411,7 +413,7 @@ mcc_eval_print <- function(y_prob, y_true) {
   nump <- sum(y_true)
   numn <- length(y_true) - nump
   
-  DT[, tn_v := cumsum(y_true == 0)]
+  DT[, tn_v := as.numeric(cumsum(y_true == 0))]
   DT[, fp_v := cumsum(y_true == 1)]
   DT[, fn_v := numn - tn_v]
   DT[, tp_v := nump - fp_v]
@@ -432,7 +434,7 @@ mcc_eval_pred <- function(y_prob, y_true) {
   nump <- sum(y_true)
   numn <- length(y_true) - nump
   
-  DT[, tn_v := cumsum(y_true == 0)]
+  DT[, tn_v := as.numeric(cumsum(y_true == 0))]
   DT[, fp_v := cumsum(y_true == 1)]
   DT[, fn_v := numn - tn_v]
   DT[, tp_v := nump - fp_v]
@@ -458,17 +460,17 @@ FastROC <- function(y, x) {
 }
 
 
-jpeg(filename = file.path(my_script_is_using, "importance_log_small.jpg"), width = 1176, height = 894, units = "px", pointsize = 12)
+jpeg(filename = file.path(my_script_is_using, "importance_log_small.jpg"), width = 760, height = 894, units = "px", pointsize = 12)
 lgbm.fi.plot(temp_model, n_best = 50, no_log = FALSE, is.cv = TRUE, multipresence = TRUE, plot = TRUE)
 dev.off()
-jpeg(filename = file.path(my_script_is_using, "importance_nonlog_small.jpg"), width = 1176, height = 894, units = "px", pointsize = 12)
+jpeg(filename = file.path(my_script_is_using, "importance_nonlog_small.jpg"), width = 760, height = 894, units = "px", pointsize = 12)
 lgbm.fi.plot(temp_model, n_best = 50, no_log = TRUE, is.cv = TRUE, multipresence = TRUE, plot = TRUE)
 dev.off()
 
-jpeg(filename = file.path(my_script_is_using, "importance_log_big.jpg"), width = 1176, height = 1788, units = "px", pointsize = 12)
+jpeg(filename = file.path(my_script_is_using, "importance_log_big.jpg"), width = 760, height = 1788, units = "px", pointsize = 12)
 lgbm.fi.plot(temp_model, n_best = 100, no_log = FALSE, is.cv = TRUE, multipresence = TRUE, plot = TRUE)
 dev.off()
-jpeg(filename = file.path(my_script_is_using, "importance_nonlog_big.jpg"), width = 1176, height = 1788, units = "px", pointsize = 12)
+jpeg(filename = file.path(my_script_is_using, "importance_nonlog_big.jpg"), width = 760, height = 1788, units = "px", pointsize = 12)
 lgbm.fi.plot(temp_model, n_best = 100, no_log = TRUE, is.cv = TRUE, multipresence = TRUE, plot = TRUE)
 dev.off()
 
@@ -477,7 +479,29 @@ dev.off()
 
 sink(file = file.path(my_script_is_using, "diagnostics.txt"), append = FALSE, split = TRUE)
 
-str(temp_model)
+temp_iter <- numeric(5)
+best_iter <- 0
+for (j in 1:5) {
+  temp_iter[j] <- temp_model$Models[[j]]$Best
+  best_iter <- best_iter + 0.2 * temp_iter[j]
+  cat("Fold ", j, " converged after ", temp_iter[j], " iterations.\n", sep = "")
+}
+cat("Iterations: ", mean(temp_iter), " + ", sd(temp_iter), "\n\n\n", sep = "")
+
+cat("Cross-validated best features list (top 1-50):\n")
+mini_model <- copy(temp_model$FeatureImp)
+#mini_model <- mini_model[Freq == 5, ]
+dput(mini_model$Feature[1:50])
+
+cat("\n\nCross-validated best features list (top 51-100):\n")
+dput(mini_model$Feature[51:100])
+
+cat("\n\nCross-validated best features list (top 101-150):\n")
+dput(mini_model$Feature[101:150])
+
+cat("\n\nCross-validated best features list (top 151-200):\n")
+dput(mini_model$Feature[151:200])
+cat("\nSee the screenshots for more accuracy about the gain\n\n\n")
 
 temp_auc <- numeric(5)
 best_auc <- 0
@@ -487,7 +511,7 @@ for (j in 1:5) {
   cat("Fold ", j, ": AUC=", temp_auc[j], "\n", sep = "")
 }
 cat("AUC: ", mean(temp_auc), " + ", sd(temp_auc), "\n", sep = "")
-cat("Average AUC using all data: ", FastROC(y = label, x = temp_model$Validation), sep = "")
+cat("Average AUC using all data: ", FastROC(y = label, x = temp_model$Validation), "\n\n\n", sep = "")
 
 temp_mcc <- numeric(5)
 temp_thresh <- numeric(5)
@@ -502,23 +526,117 @@ for (j in 1:5) {
 }
 cat("MCC: ", mean(temp_mcc), " + ", sd(temp_mcc), "\n", sep = "")
 cat("Average MCC on all data (5 fold): ", mcc_fixed(y_prob = temp_model$Validation, y_true = label, prob = mean(temp_mcc)), ", threshold=", mean(temp_mcc), "\n", sep = "")
-cat("Average MCC using all data: ", mcc_eval_print(y_prob = temp_model$Validation, y_true = label), ", threshold=", mcc_eval_pred(y_prob = temp_model$Validation, y_true = label), "\n", sep = "")
+cat("Average MCC using all data: ", mcc_eval_print(y_prob = temp_model$Validation, y_true = label), ", threshold=", mcc_eval_pred(y_prob = temp_model$Validation, y_true = label), "\n\n\n", sep = "")
 
 best_mcc1 <- mcc_eval_pred(y_prob = temp_model$Validation, y_true = label)
 submission0_ov <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
 submission0_ov$Response <- as.numeric(temp_model$Testing[[1]] > best_mcc1)
-cat("Submission overfitted threshold on all MCC positives: ", sum(submission0_ov$Response == 1), "\n\n", sep = "")
-write.csv(submission0_ov, file = file.path(my_script_is_using, paste("submission_", sprintf("%.06f", best_mcc2), "_", sum(submission0_ov$Response == 1), ".csv", sep = "")), row.names = FALSE)
+best_count1 <- sum(submission0_ov$Response == 1)
+cat("Submission overfitted threshold on all MCC positives: ", best_count1, "\n\n", sep = "")
+write.csv(submission0_ov, file = file.path(my_script_is_using, paste(my_script_subbed, "_val_", sprintf("%.06f", best_mcc1), "_", best_count1, ".csv", sep = "")), row.names = FALSE)
 
+best_mcc2 <- best_mcc
 submission0 <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
-submission0$Response <- as.numeric(temp_model$Testing[[1]] > best_mcc)
-cat("Submission average validated threshold on all MCC positives: ", sum(submission0$Response == 1), "\n\n", sep = "")
-write.csv(submission0, file = file.path(my_script_is_using, paste("submission_", sprintf("%.06f", best_mcc2), "_", sum(submission0$Response == 1), ".csv", sep = "")), row.names = FALSE)
+submission0$Response <- as.numeric(temp_model$Testing[[1]] > best_mcc2)
+best_count2 <- sum(submission0$Response == 1)
+cat("Submission average validated threshold on all MCC positives: ", best_count2, "\n\n", sep = "")
+write.csv(submission0, file = file.path(my_script_is_using, paste(my_script_subbed, "_val_", sprintf("%.06f", best_mcc2), "_", best_count2, ".csv", sep = "")), row.names = FALSE)
 
-best_mcc3 <- (best_mcc + best_mcc1) / 2
+best_mcc3 <- (best_mcc1 + best_mcc2) / 2
 submission0_ex <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
 submission0_ex$Response <- as.numeric(temp_model$Testing[[1]] > best_mcc3)
-cat("Submission average of overfit+validated threshold positives: ", sum(submission0_ex$Response == 1), "\n\n", sep = "")
-write.csv(submission0_ex, file = file.path(my_script_is_using, paste("submission_", sprintf("%.06f", best_mcc3), "_", sum(submission0_ex$Response == 1), ".csv", sep = "")), row.names = FALSE)
+best_count3 <- sum(submission0_ex$Response == 1)
+cat("Submission average of overfit+validated threshold positives: ", best_count3, "\n\n", sep = "")
+write.csv(submission0_ex, file = file.path(my_script_is_using, paste(my_script_subbed, "_val_", sprintf("%.06f", best_mcc3), "_", best_count3, ".csv", sep = "")), row.names = FALSE)
+
+sink()
+
+write.csv(temp_model$Validation, file = file.path(my_script_is_using, "aaa_stacker_preds_train_headerY.csv"), row.names = FALSE)
+write.csv(temp_model$Testing[[1]], file = file.path(my_script_is_using, "aaa_stacker_preds_test_headerY.csv"), row.names = FALSE)
+
+
+
+
+
+best_model <- lgbm.train(y_train = label,
+                         x_train = train,
+                         x_test = test,
+                         data_has_label = TRUE,
+                         NA_value = "nan",
+                         lgbm_path = my_lgbm_is_at,
+                         workingdir = my_script_is_using,
+                         files_exist = FALSE,
+                         save_binary = FALSE,
+                         predictions = TRUE,
+                         importance = TRUE,
+                         full_quiet = FALSE,
+                         verbose = TRUE,
+                         num_threads = 12,
+                         application = "binary",
+                         learning_rate = 0.05,
+                         num_iterations = floor(best_iter * 1.2),
+                         num_leaves = 511,
+                         min_data_in_leaf = 100,
+                         min_sum_hessian_in_leaf = 10,
+                         max_bin = 255,
+                         feature_fraction = 1,
+                         bagging_fraction = 1,
+                         bagging_freq = 0,
+                         is_unbalance = FALSE,
+                         metric = "auc",
+                         is_training_metric = TRUE)
+
+saveRDS(best_model, file.path(my_script_is_using, "aaa_LightGBM_full.rds"), compress = TRUE)
+
+
+
+sink(file = file.path(my_script_is_using, "diagnostics.txt"), append = TRUE, split = TRUE)
+
+best_mcc1_all <- best_mcc1
+submission0_ov_all <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+submission0_ov_all$Response <- as.numeric(best_model$Testing > best_mcc1_all)
+best_count1_all <- sum(submission0_ov_all$Response == 1)
+cat("Submission with all data overfitted threshold on all MCC positives: ", best_count1_all, ". Threshold=", best_mcc1_all, "\n\n", sep = "")
+write.csv(submission0_ov_all, file = file.path(my_script_is_using, paste(my_script_subbed, "_all_", sprintf("%.06f", best_mcc1_all), "_", best_count1_all, ".csv", sep = "")), row.names = FALSE)
+
+best_mcc2_all <- best_mcc2
+submission0_all <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+submission0_all$Response <- as.numeric(best_model$Testing > best_mcc2_all)
+best_count2_all <- sum(submission0_all$Response == 1)
+cat("Submission with all data average validated threshold on all MCC positives: ", best_count2_all, ". Threshold=", best_mcc2_all, "\n\n", sep = "")
+write.csv(submission0_all, file = file.path(my_script_is_using, paste(my_script_subbed, "_all_", sprintf("%.06f", best_mcc2_all), "_", best_count2_all, ".csv", sep = "")), row.names = FALSE)
+
+best_mcc3_all <- best_mcc3
+submission0_ex_all <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+submission0_ex_all$Response <- as.numeric(best_model$Testing > best_mcc3_all)
+best_count3_all <- sum(submission0_ex_all$Response == 1)
+cat("Submission with all data average of overfit+validated threshold positives: ", best_count3_all, ". Threshold=", best_mcc3_all, "\n\n", sep = "")
+write.csv(submission0_ex_all, file = file.path(my_script_is_using, paste(my_script_subbed, "_all_", sprintf("%.06f", best_mcc3_all), "_", best_count3_all, ".csv", sep = "")), row.names = FALSE)
+
+
+
+mini_preds <- best_model$Testing
+mini_preds <- mini_preds[order(mini_preds, decreasing = TRUE)]
+
+best_mcc1_all_val <- mini_preds[best_count1 + 1]
+submission0_ov_all_val <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+submission0_ov_all_val$Response <- as.numeric(best_model$Testing > best_mcc1_all_val)
+best_count1_all_val <- sum(submission0_ov_all_val$Response == 1)
+cat("Submission with all data by taking the amount of positives of overfitted threshold on all MCC positives: ", best_count1_all_val, ". Threshold=", best_mcc1_all_val, "\n\n", sep = "")
+write.csv(submission0_ov_all_val, file = file.path(my_script_is_using, paste(my_script_subbed, "_all_val_", sprintf("%.06f", best_mcc1_all_val), "_", best_count1_all_val, ".csv", sep = "")), row.names = FALSE)
+
+best_mcc2_all_val <- mini_preds[best_count2 + 1]
+submission0_all_val <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+submission0_all_val$Response <- as.numeric(best_model$Testing > best_mcc2_all_val)
+best_count2_all_val <- sum(submission0_all_val$Response == 1)
+cat("Submission with all data by taking the amount of positives of average validated threshold on all MCC positives: ", best_count2_all_val, ". Threshold=", best_mcc2_all_val, "\n\n", sep = "")
+write.csv(submission0_all_val, file = file.path(my_script_is_using, paste(my_script_subbed, "_all_val_", sprintf("%.06f", best_mcc2_all_val), "_", best_count2_all_val, ".csv", sep = "")), row.names = FALSE)
+
+best_mcc3_all_val <- mini_preds[best_count3 + 1]
+submission0_ex_all_val <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+submission0_ex_all_val$Response <- as.numeric(best_model$Testing > best_mcc3_all_val)
+best_count3_all_val <- sum(submission0_ex_all_val$Response == 1)
+cat("Submission with all data by taking the amount of positives of average of overfit+validated threshold positives: ", best_count3_all_val, ". Threshold=", best_mcc3_all_val, "\n\n", sep = "")
+write.csv(submission0_ex_all_val, file = file.path(my_script_is_using, paste(my_script_subbed, "_all_val_", sprintf("%.06f", best_mcc3_all_val), "_", best_count3_all_val, ".csv", sep = "")), row.names = FALSE)
 
 sink()
