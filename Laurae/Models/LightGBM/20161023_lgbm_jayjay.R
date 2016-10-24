@@ -1,5 +1,3 @@
-# DO NOT RUN BLINDLY AND READ WHAT THE THINGS ARE DOING BEFORE RUNNING THINGS
-
 # Libraries
 
 library(data.table)
@@ -15,6 +13,7 @@ library(stringi)
 setwd("E:/")
 
 my_script_is_using <- "E:/Laurae/20161023_lgbm_jayjay"
+my_lgbm_is_at <- ""
 
 train_data <- fread("Mike/0 - Data Files/train_eng.csv")
 test_data <- fread("Mike/0 - Data Files/test_eng.csv")
@@ -447,7 +446,19 @@ summary((temp_model$Testing[[2]][[1]] + temp_model$Testing[[2]][[2]] + temp_mode
 
 
 
-
+mcc_fixed <- function(y_prob, y_true, prob) {
+  
+  positives <- as.logical(y_true) # label to boolean
+  counter <- sum(positives) # get the amount of positive labels
+  tp <- as.numeric(sum(y_prob[positives] > prob))
+  fp <- as.numeric(sum(y_prob[!positives] > prob))
+  tn <- as.numeric(length(y_true) - counter - fp) # avoid computing he opposite
+  fn <- as.numeric(counter - tp) # avoid computing the opposite
+  mcc <- (tp * tn - fp * fn) / (sqrt((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn)))
+  mcc <- ifelse(is.na(mcc), -1, mcc)
+  return(mcc)
+  
+}
 
 mcc_eval_print <- function(y_prob, y_true) {
   y_true <- y_true
@@ -467,6 +478,26 @@ mcc_eval_print <- function(y_prob, y_true) {
   gc(verbose = FALSE)
   
   return(max(DT[['mcc_v']]))
+  
+}
+
+mcc_eval_pred <- function(y_prob, y_true) {
+  y_true <- y_true
+  
+  DT <- data.table(y_true = y_true, y_prob = y_prob, key = "y_prob")
+  
+  nump <- sum(y_true)
+  numn <- length(y_true) - nump
+  
+  DT[, tn_v := cumsum(y_true == 0)]
+  DT[, fp_v := cumsum(y_true == 1)]
+  DT[, fn_v := numn - tn_v]
+  DT[, tp_v := nump - fp_v]
+  DT[, tp_v := nump - fp_v]
+  DT[, mcc_v := (tp_v * tn_v - fp_v * fn_v) / sqrt((tp_v + fp_v) * (tp_v + fn_v) * (tn_v + fp_v) * (tn_v + fn_v))]
+  DT[, mcc_v := ifelse(!is.finite(mcc_v), 0, mcc_v)]
+  
+  return(DT[['y_prob']][which.max(DT[['mcc_v']])])
   
 }
 
@@ -491,22 +522,42 @@ best_auc <- 0
 for (j in 1:5) {
   temp_auc[j] <- FastROC(y = label[folds[[j]]], x = temp_model$Validation[folds[[j]]])
   best_auc <- best_auc + 0.2 * temp_auc[j]
-  cat("Fold ", j, ": AUC=", temp_auc[j], " | rolling average: ", best_auc * (5 / j), "\n", sep = "")
+  cat("Fold ", j, ": AUC=", temp_auc[j], "\n", sep = "")
 }
 cat("AUC: ", mean(temp_auc), " + ", sd(temp_auc), "\n", sep = "")
+cat("Average AUC using all data: ", FastROC(y = label, x = temp_model$Validation), sep = "")
 
 temp_mcc <- numeric(5)
+temp_thresh <- numeric(5)
 best_mcc <- 0
 for (j in 1:5) {
   
   temp_mcc[j] <- mcc_eval_print(y_prob = temp_model$Validation[folds[[j]]], y_true = label[folds[[j]]])
+  temp_thresh[j] <- mcc_eval_pred(y_prob = temp_model$Validation[folds[[j]]], y_true = label[folds[[j]]])
   best_mcc <- best_mcc + 0.2 * temp_mcc[j]
-  cat("Fold ", j, ": MCC=", temp_mcc[j], " | rolling average: ", best_mcc * (5 / j), "\n", sep = "")
+  cat("Fold ", j, ": MCC=", temp_mcc[j], ", threshold=", temp_thresh[j], "\n", sep = "")
   
 }
 cat("MCC: ", mean(temp_mcc), " + ", sd(temp_mcc), "\n", sep = "")
-
+cat("Average MCC on all data (5 fold): ", mcc_fixed(y_prob = temp_model$Validation, y_true = label, prob = mean(temp_mcc)), ", threshold=", mean(temp_mcc), sep = "")
+cat("Average MCC using all data: ", mcc_eval_print(y_prob = temp_model$Validation, y_true = label), ", threshold=", mcc_eval_pred(y_prob = temp_model$Validation, y_true = label), sep = "")
 
 
 lgbm.fi.plot(temp_model, n_best = 50, no_log = FALSE, is.cv = TRUE, multipresence = TRUE, plot = TRUE)
 lgbm.fi.plot(temp_model, n_best = 50, no_log = TRUE, is.cv = TRUE, multipresence = TRUE, plot = TRUE)
+
+
+best_mcc2 <- mcc_eval_pred(y_prob = temp_model$Validation, y_true = label)
+submission0 <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+submission0$Response <- as.numeric(temp_model$Testing[[1]] > best_mcc2)
+cat("Submission 0 positives: ", sum(submission0$Response == 1), "\n\n", sep = "")
+write.csv(submission0, file = file.path(my_script_is_using, paste("submission0_", sprintf("%.06f", best_mcc2), "_", sum(submission0$Response == 1), ".csv", sep = "")), row.names = FALSE)
+
+
+
+best_mcc3 <- (best_mcc + best_mcc2) / 2
+submission0_ex <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+submission0_ex$Response <- as.numeric(temp_model$Testing[[1]] > best_mcc3)
+cat("Submission 0 positives: ", sum(submission0_ex$Response == 1), "\n\n", sep = "")
+write.csv(submission0_ex, file = file.path(my_script_is_using, paste("submission0_", sprintf("%.06f", best_mcc3), "_", sum(submission0_ex$Response == 1), ".csv", sep = "")), row.names = FALSE)
+
