@@ -287,27 +287,27 @@ fwrite(table_out, "Laurae/jayjay_features/Laurae_All_30_60_100_165.csv", verbose
 # table_out$Lag_100_L3_Max <- WindowCreator(Ids = ids, Label = label, type = "lag", std = FALSE, fill = NA, window = 100, ascending = TRUE, browser = FALSE, date_L3_max, date_L3_min)
 # table_out$Lead_100_L3_Max <- WindowCreator(Ids = ids, Label = label, type = "lead", std = FALSE, fill = NA, window = 100, ascending = TRUE, browser = FALSE, date_L3_max, date_L3_min)
 # table_out$LL_100_L3_Max <- WindowCreator(Ids = ids, Label = label, type = "both", std = FALSE, fill = NA, window = 100, ascending = TRUE, browser = FALSE, date_L3_max, date_L3_min)
-
-table_out_df <- copy(table_out)
-setDF(table_out_df)
-table_out_df <- table_out_df[1:1183747, ]
-table_out_df$Response <- label
-
-tableplot(table_out_df, sortCol = 12, nBins = 200, scales = "lin")
-
-temp <- WindowCreator(Ids = ids, Label = label, type = "lag", window = 100, ascending = TRUE, browser = FALSE, date_L3_max, date_L3_min, date_L2_max, date_L2_min, date_L1_max, date_L1_min, date_L0_max, date_L0_min)
-
-my_features <- data.table(Id = ids, MinTime = MinMin_features, MaxTime = MaxMax_features)
-my_features <- merge(my_features, label_ids, by = "Id", all.x = TRUE)
-my_features <- my_features[order(MaxTime, MinTime, decreasing = FALSE)]
-my_features[, c(paste("cv.lag", 1:100, sep = "")) := shift(Response, n = 1:100, fill = 0, type = "lag")]
-gc()
-my_names <- paste("cv.lag", 1:100, sep = "")
-my_features[, Positives := rowSums(.SD, na.rm = TRUE), .SDcols = my_names]
-my_features[, Negatives := rowSums(!.SD, na.rm = TRUE), .SDcols = my_names]
-my_features[, Feature := log10(Positives / (Negatives + Positives) + 1)]
-
-setkey(my_features, Id)
-my_features[c(4, 6, 7, 9, 11, 13, 14, 16, 18, 23, 26, 27, 28), list(Id, Feature)]
-data$Feature[which(data$Id == c(4, 6, 7, 9, 11, 13, 14, 16, 18, 23, 26, 27, 28))]
-gc()
+# 
+# table_out_df <- copy(table_out)
+# setDF(table_out_df)
+# table_out_df <- table_out_df[1:1183747, ]
+# table_out_df$Response <- label
+# 
+# tableplot(table_out_df, sortCol = 12, nBins = 200, scales = "lin")
+# 
+# temp <- WindowCreator(Ids = ids, Label = label, type = "lag", window = 100, ascending = TRUE, browser = FALSE, date_L3_max, date_L3_min, date_L2_max, date_L2_min, date_L1_max, date_L1_min, date_L0_max, date_L0_min)
+# 
+# my_features <- data.table(Id = ids, MinTime = MinMin_features, MaxTime = MaxMax_features)
+# my_features <- merge(my_features, label_ids, by = "Id", all.x = TRUE)
+# my_features <- my_features[order(MaxTime, MinTime, decreasing = FALSE)]
+# my_features[, c(paste("cv.lag", 1:100, sep = "")) := shift(Response, n = 1:100, fill = 0, type = "lag")]
+# gc()
+# my_names <- paste("cv.lag", 1:100, sep = "")
+# my_features[, Positives := rowSums(.SD, na.rm = TRUE), .SDcols = my_names]
+# my_features[, Negatives := rowSums(!.SD, na.rm = TRUE), .SDcols = my_names]
+# my_features[, Feature := log10(Positives / (Negatives + Positives) + 1)]
+# 
+# setkey(my_features, Id)
+# my_features[c(4, 6, 7, 9, 11, 13, 14, 16, 18, 23, 26, 27, 28), list(Id, Feature)]
+# data$Feature[which(data$Id == c(4, 6, 7, 9, 11, 13, 14, 16, 18, 23, 26, 27, 28))]
+# gc()
