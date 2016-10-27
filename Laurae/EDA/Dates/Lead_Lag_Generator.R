@@ -123,7 +123,7 @@ WindowCreator <- function(Ids, Label, type = "lag", std = FALSE, fill = NA, wind
       my_features[, (my_names) := shift(Feature, n = 1:window, fill = fill, type = type)]
       gc(verbose = FALSE)
     }
-    my_features[, Feature := sd(.SD, na.rm = TRUE), .SDcols = my_names]
+    my_features[, Feature := rowSds(as.matrix(.SD), na.rm = TRUE), .SDcols = my_names]
     
   }
   
@@ -262,6 +262,73 @@ table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = 
 table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "both", std = FALSE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
 
 fwrite(table_out, "Laurae/jayjay_features/Laurae_All_30_60_100_165.csv", verbose = TRUE)
+
+
+
+
+# Or run this for sd
+
+
+windowing <- 165
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+
+windowing <- 100
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+
+windowing <- 60
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+
+windowing <- 30
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 2, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 3, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 4, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "lag", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "lead", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+table_out <- DTcbind(table_out, CreateLots(degree = 5, summarize = TRUE, type = "both", std = TRUE, fill = NA, window = windowing, ascending = TRUE), low_mem = FALSE, collect = 1, silent = FALSE)
+
+fwrite(table_out, "Laurae/jayjay_features/Laurae_All_30_60_100_165_std.csv", verbose = TRUE)
+
+
+
 
 # # Lag/Lead 100 Lall
 # table_out[, "Lag_100_La_Max"] <- WindowCreator(Ids = ids, Label = label, type = "lag", std = FALSE, fill = NA, window = 100, ascending = TRUE, browser = FALSE, date_Lall_max, date_Lall_min)
