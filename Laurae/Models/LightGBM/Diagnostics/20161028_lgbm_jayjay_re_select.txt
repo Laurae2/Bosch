@@ -1,0 +1,185 @@
+Cross-validated best features list (all used features to copy & paste):
+c("sameL0_Number1", "sameL1_Number1", "CATEGORICAL_Last_____1", 
+"GF1", "sameL3_Number1", "GF0", "sameL3", "BAC60_Sum_S3", "FOR60_Sum_S3", 
+"L1_S24_F1723", "DATE_S33max", "DATE_L3kurt", "FOR30_Sum_S", 
+"BAC30_Sum_S", "FOR100_Sum", "BAC100_Sum", "Kurtosis", "FOR165_log_lag", 
+"L1_S24_F1632", "FOR100_log_lag_L3", "BAC100_log_lag_L3", "L3_S33_F3857", 
+"FOR100_log_lag", "FOR165_Sum", "L3_S30_F3754", "BAC100_log_lag", 
+"L0_Max", "Range", "CATEGORICAL_Last_____2", "L3max_L0min", "L3_S33_F3859", 
+"L0max_L3max", "DATE_S32max", "L3_L3_Unique_Count", "S33max_S29min", 
+"L1_S24_F1844", "L3_S30_F3744", "BAC165_log_lag", "BAC165_Sum", 
+"L3_S30_F3759", "L3_S33_F3865", "FOR165_log_lag_L3", "L3_S30_F3774", 
+"Response_Minus1", "BAC165_log_lag_L3", "L3_S30_F3749", "DATE_S34max", 
+"L3_S29_F3351", "L3_S30_F3804", "L3_S30_F3809", "L3_S29_F3345", 
+"L3_S29_F3348", "L3_S30_F3704", "L3_S29_F3373", "L0_S1_F28", 
+"L3_S30_F3554", "L3_S29_F3321", "L0_Mean", "L3_S30_F3769", "L3_S30_F3829", 
+"L3_S29_F3324", "L3_S30_F3494", "L3_S29_F3427", "L0_S0_F20_Mult_L0_S0_F20", 
+"L0_Min", "L3_S29_F3342", "L3_S29_F3379", "L3_S29_F3354", "S33min_S30min", 
+"Response_Minus1_Number1", "sameL0", "L1_S24_F1846", "L3_S29_F3333", 
+"L3_S29_F3479", "L3_S36_F3920", "L3_S29_F3339", "L3_S30_F3574", 
+"L3_S29_F3315", "BAC60_log_lag_S34", "L0_S1_F24", "FOR60_log_lag_S34", 
+"L3_S30_F3544", "L3_S30_F3609", "L3_S30_F3604", "L3_S29_F3327", 
+"L0_S9_F180", "L3_S30_F3794", "L3_S29_F3382", "L3_S30_F3784", 
+"L3_S29_F3336", "L3_S29_F3376", "L3_S30_F3534", "L3_S30_F3519", 
+"L3_S29_F3330", "L0_S0_F18", "L2_Min", "FOR165_log_lag_L2", "L0_S0_F20", 
+"L3_S30_F3524", "L3_S30_F3514", "L3_Max", "L3_S29_F3407", "BAC165_log_lag_L1", 
+"DATE_S35max", "L2max_S37max", "L3_S30_F3639", "DATE_S30max", 
+"L3_S29_F3433", "L3_S30_F3709", "L0_S4_F104", "DATE_S36max", 
+"L3_S30_F3819", "L3_S30_F3624", "L3_S29_F3318", "L0_S0_F2", "L0_S0_F16", 
+"BAC165_log_lag_L2", "S29min_S37min", "DATE_S37max", "L0_S0_F0", 
+"FOR30_log_lag_S34", "L3_S30_F3509", "BAC165_log_lag_L0", "BAC60_log_lag_S33", 
+"L0_S10_F244", "L3_S30_F3764", "L3_S30_F3504", "L3max_S30max", 
+"BAC100_log_lag_L1", "L3_S30_F3629", "BAC165_LAG2_Missing_Value_Count_ResponseMinus1", 
+"FOR60_log_lag_S33", "L0_S3_F100", "L0_S2_F36", "L3_Min", "FOR165_log_lag_L0", 
+"L3_Range", "L0_S2_F44", "L3_S30_F3579", "L3_S29_F3430", "FOR165_LAG3_Missing_Value_Count_ResponseMinus1", 
+"Min", "FOR165_LAG_Missing_Value_Count_ResponseMinus1", "FOR165_LAG_Count_Mult_ResponseMinus1", 
+"FOR165_log_lag_L1", "BAC30_log_lag_S33", "BAC30_log_lag_S30", 
+"L0_S2_F60", "L3_S29_F3461", "L3_S29_F3436", "L3_S29_F3473", 
+"L0_S5_F114", "FOR100_LAG_Missing_Value_Count_ResponseMinus1", 
+"FOR60_log_lag_S30", "L0_S11_F322", "L0_S7_F138", "BAC165_LAG2_Count_Mult_ResponseMinus1", 
+"CATEGORICAL_Unique_Count", "BAC30_log_lag_S34", "CATEGORICAL_out_out_L3_S32_F3854_class2", 
+"BAC100_LAG_Missing_Value_Count_ResponseMinus1", "S30min_S37min", 
+"L0_S5_F116", "FOR165_LAG1_Missing_Value_Count_ResponseMinus1", 
+"BAC165_LAG1_Missing_Value_Count_ResponseMinus1", "L3_S30_F3799", 
+"FOR100_LAG2_Missing_Value_Count_ResponseMinus1", "L3_S30_F3669", 
+"FOR100_LAG_Count_Mult_ResponseMinus1", "L0_S11_F310", "L0_S6_F132", 
+"FOR165_LAG3_Count_Mult_ResponseMinus1", "BAC165_LAG_Count_Mult_ResponseMinus1", 
+"FOR100_log_lag_L2", "L3_S29_F3357", "FOR165_LAG2_Missing_Value_Count_ResponseMinus1", 
+"FOR165_LAG2_Count_Mult_ResponseMinus1", "L0_Range", "BAC100_LAG3_Missing_Value_Count_ResponseMinus1", 
+"CATEGORICAL_Missing_Value_Count", "BAC100_LAG_Count_Mult_ResponseMinus1", 
+"BAC165_LAG_Missing_Value_Count_ResponseMinus1", "Mean", "BAC165_LAG0_Missing_Value_Count_ResponseMinus1", 
+"L0_S0_F8", "L0_S3_F96", "DATE_L1kurt", "L0_S6_F122", "BAC100_log_lag_L2", 
+"DATE_S6_max", "BAC100_LAG3_Count_Mult_ResponseMinus1", "FOR100_LAG1_Missing_Value_Count_ResponseMinus1", 
+"FOR100_LAG3_Missing_Value_Count_ResponseMinus1", "FOR100_LAG3_Count_Mult_ResponseMinus1", 
+"L1_Min", "L3_S35_F3896", "BAC165_LAG1_Count_Mult_ResponseMinus1", 
+"FOR165_LAG1_Count_Mult_ResponseMinus1", "L0_S2_F64", "FOR165_LAG0_Missing_Value_Count_ResponseMinus1", 
+"L3_S30_F3644", "S36max_S29min", "L0_S3_F72", "FOR30_log_lag_S30", 
+"FOR100_LAG2_Count_Mult_ResponseMinus1", "L0_S4_F109", "BAC100_LAG2_Count_Mult_ResponseMinus1", 
+"L2_S26_F3062", "FOR100_log_lag_L1", "BAC100_LAG2_Missing_Value_Count_ResponseMinus1", 
+"L0_S7_F142", "DATE_S0_max", "L3_S30_F3684", "BAC100_LAG0_Missing_Value_Count_ResponseMinus1", 
+"FOR100_LAG0_Missing_Value_Count_ResponseMinus1", "Unique_Count", 
+"BAC165_LAG0_Count_Mult_ResponseMinus1", "L3_S35_F3889", "L0_S0_F22", 
+"L0_S0_F6", "L2_S26_F3106", "L3_S30_F3589", "FOR100_log_lag_L0", 
+"FOR165_LAG0_Count_Mult_ResponseMinus1", "DATE_S5_max", "BAC165_LAG3_Count_Mult_ResponseMinus1", 
+"L3_S29_F3476", "L3_S30_F3674", "BAC60_log_lag_S30", "L0_S11_F326", 
+"L3_S30_F3569", "L0_S0_F10", "S33min_S37min", "L0_S3_F80", "DATE_S24max", 
+"S29min_S34min", "BAC165_LAG3_Missing_Value_Count_ResponseMinus1", 
+"DATE_S7_max", "L0_S10_F254", "FOR100_LAG0_Count_Mult_ResponseMinus1", 
+"FOR30_log_lag_S33", "BAC100_log_lag_L0", "L3_S30_F3584", "BAC100_LAG0_Count_Mult_ResponseMinus1", 
+"BAC100_LAG1_Count_Mult_ResponseMinus1", "L0_S11_F302", "FOR100_LAG1_Count_Mult_ResponseMinus1", 
+"L0_S0_F4", "L3_S30_F3564", "BAC100_LAG1_Missing_Value_Count_ResponseMinus1", 
+"L1_Max", "L0_S9_F185", "L3_S30_F3689", "DATE_S29max", "L0_S21_F497", 
+"DATE_S3_max", "L0_S10_F259", "L0_S9_F165", "L0_S9_F170", "L2_S26_F3069", 
+"L2_S27_F3129", "L0_S0_F14", "L3max_S34min", "L3_S30_F3664", 
+"L1_Range", "S29max_S35max", "S37min_S34min", "S29min_S32min", 
+"DATE_S38max", "DATE_S4_max", "L1_S24_F1578", "L0_S13_F354", 
+"L0_S11_F306", "L0_S10_F229", "DATE_S2_max", "L0_S12_F330", "L0_S9_F160", 
+"L0_S10_F249", "L0_S11_F294", "L0_S9_F155", "L0_S11_F286", "L0_S13_F356", 
+"L0_S12_F350", "DATE_S8_max", "S30min_S35min", "L0_S0_F12", "L0_S23_F643", 
+"L0_S12_F332", "L1_S24_F1516", "DATE_S24min", "L0_S12_F348", 
+"L0_S10_F224", "L0_S9_F190", "L1_S24_F1850", "L0_S11_F318", "L2_S26_F3040", 
+"L2_S27_F3210", "sameL2", "L0_S11_F290", "L2_S26_F3117", "L0_S9_F195", 
+"L3_S30_F3679", "L3_S30_F3634", "S13min_S33min", "L0_S12_F346", 
+"DATE_S10max", "sameL1", "L2_S26_F3036", "L1_S24_F1667", "L3_Unique_Count", 
+"L0_S11_F314_Mult_L0_S0_F20", "L0_S11_F314_Mult_L0_S11_F314", 
+"L0_S10_F219", "L0_S11_F314", "L1_S24_F1758", "L3max_S26max", 
+"L0_S11_F282", "L2_S26_F3113", "DATE_S9_max", "L0_Unique_Count", 
+"L0_S23_F667", "L3_L3_Missing_Value_Count", "L0_S3_F84", "DATE_S1_max", 
+"L0_S2_F48", "L1_S24_F1494", "L3_S32_F3850", "L0_S8_F144", "L3_S29_F3360", 
+"S35min_L1min", "L2_S27_F3199", "L2_S26_F3073", "L2_S26_F3121", 
+"L0_S10_F234", "L0_S14_F370", "L3_S38_F3960", "DATE_S11max", 
+"S33min_S36min", "L2_S27_F3133", "L2_S27_F3162", "DATE_S13max", 
+"L2_S26_F3047", "DATE_S26max", "DATE_S16max", "DATE_S18max", 
+"L2_Max", "L0_S23_F639", "S26max_S32max", "L3_S41_F4008", "L2_S26_F3051", 
+"L0_S18_F439", "L0_S16_F426", "L3_S35_F3894", "L1_S24_F1514", 
+"L1_S24_F1463", "L0_S17_F433", "L3_S33_F3855", "L1_S24_F1831", 
+"L0_S22_F591", "L0_S10_F264", "L1_S24_F1672", "L2_S27_F3155", 
+"L2_S27_F3206", "L1_S24_F1662", "L0_S14_F386", "L2_S27_F3214", 
+"L0_S9_F200", "L3_S36_F3918", "L0_S10_F239", "L1_S24_F1565", 
+"DATE_S19max", "S34min_S35min", "L0_S12_F334", "L0_S14_F390", 
+"L3_S41_F4011", "L1_S25_F2161", "L1_S24_F1518", "L1_S25_F2116", 
+"L1_S24_F1783", "L0_S21_F532", "L0_S9_F210", "L0_S16_F421", "DATE_S27max", 
+"L0_S12_F344", "DATE_S14max", "L0_S12_F336", "CATEGORICAL_Max______3", 
+"S33min_S35min", "L0_S22_F606", "L1_S24_F1842", "L3_S47_F4163", 
+"L0_S23_F671", "L1_S24_F1788", "L0_S22_F571", "L0_S14_F374", 
+"L0_S22_F576", "L3_S48_F4198", "L1_S24_F1773", "DATE_S22max", 
+"DATE_S17max", "DATE_S15max", "L1_S24_F1581", "L0_S21_F522", 
+"S27min_S32min", "L1_S24_F1824", "L2_S27_F3144", "L3_S29_F3482", 
+"L0_S21_F492", "L1_S24_F1544", "L0_S19_F455", "L0_S21_F502", 
+"L0_S15_F415", "DATE_S40max", "L0_S14_F362", "L1_S24_F1829", 
+"L0_S12_F338", "L1_S24_F1520", "L0_S15_F406", "DATE_S21max", 
+"L3_S45_F4124", "L0_S17_F431", "L2_S27_F3140", "L0_S23_F619", 
+"L0_S21_F482", "L3_S41_F4026", "DATE_S23max", "L1_S24_F1571", 
+"L1_S24_F1573", "L1_S24_F1778", "L0_S12_F342", "L0_S15_F397", 
+"L1_S24_F1575", "S26min_S37min", "S26min_S24min", "L0_S10_F274", 
+"L1_S24_F1599", "L0_S19_F459", "L0_S21_F507", "L2_S27_F3166", 
+"L0_S23_F651", "L1_S25_F2136", "L1_S24_F1798", "L0_S18_F449", 
+"L1_S24_F1848", "L1_S24_F1685", "L0_S2_F56", "L1_S24_F1567", 
+"L3_S41_F4004", "L0_S15_F403", "L0_S2_F32", "L1_L1_Missing_Value_Count", 
+"S33min_S34min", "L0_S15_F418", "L0_S23_F659", "L1_S25_F2176", 
+"L1_S24_F1652", "L1_S25_F2158", "DATE_S44max", "L0_S3_F76", "L0_S22_F556", 
+"L0_S22_F601", "L3_S47_F4153", "L0_S12_F340", "L1_S25_F1958", 
+"L0_S23_F631", "L0_S3_F68", "L0_S22_F596", "L3_S41_F4020", "L3_S48_F4196", 
+"L3_S43_F4090", "L0_S22_F551", "L0_S21_F527", "DATE_S48max", 
+"L1_S24_F1700", "L3_S47_F4158", "L0_S9_F175", "L3_S38_F3956", 
+"L3_S40_F3984", "L1_S24_F1713", "L0_S23_F655", "L1_S24_F1539", 
+"L1_S24_F1738", "L0_S22_F586", "L1_Unique_Count", "L1_S24_F1808", 
+"DATE_S25max", "L0_S21_F487", "L0_S21_F517", "L3_S41_F4014", 
+"BAC100_LAG_Sum_ResponseMinus1", "L0_S23_F623", "L0_S21_F477", 
+"L3_S40_F3982", "L1_S24_F1512", "DATE_S12max", "L1_S24_F1753", 
+"L0_S21_F512", "L3_S40_F3986", "L3_S47_F4138", "L1_S25_F2101", 
+"L3_S41_F4000", "L1_S24_F1609", "L3_S41_F4006", "L1_S24_F1816"
+)
+
+See the screenshots for more accuracy about the gain
+
+
+Fold 1 converged after 129 iterations.
+Fold 2 converged after 111 iterations.
+Fold 3 converged after 98 iterations.
+Fold 4 converged after 104 iterations.
+Fold 5 converged after 101 iterations.
+Iterations: 108.6 + 12.38144
+
+
+Fold 1: AUC=0.9116095
+Fold 2: AUC=0.9225344
+Fold 3: AUC=0.9176701
+Fold 4: AUC=0.9215386
+Fold 5: AUC=0.9178245
+AUC: 0.9182354 + 0.004294847
+Average AUC using all data: 0.9041252
+
+
+Fold 1: MCC=0.4758076 (513 [37.31%] positives), threshold=0.373916
+Fold 2: MCC=0.4727237 (469 [34.08%] positives), threshold=0.450009
+Fold 3: MCC=0.4766137 (516 [37.50%] positives), threshold=0.409151
+Fold 4: MCC=0.4732826 (587 [42.66%] positives), threshold=0.33501
+Fold 5: MCC=0.4755279 (532 [38.66%] positives), threshold=0.374648
+MCC: 0.4747911 + 0.001691728
+Positives: 523.4 + 42.54762
+Detection Rate: 0.3804321 + 0.0309049
+Average MCC on all data (5 fold): 0.4665502, threshold=0.4747911
+Average MCC using all data: 0.4709815, threshold=0.343725
+
+
+Submission overfitted threshold on all MCC positives: 3017
+
+Submission average validated threshold on all MCC positives: 2259
+
+Submission average of overfit+validated threshold positives: 2547
+
+Submission with all data overfitted threshold on all MCC positives: 3064. Threshold=0.343725
+
+Submission with all data average validated threshold on all MCC positives: 2329. Threshold=0.4747911
+
+Submission with all data average of overfit+validated threshold positives: 2640. Threshold=0.409258
+
+Submission with all data by taking the amount of positives of overfitted threshold on all MCC positives: 3017. Threshold=0.35102
+
+Submission with all data by taking the amount of positives of average validated threshold on all MCC positives: 2259. Threshold=0.489635
+
+Submission with all data by taking the amount of positives of average of overfit+validated threshold positives: 2547. Threshold=0.428011
+
+Submission with all data by taking the sum of positives of validated positives: 2617. Threshold=0.414074
+
