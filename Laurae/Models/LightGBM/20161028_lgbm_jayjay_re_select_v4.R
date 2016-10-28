@@ -35,8 +35,6 @@ train[, Id := NULL]
 test[, Id := NULL]
 gc()
 
-# Only >0.01% relative gain
-
 to_keep <- which(colnames(train) %in% c("sameL0_Number1", "sameL1_Number1", "CATEGORICAL_Last_____1", 
                                         "GF1", "sameL3_Number1", "GF0", "sameL3", "BAC60_Sum_S3", "FOR60_Sum_S3", 
                                         "L1_S24_F1723", "DATE_S33max", "DATE_L3kurt", "FOR30_Sum_S", 
