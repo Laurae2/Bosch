@@ -30,7 +30,7 @@ model = KNeighborsClassifier(n_neighbors=10)
 
 model.fit(X, y)
 
-preds = model.predict(X_val)
+preds = model.predict_proba(X_val)
 roc_auc_score(y_val, preds)
 
 
