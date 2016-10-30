@@ -1,0 +1,247 @@
+Fold 1
+
+[1]	train-auc:0.865887	test-auc:0.861216 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.874381	test-auc:0.869885 
+[21]	train-auc:0.898450	test-auc:0.893944 
+[31]	train-auc:0.901880	test-auc:0.894869 
+[41]	train-auc:0.904981	test-auc:0.895993 
+[51]	train-auc:0.910266	test-auc:0.899684 
+[61]	train-auc:0.914142	test-auc:0.899390 
+[71]	train-auc:0.922775	test-auc:0.899355 
+[81]	train-auc:0.931125	test-auc:0.900066 
+[91]	train-auc:0.938011	test-auc:0.902260 
+[101]	train-auc:0.942788	test-auc:0.904030 
+[111]	train-auc:0.949479	test-auc:0.903835 
+[121]	train-auc:0.955832	test-auc:0.904942 
+[131]	train-auc:0.963115	test-auc:0.906367 
+[141]	train-auc:0.968613	test-auc:0.906870 
+[151]	train-auc:0.972458	test-auc:0.907322 
+[161]	train-auc:0.976798	test-auc:0.907467 
+[171]	train-auc:0.978775	test-auc:0.907246 
+[181]	train-auc:0.981082	test-auc:0.906931 
+[191]	train-auc:0.982337	test-auc:0.906646 
+Stopping. Best iteration:
+[161]	train-auc:0.976798	test-auc:0.907467
+
+
+Average of validation predictions:  0.00556098
+Average of test predictions:  0.005617176
+Average of rolling test predictions:  0.02808588
+Fold 1: MCC=0.443662
+            Feature       Gain        Cover   Frequency
+ 1:        feature4 0.34140304 0.1412461387 0.020267846
+ 2:        feature8 0.05054873 0.0306597833 0.026455817
+ 3: L3_S32_F3854:T2 0.02537487 0.0867412443 0.003198613
+ 4:        feature7 0.01975417 0.0183038486 0.028339113
+ 5:        feature3 0.01955062 0.0061368955 0.023167524
+ 6:        S34_Mean 0.01891752 0.0209130289 0.011628602
+ 7:    L1_S24_F1846 0.01597054 0.0259258123 0.006217864
+ 8:    L3_S33_F3859 0.01591521 0.0009357452 0.021104867
+ 9:    L3_S33_F3865 0.01572835 0.0015966885 0.016859978
+10:    L1_S24_F1723 0.01228704 0.0300690211 0.006277652
+
+
+
+Fold 2
+
+[1]	train-auc:0.867225	test-auc:0.854350 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.890199	test-auc:0.877042 
+[21]	train-auc:0.896517	test-auc:0.883786 
+[31]	train-auc:0.901481	test-auc:0.889468 
+[41]	train-auc:0.905478	test-auc:0.892860 
+[51]	train-auc:0.909128	test-auc:0.893954 
+[61]	train-auc:0.913608	test-auc:0.895701 
+[71]	train-auc:0.923338	test-auc:0.897994 
+[81]	train-auc:0.929469	test-auc:0.898914 
+[91]	train-auc:0.937361	test-auc:0.901982 
+[101]	train-auc:0.944034	test-auc:0.903669 
+[111]	train-auc:0.950888	test-auc:0.904285 
+[121]	train-auc:0.956872	test-auc:0.903875 
+[131]	train-auc:0.965662	test-auc:0.904537 
+[141]	train-auc:0.972021	test-auc:0.904643 
+[151]	train-auc:0.976475	test-auc:0.903977 
+Stopping. Best iteration:
+[127]	train-auc:0.962713	test-auc:0.905195
+
+
+Average of validation predictions:  0.006315762
+Average of test predictions:  0.006370648
+Average of rolling test predictions:  0.02996956
+Fold 2: MCC=0.4242237
+            Feature       Gain       Cover   Frequency
+ 1:        feature4 0.35905452 0.120849329 0.017614579
+ 2:        feature8 0.04991420 0.041559498 0.024694285
+ 3: L3_S32_F3854:T2 0.02985178 0.087279131 0.003726161
+ 4:        feature3 0.02194275 0.008044426 0.024897531
+ 5:        S34_Mean 0.02156499 0.020398957 0.013075438
+ 6:        feature7 0.01785056 0.020338956 0.027133227
+ 7:    L3_S33_F3859 0.01713846 0.001008444 0.019918024
+ 8:    L1_S24_F1723 0.01431952 0.039512520 0.005081129
+ 9:        S33_Mean 0.01229437 0.011319515 0.003184174
+10:    L3_S33_F3865 0.01084814 0.001816883 0.015819247
+
+
+
+Fold 3
+
+[1]	train-auc:0.861854	test-auc:0.866770 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.885161	test-auc:0.893048 
+[21]	train-auc:0.895704	test-auc:0.898988 
+[31]	train-auc:0.899517	test-auc:0.900767 
+[41]	train-auc:0.905043	test-auc:0.902563 
+[51]	train-auc:0.907603	test-auc:0.903027 
+[61]	train-auc:0.914795	test-auc:0.903860 
+[71]	train-auc:0.923087	test-auc:0.905553 
+[81]	train-auc:0.932562	test-auc:0.907366 
+[91]	train-auc:0.939997	test-auc:0.908454 
+[101]	train-auc:0.945844	test-auc:0.908295 
+[111]	train-auc:0.951315	test-auc:0.909519 
+[121]	train-auc:0.958120	test-auc:0.909674 
+[131]	train-auc:0.964853	test-auc:0.909449 
+[141]	train-auc:0.968943	test-auc:0.908984 
+Stopping. Best iteration:
+[118]	train-auc:0.955648	test-auc:0.910205
+
+
+Average of validation predictions:  0.006892853
+Average of test predictions:  0.006897723
+Average of rolling test predictions:  0.03147591
+Fold 3: MCC=0.407454
+            Feature        Gain        Cover   Frequency
+ 1:        feature4 0.362724893 0.1159472764 0.020821489
+ 2:        feature8 0.051924070 0.0380047966 0.024694429
+ 3: L3_S32_F3854:T2 0.031418449 0.0688478724 0.003233371
+ 4:        feature3 0.023324747 0.0062892704 0.025262933
+ 5:        S34_Mean 0.017715695 0.0238728038 0.011583286
+ 6:        feature7 0.017480304 0.0099489859 0.026968448
+ 7:    L3_S33_F3859 0.017057548 0.0008799028 0.018689596
+ 8:    L1_S24_F1723 0.014847992 0.0259161389 0.005009949
+ 9:    L3_S33_F3865 0.011592010 0.0016880175 0.016060262
+10:        S33_Mean 0.009726524 0.0247185220 0.003979534
+
+
+
+Fold 4
+
+[1]	train-auc:0.861483	test-auc:0.868209 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.871339	test-auc:0.876595 
+[21]	train-auc:0.894933	test-auc:0.896883 
+[31]	train-auc:0.902421	test-auc:0.902058 
+[41]	train-auc:0.907485	test-auc:0.901958 
+[51]	train-auc:0.910337	test-auc:0.901907 
+[61]	train-auc:0.917165	test-auc:0.903069 
+[71]	train-auc:0.922769	test-auc:0.903108 
+[81]	train-auc:0.930713	test-auc:0.902986 
+[91]	train-auc:0.938419	test-auc:0.905976 
+[101]	train-auc:0.943174	test-auc:0.906758 
+[111]	train-auc:0.951825	test-auc:0.908574 
+[121]	train-auc:0.958863	test-auc:0.910372 
+[131]	train-auc:0.966467	test-auc:0.910811 
+[141]	train-auc:0.971154	test-auc:0.910119 
+[151]	train-auc:0.976099	test-auc:0.910433 
+[161]	train-auc:0.979862	test-auc:0.910687 
+Stopping. Best iteration:
+[131]	train-auc:0.966467	test-auc:0.910811
+
+
+Average of validation predictions:  0.00618391
+Average of test predictions:  0.006201712
+Average of rolling test predictions:  0.03135907
+Fold 4: MCC=0.4399485
+            Feature       Gain        Cover   Frequency
+ 1:        feature4 0.33519493 0.1401794377 0.019869023
+ 2:        feature8 0.06012307 0.0282025945 0.026735758
+ 3: L3_S32_F3854:T2 0.02811431 0.0908318900 0.003528739
+ 4:        feature3 0.02340473 0.0084757649 0.026258901
+ 5:        S34_Mean 0.01908044 0.0209354535 0.011476348
+ 6:        feature7 0.01756290 0.0099219572 0.026990081
+ 7:    L1_S24_F1723 0.01716674 0.0194603976 0.006326297
+ 8:    L3_S33_F3859 0.01441848 0.0009091293 0.021331384
+ 9:    L3_S33_F3865 0.01404992 0.0012637230 0.015799847
+10:        S33_Mean 0.01225142 0.0160701106 0.003592319
+
+
+
+Fold 5
+
+[1]	train-auc:0.743242	test-auc:0.741283 
+Multiple eval metrics are present. Will use test_auc for early stopping.
+Will train until test_auc hasn't improved in 30 rounds.
+
+[11]	train-auc:0.889166	test-auc:0.887205 
+[21]	train-auc:0.897896	test-auc:0.889566 
+[31]	train-auc:0.901798	test-auc:0.891857 
+[41]	train-auc:0.904855	test-auc:0.891933 
+[51]	train-auc:0.911717	test-auc:0.895983 
+[61]	train-auc:0.914481	test-auc:0.896482 
+[71]	train-auc:0.924241	test-auc:0.901138 
+[81]	train-auc:0.930997	test-auc:0.902888 
+[91]	train-auc:0.937239	test-auc:0.903523 
+[101]	train-auc:0.942376	test-auc:0.903660 
+[111]	train-auc:0.950412	test-auc:0.906232 
+[121]	train-auc:0.959750	test-auc:0.906841 
+[131]	train-auc:0.965316	test-auc:0.907692 
+[141]	train-auc:0.969875	test-auc:0.908950 
+[151]	train-auc:0.974113	test-auc:0.908720 
+[161]	train-auc:0.977780	test-auc:0.909230 
+[171]	train-auc:0.980290	test-auc:0.909063 
+[181]	train-auc:0.982252	test-auc:0.909007 
+[191]	train-auc:0.983188	test-auc:0.908712 
+Stopping. Best iteration:
+[167]	train-auc:0.979284	test-auc:0.909484
+
+
+Average of validation predictions:  0.005625649
+Average of test predictions:  0.005596049
+Average of rolling test predictions:  0.03068331
+Fold 5: MCC=0.4151822
+            Feature       Gain       Cover   Frequency
+ 1:        feature4 0.33908734 0.126514017 0.020814266
+ 2:        feature8 0.04932660 0.032671052 0.025036167
+ 3: L3_S32_F3854:T2 0.02975989 0.084361346 0.003277140
+ 4:        feature3 0.02051086 0.008001205 0.024120929
+ 5:    L3_S33_F3859 0.01819338 0.001253917 0.019544743
+ 6:        feature7 0.01585715 0.010213969 0.023146645
+ 7:        S34_Mean 0.01464748 0.014196827 0.010776180
+ 8:    L1_S24_F1723 0.01442693 0.037154644 0.005373328
+ 9:    L3_S33_F3865 0.01254534 0.001148153 0.015440938
+10:    L3_S33_F3857 0.01141924 0.001687912 0.021552360
+> predictions2  = predictions2/5
+> temp_mcc <- numeric(5)
+> best_mcc <- 0
+> for (j in 1:5) {
++   
++   temp_mcc[j] <- mcc_eval_print(y_prob = predictions1[folded[[j]]], y_true = Y[folded[[j]]])
++   best_mcc <- best_mcc + 0.2 * temp_mcc[j]
++   cat("Fold ", j, ": MCC=", temp_mcc[j], " | rolling average: ", best_mcc * (5 / j), "\n", sep = "")
++ }
+Fold 1: MCC=0.443662 | rolling average: 0.443662
+Fold 2: MCC=0.4242237 | rolling average: 0.4339428
+Fold 3: MCC=0.407454 | rolling average: 0.4251132
+Fold 4: MCC=0.4399485 | rolling average: 0.428822
+Fold 5: MCC=0.4151822 | rolling average: 0.4260941
+> cat("MCC: ", mean(temp_mcc), " + ", sd(temp_mcc), "\n", sep = "")
+MCC: 0.4260941 + 0.0155772
+> best_mcc <- 0
+> for (j in 1:5) {
++   temp_mcc <- mcc_eval_pred(y_prob = predictions1[folded[[j]]], y_true = Y[folded[[j]]])
++   best_mcc <- best_mcc + 0.2 * temp_mcc
++   cat("Fold ", j, ": threshold=", temp_mcc, " | rolling average: ", best_mcc * (5 / j), "\n", sep = "")
++ }
+Fold 1: threshold=0.3810487 | rolling average: 0.3810487
+Fold 2: threshold=0.3583244 | rolling average: 0.3696866
+Fold 3: threshold=0.3626553 | rolling average: 0.3673428
+Fold 4: threshold=0.3010401 | rolling average: 0.3507671
+Fold 5: threshold=0.3060535 | rolling average: 0.3418244
