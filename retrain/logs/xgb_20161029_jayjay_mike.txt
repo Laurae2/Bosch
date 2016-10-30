@@ -1,0 +1,145 @@
+this is fold 1
+[0]	train-auc:0.924433	val-auc:0.901076
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.951455	val-auc:0.912105
+[20]	train-auc:0.957797	val-auc:0.912884
+[30]	train-auc:0.965232	val-auc:0.914373
+[40]	train-auc:0.97057	val-auc:0.914814
+[50]	train-auc:0.976013	val-auc:0.915373
+[60]	train-auc:0.979129	val-auc:0.915175
+[70]	train-auc:0.981402	val-auc:0.91598
+[80]	train-auc:0.983183	val-auc:0.91677
+[90]	train-auc:0.984219	val-auc:0.916869
+[100]	train-auc:0.985785	val-auc:0.916606
+[110]	train-auc:0.986794	val-auc:0.917146
+[120]	train-auc:0.98798	val-auc:0.917396
+[130]	train-auc:0.98911	val-auc:0.917707
+[140]	train-auc:0.990234	val-auc:0.917527
+Stopping. Best iteration:
+[126]	train-auc:0.988681	val-auc:0.917948
+
+xgb mcc: 0.474606507929
+the auc is 0.917683474161
+the best threshold is 0.610093
+the auc is 0.907402308831
+rf mcc: 0.432735252075
+the best threshold is 0.297994790198
+final mcc: 0.46886965354
+the auc is 0.915023898238
+the best threshold is 0.420677425226
+this is fold 2
+[0]	train-auc:0.922177	val-auc:0.909515
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.945403	val-auc:0.917529
+[20]	train-auc:0.954783	val-auc:0.917257
+[30]	train-auc:0.963037	val-auc:0.920006
+[40]	train-auc:0.968945	val-auc:0.919222
+[50]	train-auc:0.974696	val-auc:0.919551
+Stopping. Best iteration:
+[31]	train-auc:0.963837	val-auc:0.920007
+
+xgb mcc: 0.44514863831
+the auc is 0.919205679501
+the best threshold is 0.460863
+the auc is 0.915437791886
+rf mcc: 0.416470893285
+the best threshold is 0.310427639902
+final mcc: 0.447270871408
+the auc is 0.921004105285
+the best threshold is 0.334312548563
+this is fold 3
+[0]	train-auc:0.925155	val-auc:0.910925
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.950674	val-auc:0.914786
+[20]	train-auc:0.958437	val-auc:0.915818
+Stopping. Best iteration:
+[7]	train-auc:0.946328	val-auc:0.916423
+
+xgb mcc: 0.459760420192
+the auc is 0.915966241307
+the best threshold is 0.323914
+the auc is 0.915228790818
+rf mcc: 0.428726110615
+the best threshold is 0.262094488385
+final mcc: 0.463890270201
+the auc is 0.918542216509
+the best threshold is 0.196790371271
+this is fold 4
+[0]	train-auc:0.921584	val-auc:0.906814
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.950237	val-auc:0.916733
+[20]	train-auc:0.958072	val-auc:0.91929
+[30]	train-auc:0.965481	val-auc:0.920412
+[40]	train-auc:0.970329	val-auc:0.921085
+[50]	train-auc:0.97558	val-auc:0.920869
+[60]	train-auc:0.979703	val-auc:0.921381
+[70]	train-auc:0.981335	val-auc:0.921843
+[80]	train-auc:0.983281	val-auc:0.921845
+[90]	train-auc:0.984428	val-auc:0.921751
+Stopping. Best iteration:
+[77]	train-auc:0.982754	val-auc:0.922068
+
+xgb mcc: 0.46564012588
+the auc is 0.921691256058
+the best threshold is 0.404228
+the auc is 0.91484589265
+rf mcc: 0.430088497479
+the best threshold is 0.253865367653
+final mcc: 0.466717063395
+the auc is 0.920865379376
+the best threshold is 0.247980335121
+this is fold 5
+[0]	train-auc:0.926093	val-auc:0.905349
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.949949	val-auc:0.917327
+[20]	train-auc:0.958026	val-auc:0.91797
+[30]	train-auc:0.963879	val-auc:0.919282
+[40]	train-auc:0.969647	val-auc:0.918065
+[50]	train-auc:0.975013	val-auc:0.918134
+Stopping. Best iteration:
+[32]	train-auc:0.965238	val-auc:0.919348
+
+xgb mcc: 0.474911762285
+the auc is 0.917898098432
+the best threshold is 0.392275
+the auc is 0.912635904751
+rf mcc: 0.437871541226
+the best threshold is 0.249267004935
+final mcc: 0.472048081939
+the auc is 0.917607765405
+the best threshold is 0.263319585635
+In[3]: 
+In[3]: threshold3 = threshold3 / 5
+threshold1 = threshold1 / 5
+threshold2 = threshold2 / 5
+
+In[4]: threshold3
+
+Out[4]: 0.29261605316297606
+In[5]: threshold1
+
+Out[5]: 0.43827447891235349
+In[6]: threshold2
+
+Out[6]: 0.27472985821477608
+In[7]: best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, xgb_result_set1['pred'], True)
+print("the xgb:",best_mcc)
+best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, rf_result_set1['pred'], True)
+print("the rf:",best_mcc)
+best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, final_result_set1['pred'], True)
+print("the xgb,rf:",best_mcc)
+
+the xgb: 0.458641822172
+the rf: 0.426323889224
+the xgb,rf: 0.456841319975
+

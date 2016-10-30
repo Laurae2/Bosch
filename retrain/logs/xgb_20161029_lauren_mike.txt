@@ -1,0 +1,144 @@
+this is fold 1
+[0]	train-auc:0.907347	val-auc:0.895393
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.929691	val-auc:0.906857
+[20]	train-auc:0.936328	val-auc:0.907909
+[30]	train-auc:0.942216	val-auc:0.908071
+[40]	train-auc:0.947987	val-auc:0.908508
+[50]	train-auc:0.953356	val-auc:0.90946
+[60]	train-auc:0.959181	val-auc:0.909056
+[70]	train-auc:0.963425	val-auc:0.909358
+[80]	train-auc:0.966101	val-auc:0.90909
+Stopping. Best iteration:
+[66]	train-auc:0.961634	val-auc:0.909633
+
+xgb mcc: 0.455438288709
+the auc is 0.909355053082
+the best threshold is 0.477732
+the auc is 0.903442254711
+rf mcc: 0.427761769134
+the best threshold is 0.228356557839
+final mcc: 0.463002755427
+the auc is 0.907845765889
+the best threshold is 0.299430875404
+[('L3_S33_F3859', 126), ('L3_S33_F3857', 117), ('Man_dist_NF', 115), ('L3_S30_F3754', 108), ('L3_S30_F3744', 107), ('magic6', 104), ('lag200rate', 99), ('L3_S29_F3479', 98), ('magic5', 98), ('L3_S33_F3865', 93), ('L3_S30_F3759', 92), ('mean_num_value', 92), ('sta_30m4', 90), ('L3_S30_F3809', 88), ('S34_Mean', 88), ('L3_S30_F3749', 87), ('S31_Mean', 86), ('L3_S30_F3774', 83), ('lead200rate', 79)]
+this is fold 2
+[0]	train-auc:0.902272	val-auc:0.893822
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.929787	val-auc:0.912464
+[20]	train-auc:0.935509	val-auc:0.912271
+[30]	train-auc:0.943117	val-auc:0.911007
+Stopping. Best iteration:
+[17]	train-auc:0.934442	val-auc:0.91252
+
+xgb mcc: 0.431953031839
+the auc is 0.911758029796
+the best threshold is 0.481846
+the auc is 0.907122151379
+rf mcc: 0.422122310304
+the best threshold is 0.337460604052
+final mcc: 0.443110399245
+the auc is 0.910296985999
+the best threshold is 0.387252397817
+[('lag200rate', 78), ('L3_S33_F3859', 72), ('sta_37m4', 72), ('L3_S33_F3857', 71), ('Man_dist_NF', 55), ('L3_S30_F3754', 55), ('S34_Mean', 55), ('L3_S29_F3351', 54), ('L0_S0_F20', 52), ('L3_S30_F3554', 50), ('L3_S30_F3809', 47), ('L3_S30_F3774', 45), ('lag100rate', 45), ('sta_29m3', 45), ('L3_S33_F3865', 45), ('magic5', 45), ('S34_Time0', 43), ('L3_S30_F3704', 43), ('L3_S30_F3744', 43)]
+this is fold 3
+[0]	train-auc:0.905534	val-auc:0.894681
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.93244	val-auc:0.90868
+[20]	train-auc:0.940318	val-auc:0.911742
+[30]	train-auc:0.945828	val-auc:0.910823
+[40]	train-auc:0.950373	val-auc:0.911656
+Stopping. Best iteration:
+[21]	train-auc:0.940683	val-auc:0.912266
+
+xgb mcc: 0.45410860207
+the auc is 0.911986519203
+the best threshold is 0.359321
+the auc is 0.909852798471
+rf mcc: 0.426679481332
+the best threshold is 0.14825873964
+final mcc: 0.457400246646
+the auc is 0.912164016901
+the best threshold is 0.265137041496
+[('sta_33m4', 86), ('lag150rate', 63), ('L3_S33_F3857', 63), ('Man_dist_NF', 63), ('L3_S30_F3744', 63), ('L3_S30_F3754', 58), ('L3_S33_F3859', 58), ('mean_num_value', 56), ('magic5', 55), ('lag50rate', 53), ('lag200rate', 53), ('S31_Mean', 53), ('sta_30m4', 52), ('sta_34m4', 52), ('L3_S29_F3395', 52), ('lead200rate', 50), ('L3_S30_F3704', 47), ('L3_S29_F3339', 47), ('magic6', 46)]
+this is fold 4
+[0]	train-auc:0.913863	val-auc:0.906773
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.930611	val-auc:0.912553
+[20]	train-auc:0.938237	val-auc:0.914923
+[30]	train-auc:0.944145	val-auc:0.915489
+[40]	train-auc:0.949452	val-auc:0.915424
+[50]	train-auc:0.954075	val-auc:0.915877
+[60]	train-auc:0.960045	val-auc:0.916899
+[70]	train-auc:0.96312	val-auc:0.917525
+[80]	train-auc:0.965622	val-auc:0.917715
+[90]	train-auc:0.967592	val-auc:0.917343
+Stopping. Best iteration:
+[79]	train-auc:0.965273	val-auc:0.917719
+
+xgb mcc: 0.458812593356
+the auc is 0.917132536756
+the best threshold is 0.614455
+the auc is 0.911398601886
+rf mcc: 0.430748354805
+the best threshold is 0.344319250788
+final mcc: 0.456752590924
+the auc is 0.915347676328
+the best threshold is 0.371723620708
+[('L3_S33_F3857', 160), ('Man_dist_NF', 147), ('L3_S33_F3865', 138), ('L3_S30_F3759', 126), ('L3_S30_F3744', 123), ('L3_S33_F3859', 120), ('mean_num_value', 117), ('magic5', 111), ('sta_30m3', 109), ('magic6', 107), ('lag200rate', 105), ('L3_S36_F3920', 103), ('L3_S30_F3774', 102), ('sta_33m3', 101), ('sta_30m4', 99), ('L3_S30_F3804', 98), ('sta_34m3', 98), ('L3_S30_F3769', 98), ('sta_34m4', 97)]
+this is fold 5
+[0]	train-auc:0.912645	val-auc:0.903813
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 20 rounds.
+[10]	train-auc:0.929484	val-auc:0.912597
+[20]	train-auc:0.936275	val-auc:0.914671
+[30]	train-auc:0.944007	val-auc:0.916775
+[40]	train-auc:0.949244	val-auc:0.916046
+[50]	train-auc:0.954888	val-auc:0.916629
+Stopping. Best iteration:
+[34]	train-auc:0.945362	val-auc:0.917373
+
+xgb mcc: 0.46035239468
+the auc is 0.916684579462
+the best threshold is 0.55579
+the auc is 0.912348954205
+rf mcc: 0.439588799891
+the best threshold is 0.337337948037
+final mcc: 0.460071405669
+the auc is 0.916240347376
+the best threshold is 0.258604450286
+[('sta_33m4', 91), ('Man_dist_NF', 88), ('lag200rate', 75), ('L3_S33_F3865', 71), ('sta_30m4', 70), ('L3_S33_F3857', 68), ('L3_S30_F3759', 65), ('L3_S29_F3351', 65), ('L3_S29_F3395', 65), ('L3_S30_F3804', 64), ('L3_S30_F3774', 63), ('L3_S30_F3809', 62), ('L3_S30_F3704', 62), ('sta_30m3', 60), ('mean_num_value', 60), ('L3_S33_F3859', 59), ('L3_S30_F3769', 58), ('lead200rate', 57), ('sta_33m3', 57)]
+In[16]: threshold3 = threshold3 / 5
+threshold1 = threshold1 / 5
+threshold2 = threshold2 / 5
+
+In[17]: threshold3
+
+Out[17]: 0.31642967714214204
+In[18]: threshold1
+
+Out[18]: 0.49782888293266297
+In[19]: threshold2
+
+Out[19]: 0.27914662007138047
+In[20]: xgb_result_set1_test = xgb_result_set1_test/float(5)
+rf_result_set1_test = rf_result_set1_test/float(5)
+best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, xgb_result_set1['pred'], True)
+print("the xgb:",best_mcc)
+best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, rf_result_set1['pred'], True)
+print("the rf:",best_mcc)
+best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, final_result_set1['pred'], True)
+print("the xgb,rf:",best_mcc)
+
+the xgb: 0.448759912532
+the rf: 0.426891926713
+the xgb,rf: 0.452205330309
