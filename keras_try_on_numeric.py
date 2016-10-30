@@ -58,23 +58,7 @@ preds = model.predict(X_val)
 roc_auc_score(y_val, preds)
 
 
-preds = 1*(preds > 0.2)
+preds = 1*(preds[:, 1] > 0.2)
 preds.sum()
 
 matthews_corrcoef(y_val, preds)
-
-
-#this is for sklearn
-def evaluate(model):
-    model.fit(X, y)
-    print("Done Training")
-    preds = model.predict(X_val)
-    auc = roc_auc_score(y_val, preds)
-    preds = 1*(preds > k)
-    mcc = matthews_corrcoef(y_val, preds)
-    return (auc, mcc, model)
-
-
-
-#0.1581 with extra trees
-#0.16 with keras
