@@ -12,7 +12,7 @@ library(stringi)
 
 setwd("E:/")
 
-my_script_is_using <- "E:/Laurae/20161031_lgbm_jayjay_laurae_top400"
+my_script_is_using <- "E:/Laurae/20161031_lgbm_jayjay_laurae_top100"
 my_lgbm_is_at <- "C:/Compiled/LightGBM/windows/x64/Release/lightgbm.exe"
 my_script_subbed <- basename(my_script_is_using)
 threads <- 12
@@ -772,6 +772,7 @@ AnalysisFunc <- function(lgbm, label, folds, validationValues, predictedValuesCV
   
   # Setup tee
   sink(file = file.path(my_script_is_using, "diagnostics.txt"), append = FALSE, split = TRUE)
+  cat("```r\n")
   
   if (length(lgbm) > 1) {
     
@@ -936,6 +937,7 @@ AnalysisFunc <- function(lgbm, label, folds, validationValues, predictedValuesCV
   
   sink()
   
+  cat("```")
   return("Done")
   
 }
