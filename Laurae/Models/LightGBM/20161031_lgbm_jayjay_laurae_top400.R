@@ -12,7 +12,7 @@ library(stringi)
 
 setwd("E:/")
 
-my_script_is_using <- "E:/Laurae/20161031_lgbm_jayjay_laurae_top100"
+my_script_is_using <- "E:/Laurae/20161031_lgbm_jayjay_laurae_top400"
 my_lgbm_is_at <- "C:/Compiled/LightGBM/windows/x64/Release/lightgbm.exe"
 my_script_subbed <- basename(my_script_is_using)
 threads <- 12
