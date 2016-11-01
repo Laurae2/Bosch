@@ -1,0 +1,29 @@
+```r
+Fold 1 converged after 9 iterations.
+Fold 2 converged after 12 iterations.
+Fold 3 converged after 94 iterations.
+Fold 4 converged after 120 iterations.
+Fold 5 converged after 47 iterations.
+Iterations: 56.4 + 49.40951
+
+
+Fold 1: AUC=0.5773075
+Fold 2: AUC=0.5837783
+Fold 3: AUC=0.5786041
+Fold 4: AUC=0.5779086
+Fold 5: AUC=0.5931
+AUC: 0.5821397 + 0.006643909
+Average AUC using all data: 0.5799945
+
+
+Fold 1: MCC=0.107817 (42365 [3081.09%] positives), threshold=0.006209761
+Fold 2: MCC=0.1068874 (42571 [3093.82%] positives), threshold=0.006300438
+Fold 3: MCC=0.1080122 (41220 [2995.64%] positives), threshold=0.006416525
+Fold 4: MCC=0.1089463 (41012 [2980.52%] positives), threshold=0.006393038
+Fold 5: MCC=0.1114779 (42704 [3103.49%] positives), threshold=0.006396983
+MCC: 0.1086282 + 0.001752848
+Positives: 41974.4 + 796.2646
+Detection Rate: 30.50913 + 0.5815064
+Average MCC on all data (5 fold): -1, threshold=0.1086282
+Average MCC using all data: 0.01985467, threshold=0.005685683
+```
