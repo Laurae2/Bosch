@@ -1,3 +1,7 @@
+jayjay benchmark: 20161028_lgbm_jayjay_re_select_v2 (0.477 MCC CV)
+
+---
+
 Parameter search sweeping.
 
 # Search 1: Depth
