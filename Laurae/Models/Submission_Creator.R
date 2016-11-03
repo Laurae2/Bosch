@@ -1,5 +1,9 @@
 # Note: not working well when you have many identical values: it screws up. Typically happens when you don't have many different values for instance.
 
+# Global variables to define
+my_script_is_using <- "E:/Laurae/20161102_lgbm_jayjay_updated"
+my_script_subbed <- basename(my_script_is_using)
+
 mcc_fixed <- function(y_prob, y_true, prob) {
   
   positives <- as.logical(y_true) # label to boolean
