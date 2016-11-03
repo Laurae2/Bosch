@@ -687,14 +687,11 @@ AnalysisFunc <- function(lgbm, label, folds, validationValues, predictedValuesCV
     cat("\n\nCross-validated multipresence used features list (all used features to copy & paste):\n\n")
     mini_model <- mini_model[Freq == length(folds), ]
     dput(mini_model$Feature)
-    cat("\n\nSee the screenshots for more accuracy about the gain\n\n\n")
     
   }
   
   cat("```")
   sink()
-  
-  return("Done")
   
 }
 
