@@ -1,3 +1,71 @@
+# Note: not working well when you have many identical values: it screws up. Typically happens when you don't have many different values for instance.
+
+mcc_fixed <- function(y_prob, y_true, prob) {
+  
+  positives <- as.logical(y_true) # label to boolean
+  counter <- sum(positives) # get the amount of positive labels
+  tp <- as.numeric(sum(y_prob[positives] > prob))
+  fp <- as.numeric(sum(y_prob[!positives] > prob))
+  tn <- as.numeric(length(y_true) - counter - fp) # avoid computing he opposite
+  fn <- as.numeric(counter - tp) # avoid computing the opposite
+  mcc <- (tp * tn - fp * fn) / (sqrt((tp + fp) * (tp + fn) * (tn + fp) * (tn + fn)))
+  mcc <- ifelse(is.na(mcc), -1, mcc)
+  return(mcc)
+  
+}
+
+mcc_eval_print <- function(y_prob, y_true) {
+  y_true <- y_true
+  
+  DT <- data.table(y_true = y_true, y_prob = y_prob, key = "y_prob")
+  
+  nump <- sum(y_true)
+  numn <- length(y_true) - nump
+  
+  DT[, tn_v := as.numeric(cumsum(y_true == 0))]
+  DT[, fp_v := cumsum(y_true == 1)]
+  DT[, fn_v := numn - tn_v]
+  DT[, tp_v := nump - fp_v]
+  DT[, mcc_v := (tp_v * tn_v - fp_v * fn_v) / sqrt((tp_v + fp_v) * (tp_v + fn_v) * (tn_v + fp_v) * (tn_v + fn_v))]
+  DT[, mcc_v := ifelse(!is.finite(mcc_v), 0, mcc_v)]
+  gc(verbose = FALSE)
+  
+  return(max(DT[['mcc_v']]))
+  
+}
+
+mcc_eval_pred <- function(y_prob, y_true) {
+  y_true <- y_true
+  
+  DT <- data.table(y_true = y_true, y_prob = y_prob, key = "y_prob")
+  
+  nump <- sum(y_true)
+  numn <- length(y_true) - nump
+  
+  DT[, tn_v := as.numeric(cumsum(y_true == 0))]
+  DT[, fp_v := cumsum(y_true == 1)]
+  DT[, fn_v := numn - tn_v]
+  DT[, tp_v := nump - fp_v]
+  DT[, mcc_v := (tp_v * tn_v - fp_v * fn_v) / sqrt((tp_v + fp_v) * (tp_v + fn_v) * (tn_v + fp_v) * (tn_v + fn_v))]
+  DT[, mcc_v := ifelse(!is.finite(mcc_v), 0, mcc_v)]
+  
+  return(DT[['y_prob']][which.max(DT[['mcc_v']])])
+  
+}
+
+FastROC <- function(y, x) {
+  
+  # y = actual
+  # x = predicted
+  x1 = as.numeric(x[y == 1])
+  n1 = as.numeric(length(x1))
+  x2 = as.numeric(x[y == 0])
+  n2 = as.numeric(length(x2))
+  r = rank(c(x1,x2))
+  return((sum(r[1:n1]) - n1 * (n1 + 1) / 2) / (n1 * n2))
+  
+}
+
 
 AnalysisFunc <- function(label, folds, validationValues, predictedValuesCV, predictedValues) {
   # label = your label, mandatory
