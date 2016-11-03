@@ -1,4 +1,20 @@
-jayjay benchmark: 20161028_lgbm_jayjay_re_select_v2 (0.477 MCC CV)
+## Benchmarks
+
+jayjay benchmark: 20161028_lgbm_jayjay_re_select_v2 (0.477 MCC CV, 0.49+ LB)
+
+jayjay + Joost benchmark: 20161102_lgbm_jayjay_updated.R (0.477 MCC CV highly stable, 0.50+ LB)
+
+---
+
+## Negative values warning
+
+If you wish to use my models without LightGBM, any negative value before training must be set to 0. And yes, it might conflict with actual 0s (but this does not seem to be an issue for training).
+
+---
+
+## Missing values warning
+
+It is better to encode NAs as 0s currently. If you set them as -1 or any negative value, they will be set as 0 during training/predicting in LightGBM.
 
 ---
 
