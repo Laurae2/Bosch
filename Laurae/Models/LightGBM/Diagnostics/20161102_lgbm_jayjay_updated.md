@@ -274,13 +274,9 @@ c("sameL0_next", "sameL1_next", "CATEGORICAL_Last_____1", "S24.311",
 "BAC60_Sum_S3", "DATE_S33max", "DATE_L3kurt", "BAC30_Sum_S", 
 "FOR60_Sum_S3", "sameL3_prev", "BAC100_Sum", "sameL0_prev", "BAC100_log_lag_L3", 
 "S33", "FOR100_log_lag_L3", "S29", "L3_L3_Unique_Count", "FOR100_Sum", 
-"Kurtosis", "FOR165_Sum", "L3_S33_F3857", "L3_S30_F3754", "FOR100_l
-
-See the screenshots for more accuracy about the gain
-
-
-```[1] "Done"
-3_S33_F3859", "L3_S30_F3759", "BAC165_Sum", "BAC100_log_lag", 
+"Kurtosis", "FOR165_Sum", "L3_S33_F3857", "L3_S30_F3754", "FOR100_log_lag", 
+"FOR165_log_lag_L3", "FOR165_log_lag", "S30", "L3_S30_F3744", 
+"L3_S33_F3859", "L3_S30_F3759", "BAC165_Sum", "BAC100_log_lag", 
 "Response_Minus1", "L3_S30_F3749", "L3_S30_F3774", "DATE_S34max", 
 "BAC165_log_lag_L3", "L3_S33_F3865", "L3_S30_F3809", "Response_Minus1_Number1", 
 "L3_S29_F3348", "L3_S30_F3804", "S1", "BAC165_log_lag", "L3_S29_F3373", 
@@ -314,8 +310,13 @@ See the screenshots for more accuracy about the gain
 "L0_S2_F60", "Min", "L0_S4_F104", "FOR165_LAG_Count_Mult_ResponseMinus1", 
 "FOR165_LAG_Missing_Value_Count_ResponseMinus1", "BAC30_log_lag_S33", 
 "FOR165_LAG2_Missing_Value_Count_ResponseMinus1", "L3_Range", 
-"BAC100_LAG3_Missing_Value_Count_ResponseMinus1", "BAC165_LAG_Missing_Value_Count_ResponseMinus1", 
-"S29min_S34min", "FOR165_LAG1_Missing_Value_Count_ResponseMinus1", 
+"BAC100_LAG3_Missing_Value_Count
+
+See the screenshots for more accuracy about the gain
+
+
+```[1] "Done"
+S34min", "FOR165_LAG1_Missing_Value_Count_ResponseMinus1", 
 "BAC100_LAG_Missing_Value_Count_ResponseMinus1", "L3_S30_F3579", 
 "L0_S3_F100", "FOR100_LAG_Count_Mult_ResponseMinus1", "BAC30_log_lag_S34", 
 "L0_S11_F322", "S24.211", "L0_S2_F64", "L0_Mean", "BAC100_LAG2_Missing_Value_Count_ResponseMinus1", 
