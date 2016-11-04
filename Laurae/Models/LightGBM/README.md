@@ -18,6 +18,22 @@ It is better to encode NAs as 0s currently. If you set them as -1 or any negativ
 
 ---
 
+## Comparison
+
+| Model | Public LB |
+| --- | --- |
+| 20161024_lgbm_jayjay.R | 0.489xx |
+| 20161025_lgbm_jayjay_mike_255.R | 0.47165 |
+| 20161028_lgbm_jayjay_re_select_v2.R | 0.489xx |
+| 20161028_lgbm_jayjay_re_select_v4.R | 0.47951 |
+| 20161101_lgbm_jayjay_stat_seed1.R | 0.49231 |
+| 20161102_lgbm_jayjay_joost.R | 0.49543 |
+| 20161102_lgbm_jayjay_updated.R | 0.50149 |
+| 20161103_lgbm_joost_extreme.R | 0.02845 |
+| 20161104_lgbm_detrend.R | 0.49945 |
+
+---
+
 Parameter search sweeping.
 
 # Search 1: Depth
