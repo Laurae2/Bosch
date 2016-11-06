@@ -1,0 +1,105 @@
+```r
+Fold 1 converged after 0047 iterations.
+Fold 2 converged after 0100 iterations.
+Fold 3 converged after 0081 iterations.
+Fold 4 converged after 0037 iterations.
+Fold 5 converged after 0098 iterations.
+Iterations: 072.60 + 29.108
+
+
+Fold 1: AUC=0.9177285
+Fold 2: AUC=0.9256428
+Fold 3: AUC=0.9219945
+Fold 4: AUC=0.9237969
+Fold 5: AUC=0.9217468
+AUC: 0.9221819 + 0.0029429
+Average AUC using all data: 0.8460327
+
+
+Fold 1: MCC=0.4793857 (0440 [32.00%] positives), threshold=0.5200500 => True positives = 85.000%
+Fold 2: MCC=0.4808107 (0569 [41.35%] positives), threshold=0.4560190 => True positives = 75.044%
+Fold 3: MCC=0.4854351 (0590 [42.88%] positives), threshold=0.4571260 => True positives = 74.407%
+Fold 4: MCC=0.4785392 (0746 [54.22%] positives), threshold=0.3906600 => True positives = 65.282%
+Fold 5: MCC=0.4888531 (0574 [41.72%] positives), threshold=0.4419550 => True positives = 75.958%
+MCC: 0.4826048 + 0.0043921
+Threshold: 0.4531620 + 0.0461789
+Positives: 583.80 + 108.79
+Detection Rate %: 42.432 + 07.899
+True positives %: 75.138 + 06.993
+Undetected positives: 0943.20 + 0039.88
+Average MCC on all data (5 fold): 0.4785486, threshold=0.4531620
+Average MCC using all data: 0.4794345, threshold=0.4571260
+
+
+Submission overfitted threshold on all MCC positives: 2940
+
+Submission average validated threshold on all MCC positives: 2973
+
+Submission average of overfit+validated threshold positives: 2954
+
+Submission with all data overfitted threshold on all MCC positives: 2896. Threshold=0.457126
+
+Submission with all data average validated threshold on all MCC positives: 2924. Threshold=0.453162
+
+Submission with all data average of overfit+validated threshold positives: 2913. Threshold=0.455144
+
+Submission with all data by taking the amount of positives of overfitted threshold on all MCC positives: 2940. Threshold=0.450905
+
+Submission with all data by taking the amount of positives of average validated threshold on all MCC positives: 2973. Threshold=0.447144
+
+Submission with all data by taking the amount of positives of average of overfit+validated threshold positives: 2954. Threshold=0.449044
+
+Submission with all data by taking the sum of positives of validated positives: 2919. Threshold=0.453796
+
+Cross-validated used features list (all used features to copy & paste):
+
+c("gbm_joost_jay", "song_v1", "gbm_jay_joost_v2", "xgb_jay_joost_v1", 
+"gbm_jay", "gbm_song", "xgb_song", "xgb_jay", "xgb_jay_joost_v2", 
+"xgb_mike", "rf_jay_joost_v2", "tot_time", "mean_num_value", 
+"Euc_dist_NF", "Man_dist_NF", "end_time", "start_time", "sta_30m3", 
+"magic5", "sta_29m3", "sta_33m3", "cluster_n100", "sta_34m3", 
+"min_num_value", "sta_36m3", "magic6", "sta_37m3", "sta_35m3", 
+"min_num_feat", "rf_jay", "cluster_n50", "max_num_value", "max_num_feat", 
+"sta_8m3", "sta_7m3", "sta_0m3", "sta_1m3", "sta_5m3", "sta_2m3", 
+"sta_4m3", "magic2", "station_count", "sta_3m3", "sta_26m3", 
+"magic1", "sta_6m3", "sta_9m3", "dup", "sta_38m4", "sta_11m3", 
+"sta_10m3", "sta_34m4", "sta_33m4", "sta_36m4", "sta_24m3", "sta_29m4", 
+"sta_12m3", "sta_27m3", "sta_14m3", "sta_20m3", "sta_30m4", "sta_32m3", 
+"sta_16m3", "sub_sta_count", "sta_13m3", "sta_5m4", "sta_35m4", 
+"sta_37m4", "sta_8m4", "sta_6m4", "sta_21m3", "sta_17m3", "sta_15m3", 
+"sta_19m3", "sta_18m3", "sta_4m4", "sta_23m3", "cluster_n8", 
+"sta_0m4", "sta_25m3", "sta_7m4", "sta_3m4", "sta_10m4", "sta_1m4", 
+"sta_2m4", "sta_9m4", "sta_26m4", "sta_11m4", "sta_27m4", "sta_20m4", 
+"sta_31m3", "sta_22m3", "sta_38m3", "sta_24m4", "sta_16m4", "sta_14m4", 
+"sta_44m3", "sta_49m3", "sta_13m4", "sta_28m3", "sta_19m4", "sta_40m3", 
+"sta_39m3", "sta_22m4", "sta_12m4", "sta_25m4", "sta_23m4", "sta_48m3", 
+"sta_45m3", "sta_51m3", "sta_17m4", "sta_21m4", "sta_28m4", "sta_41m4", 
+"sta_15m4", "sta_18m4", "sta_47m3", "sta_50m3", "sta_43m3", "sta_50m4", 
+"sta_41m3", "sta_32m4", "sta_48m4", "sta_39m4", "sta_51m4", "sta_43m4", 
+"sta_40m4", "sta_49m4", "sta_44m4", "sta_47m4")
+
+
+Cross-validated multipresence used features list (all used features to copy & paste):
+
+c("gbm_joost_jay", "song_v1", "gbm_jay_joost_v2", "xgb_jay_joost_v1", 
+"gbm_jay", "gbm_song", "xgb_song", "xgb_jay", "xgb_jay_joost_v2", 
+"xgb_mike", "rf_jay_joost_v2", "tot_time", "mean_num_value", 
+"Euc_dist_NF", "Man_dist_NF", "end_time", "start_time", "sta_30m3", 
+"magic5", "sta_29m3", "sta_33m3", "cluster_n100", "sta_34m3", 
+"min_num_value", "sta_36m3", "magic6", "sta_37m3", "sta_35m3", 
+"min_num_feat", "rf_jay", "cluster_n50", "max_num_value", "max_num_feat", 
+"sta_8m3", "sta_7m3", "sta_0m3", "sta_1m3", "sta_5m3", "sta_2m3", 
+"sta_4m3", "magic2", "station_count", "sta_3m3", "sta_26m3", 
+"magic1", "sta_6m3", "sta_9m3", "dup", "sta_38m4", "sta_11m3", 
+"sta_10m3", "sta_34m4", "sta_33m4", "sta_36m4", "sta_24m3", "sta_29m4", 
+"sta_12m3", "sta_27m3", "sta_14m3", "sta_20m3", "sta_30m4", "sta_32m3", 
+"sta_16m3", "sub_sta_count", "sta_13m3", "sta_5m4", "sta_35m4", 
+"sta_37m4", "sta_8m4", "sta_6m4", "sta_21m3", "sta_17m3", "sta_15m3", 
+"sta_19m3", "sta_18m3", "sta_4m4", "sta_23m3", "cluster_n8", 
+"sta_0m4", "sta_25m3", "sta_7m4", "sta_3m4", "sta_10m4", "sta_1m4", 
+"sta_2m4", "sta_9m4", "sta_26m4", "sta_11m4", "sta_27m4", "sta_20m4", 
+"sta_31m3", "sta_22m3", "sta_38m3", "sta_24m4", "sta_16m4", "sta_14m4", 
+"sta_44m3", "sta_49m3", "sta_13m4", "sta_28m3", "sta_19m4", "sta_40m3", 
+"sta_39m3", "sta_22m4", "sta_12m4", "sta_25m4", "sta_23m4", "sta_48m3", 
+"sta_45m3", "sta_51m3", "sta_17m4", "sta_21m4", "sta_28m4")
+```

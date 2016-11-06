@@ -1,0 +1,6 @@
+[LightGBM] finished load parameters
+[LightGBM] Loaded 79 models
+
+[LightGBM] finish predict init
+[LightGBM] start prediction for data /home/shubinli/kaggle/Bosche/temp/lgbm_test.csv, and data doesn't has label
+[LightGBM] finish predict
