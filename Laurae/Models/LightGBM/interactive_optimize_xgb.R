@@ -5,6 +5,9 @@ library(xgboost)
 
 # WHERE I WORK
 setwd("E:/")
+my_labels <- "datasets/labels.rds"
+my_train <- "Laurae/jayjay_clean/train.rds"
+my_test <- "Laurae/jayjay_clean/test.rds"
 
 # HOW MANY FEATURES
 how_many <- 199
@@ -14,7 +17,7 @@ my_threads <- 12
 
 
 # Load from RDS
-label <- readRDS("datasets/labels.rds")
+label <- readRDS(my_labels)
 
 StratifiedCV <- function(Y, folds, seed) {
   folded <- list()
@@ -95,7 +98,7 @@ gc()
 
 
 # Shrink train
-train <- readRDS("Laurae/jayjay_clean/train.rds")
+train <- readRDS(my_train)
 train <- train[, smaller_data[1:how_many], with = FALSE]
 gc()
 setDF(train)
@@ -103,7 +106,7 @@ train <- as.matrix(train)
 gc()
 
 # Shrink test
-test <- readRDS("Laurae/jayjay_clean/test.rds")
+test <- readRDS(my_test)
 test <- test[, smaller_data[1:how_many], with = FALSE]
 gc()
 setDF(test)
