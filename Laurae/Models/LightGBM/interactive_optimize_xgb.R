@@ -126,6 +126,15 @@ gc()
 
 how_many_folds <- 1 # set to 5 for full CV
 
+# MY PARAMETERS
+
+eta <- 0.10
+subsample <- 1.0
+colsample_bytree <- 1.0
+hessian_sum <- 1 # This is 10 in my LightGBM, because it is unlimited depth it must be regularized strongly
+loss_red <- 1
+early_stop <- 25
+
 temp_model <- list()
 
 for (i in 1:how_many_folds) {
@@ -140,17 +149,17 @@ for (i in 1:how_many_folds) {
   temp_model[[i]] <- xgb.train(data = dval1,
                                nthread = my_threads,
                                nrounds = 1000000,
-                               eta = 0.10,
+                               eta = eta,
                                max_depth = 7,
-                               subsample = 1.0,
-                               colsample_bytree = 1.0,
-                               min_child_weight = 1,
-                               gamma = 0,
+                               subsample = subsample,
+                               colsample_bytree = colsample_bytree,
+                               min_child_weight = hessian_sum,
+                               gamma = loss_red,
                                booster = "gbtree",
                                #feval = mcc_eval_nofail,
                                eval_metric = "auc",
                                maximize = TRUE,
-                               early_stopping_rounds = 25,
+                               early_stopping_rounds = early_stop,
                                objective = "binary:logistic",
                                verbose = TRUE,
                                prediction = TRUE,
@@ -163,6 +172,19 @@ for (i in 1:how_many_folds) {
   predictions2 <- predictions2 + (0.2 * predict(temp_model, dtest, ntreelimit = temp_model[[i]]$best_iteration))
   gc(verbose = FALSE)
   
+  mimi_fold <- list()
+  mimi_fold[[i]] <- 1:length(folds[[i]])
+  mimi_preds <- predictions1[folds[[i]]]
+  mimi_label <- label[folds[[i]]]
+  
+  AnalysisFunc(lgbm = temp_model,
+             diag_file = "Laurae/diagnostics.txt",
+             label = mimi_label,
+             folds = mimi_fold,
+             validationValues = mimi_preds,
+             predictedValuesCV = NA
+             predictedValues = NA)
+  
 }
 
 gc()
@@ -170,12 +192,12 @@ set.seed(11111)
 best_model <- xgb.train(data = dtrain,
                         nthread = my_threads,
                         nrounds = floor(best_iter * 1.1),
-                        eta = 0.10,
+                        eta = eta,
                         max_depth = 7,
-                        subsample = 1.0,
-                        colsample_bytree = 1.0,
-                        min_child_weight = 1,
-                        gamma = 0,
+                        subsample = subsample,
+                        colsample_bytree = colsample_bytree,
+                        min_child_weight = hessian_sum,
+                        gamma = loss_red,
                         booster = "gbtree",
                         #feval = mcc_eval_nofail,
                         eval_metric = "auc",
@@ -280,10 +302,10 @@ AnalysisFunc <- function(lgbm, diag_file, label, folds, validationValues, predic
   if (length(lgbm) > 1) {
     
     # Get iteration information
-    temp_iter <- numeric(5)
+    temp_iter <- numeric(length(folds))
     best_iter <- 0
-    for (j in 1:5) {
-      temp_iter[j] <- lgbm[[i]]$best_iteration
+    for (j in 1:length(folds)) {
+      temp_iter[j] <- lgbm[[j]]$best_iteration
       best_iter <- best_iter + (temp_iter[j] / length(folds))
       cat("Fold ", j, " converged after ", sprintf("%04d", temp_iter[j]), " iterations.\n", sep = "")
     }
@@ -429,8 +451,8 @@ AnalysisFunc(lgbm = temp_model,
              diag_file = "Laurae/diagnostics.txt",
              label = label,
              folds = folds,
-             validationValues <- predictions1
-             predictedValuesCV <- predictions2
-             predictedValues <- predict(best_model, dtest))
+             validationValues = predictions1
+             predictedValuesCV = predictions2
+             predictedValues = predict(best_model, dtest))
 
 
