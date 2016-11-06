@@ -32,6 +32,7 @@ It is better to encode NAs as 0s currently. If you set them as -1 or any negativ
 | 20161103_lgbm_joost_extreme.R | 0.02845 |
 | 20161104_lgbm_detrend.R | 0.49945 |
 | 20161104_lgbm_joost_updated2.R | 0.50081 |
+| 20161105_lgbm_joost_extra.R | 0.50243 |
 
 ---
 
