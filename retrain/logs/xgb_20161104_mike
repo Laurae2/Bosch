@@ -1,0 +1,265 @@
+the xgb: 0.432704605404
+the rf: 0.400620233577
+the xgb,rf: 0.429192822329
+
+this is fold 1
+[0]	train-auc:0.91001	val-auc:0.891867
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 50 rounds.
+[10]	train-auc:0.923876	val-auc:0.905242
+[20]	train-auc:0.927226	val-auc:0.906579
+[30]	train-auc:0.92999	val-auc:0.908791
+[40]	train-auc:0.932245	val-auc:0.90825
+[50]	train-auc:0.933754	val-auc:0.908622
+[60]	train-auc:0.935838	val-auc:0.909511
+[70]	train-auc:0.937992	val-auc:0.909838
+[80]	train-auc:0.939819	val-auc:0.910482
+[90]	train-auc:0.941552	val-auc:0.911248
+[100]	train-auc:0.943178	val-auc:0.911896
+[110]	train-auc:0.944848	val-auc:0.912074
+[120]	train-auc:0.946365	val-auc:0.912468
+[130]	train-auc:0.947145	val-auc:0.912541
+[140]	train-auc:0.948041	val-auc:0.913001
+[150]	train-auc:0.948874	val-auc:0.913285
+[160]	train-auc:0.949838	val-auc:0.913519
+[170]	train-auc:0.950485	val-auc:0.913796
+[180]	train-auc:0.951126	val-auc:0.913727
+[190]	train-auc:0.95199	val-auc:0.913685
+[200]	train-auc:0.952861	val-auc:0.913599
+[210]	train-auc:0.953747	val-auc:0.913394
+Stopping. Best iteration:
+[169]	train-auc:0.950424	val-auc:0.91381
+
+xgb mcc: 0.431495751421
+the auc is 0.913386534255
+the true positive is  349.0
+the false positive is  123.0
+the accuracy rate is  0.739406779661
+the mcc is 0.431495751421
+the best threshold is 0.5044429302215576,and the total predicted positive is 472,the total number of positives are 1375.0
+the auc is 0.903039194655
+rf mcc: 0.398990497576
+the best threshold is 0.205293552529
+final mcc: 0.430723090014
+the auc is 0.911648837455
+the best threshold is 0.341828845915
+this is fold 2
+[0]	train-auc:0.90802	val-auc:0.896749
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 50 rounds.
+[10]	train-auc:0.919247	val-auc:0.902833
+[20]	train-auc:0.923726	val-auc:0.90902
+[30]	train-auc:0.926771	val-auc:0.911497
+[40]	train-auc:0.929128	val-auc:0.912422
+[50]	train-auc:0.931309	val-auc:0.913327
+[60]	train-auc:0.93405	val-auc:0.913849
+[70]	train-auc:0.937033	val-auc:0.914195
+[80]	train-auc:0.93877	val-auc:0.914556
+[90]	train-auc:0.940287	val-auc:0.914851
+[100]	train-auc:0.942413	val-auc:0.914757
+[110]	train-auc:0.944709	val-auc:0.915265
+[120]	train-auc:0.946722	val-auc:0.91585
+[130]	train-auc:0.94774	val-auc:0.915838
+[140]	train-auc:0.948725	val-auc:0.915901
+[150]	train-auc:0.949579	val-auc:0.916037
+[160]	train-auc:0.950404	val-auc:0.916247
+[170]	train-auc:0.950855	val-auc:0.916416
+[180]	train-auc:0.951634	val-auc:0.916521
+[190]	train-auc:0.952426	val-auc:0.916531
+[200]	train-auc:0.953533	val-auc:0.91664
+[210]	train-auc:0.954487	val-auc:0.916831
+[220]	train-auc:0.955221	val-auc:0.916835
+[230]	train-auc:0.955907	val-auc:0.916974
+[240]	train-auc:0.956679	val-auc:0.917061
+[250]	train-auc:0.957385	val-auc:0.91727
+[260]	train-auc:0.957801	val-auc:0.917545
+[270]	train-auc:0.95837	val-auc:0.917661
+[280]	train-auc:0.958874	val-auc:0.917764
+[290]	train-auc:0.959568	val-auc:0.917973
+[300]	train-auc:0.959951	val-auc:0.917977
+[310]	train-auc:0.960406	val-auc:0.918059
+[320]	train-auc:0.961345	val-auc:0.918074
+[330]	train-auc:0.961838	val-auc:0.918098
+[340]	train-auc:0.962617	val-auc:0.918103
+[350]	train-auc:0.963075	val-auc:0.918134
+[360]	train-auc:0.963557	val-auc:0.918092
+[370]	train-auc:0.963895	val-auc:0.918154
+[380]	train-auc:0.964261	val-auc:0.918155
+[390]	train-auc:0.964893	val-auc:0.918277
+[400]	train-auc:0.965308	val-auc:0.918341
+[410]	train-auc:0.965675	val-auc:0.918419
+[420]	train-auc:0.965852	val-auc:0.918459
+[430]	train-auc:0.966084	val-auc:0.918555
+[440]	train-auc:0.966429	val-auc:0.918742
+[450]	train-auc:0.966744	val-auc:0.918817
+[460]	train-auc:0.967045	val-auc:0.918922
+[470]	train-auc:0.967371	val-auc:0.918949
+[480]	train-auc:0.967623	val-auc:0.918951
+[490]	train-auc:0.967907	val-auc:0.919033
+xgb mcc: 0.425298502469
+the auc is 0.919111790919
+the true positive is  302.0
+the false positive is  62.0
+the accuracy rate is  0.82967032967
+the mcc is 0.425298502469
+the best threshold is 0.6399832963943481,and the total predicted positive is 364,the total number of positives are 1376.0
+the auc is 0.908747393672
+rf mcc: 0.393004900885
+the best threshold is 0.278252260848
+final mcc: 0.423040210102
+the auc is 0.917967442004
+the best threshold is 0.426413462706
+this is fold 3
+[0]	train-auc:0.907652	val-auc:0.897494
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 50 rounds.
+[10]	train-auc:0.920844	val-auc:0.909993
+[20]	train-auc:0.926021	val-auc:0.912136
+[30]	train-auc:0.928144	val-auc:0.91172
+[40]	train-auc:0.930582	val-auc:0.912143
+[50]	train-auc:0.932752	val-auc:0.912007
+[60]	train-auc:0.935168	val-auc:0.912692
+[70]	train-auc:0.937334	val-auc:0.912849
+[80]	train-auc:0.939189	val-auc:0.91314
+[90]	train-auc:0.940711	val-auc:0.913171
+[100]	train-auc:0.942876	val-auc:0.913455
+[110]	train-auc:0.944616	val-auc:0.913775
+[120]	train-auc:0.946148	val-auc:0.913911
+[130]	train-auc:0.947158	val-auc:0.914421
+[140]	train-auc:0.948148	val-auc:0.914762
+[150]	train-auc:0.949321	val-auc:0.91516
+[160]	train-auc:0.950208	val-auc:0.915311
+[170]	train-auc:0.951	val-auc:0.915321
+[180]	train-auc:0.951866	val-auc:0.915269
+[190]	train-auc:0.952604	val-auc:0.915416
+[200]	train-auc:0.95362	val-auc:0.915329
+[210]	train-auc:0.954553	val-auc:0.915577
+[220]	train-auc:0.955387	val-auc:0.91556
+[230]	train-auc:0.956005	val-auc:0.915631
+[240]	train-auc:0.956657	val-auc:0.915681
+[250]	train-auc:0.957537	val-auc:0.915859
+[260]	train-auc:0.958159	val-auc:0.915803
+[270]	train-auc:0.958672	val-auc:0.915811
+[280]	train-auc:0.959145	val-auc:0.915878
+[290]	train-auc:0.959748	val-auc:0.916047
+[300]	train-auc:0.960358	val-auc:0.915935
+[310]	train-auc:0.960926	val-auc:0.915911
+[320]	train-auc:0.96147	val-auc:0.915945
+[330]	train-auc:0.961867	val-auc:0.91594
+Stopping. Best iteration:
+[286]	train-auc:0.959605	val-auc:0.916066
+
+xgb mcc: 0.451205066548
+the auc is 0.915865463112
+the true positive is  363.0
+the false positive is  104.0
+the accuracy rate is  0.777301927195
+the mcc is 0.451205066548
+the best threshold is 0.5414102673530579,and the total predicted positive is 467,the total number of positives are 1376.0
+the auc is 0.911657586363
+rf mcc: 0.416364328274
+the best threshold is 0.173233823794
+final mcc: 0.449146841417
+the auc is 0.916321295366
+the best threshold is 0.349354887245
+this is fold 4
+[0]	train-auc:0.908583	val-auc:0.895177
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 50 rounds.
+[10]	train-auc:0.923499	val-auc:0.913031
+[20]	train-auc:0.92702	val-auc:0.916228
+[30]	train-auc:0.928543	val-auc:0.916873
+[40]	train-auc:0.930553	val-auc:0.91684
+[50]	train-auc:0.932469	val-auc:0.917401
+[60]	train-auc:0.934302	val-auc:0.917334
+[70]	train-auc:0.93608	val-auc:0.9184
+[80]	train-auc:0.937787	val-auc:0.918841
+[90]	train-auc:0.939235	val-auc:0.918988
+[100]	train-auc:0.940373	val-auc:0.918836
+[110]	train-auc:0.942312	val-auc:0.919053
+[120]	train-auc:0.943958	val-auc:0.919503
+[130]	train-auc:0.94501	val-auc:0.919454
+[140]	train-auc:0.946123	val-auc:0.919529
+[150]	train-auc:0.946927	val-auc:0.919674
+[160]	train-auc:0.947814	val-auc:0.919822
+[170]	train-auc:0.948569	val-auc:0.919912
+[180]	train-auc:0.949559	val-auc:0.919995
+[190]	train-auc:0.950597	val-auc:0.919873
+[200]	train-auc:0.95154	val-auc:0.919738
+[210]	train-auc:0.952471	val-auc:0.919799
+[220]	train-auc:0.953287	val-auc:0.919846
+[230]	train-auc:0.95406	val-auc:0.920021
+Stopping. Best iteration:
+[184]	train-auc:0.949937	val-auc:0.920025
+
+xgb mcc: 0.42957229654
+the auc is 0.919962176475
+the true positive is  352.0
+the false positive is  132.0
+the accuracy rate is  0.727272727273
+the mcc is 0.42957229654
+the best threshold is 0.5295224785804749,and the total predicted positive is 484,the total number of positives are 1376.0
+the auc is 0.909175431416
+rf mcc: 0.408050704442
+the best threshold is 0.177868111989
+final mcc: 0.427530534436
+the auc is 0.917524787308
+the best threshold is 0.302346635679
+this is fold 5
+[0]	train-auc:0.906102	val-auc:0.900319
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 50 rounds.
+[10]	train-auc:0.923272	val-auc:0.912113
+[20]	train-auc:0.926241	val-auc:0.914391
+[30]	train-auc:0.92745	val-auc:0.914771
+[40]	train-auc:0.930345	val-auc:0.915805
+[50]	train-auc:0.931283	val-auc:0.916537
+[60]	train-auc:0.933312	val-auc:0.917172
+[70]	train-auc:0.93549	val-auc:0.91742
+[80]	train-auc:0.937339	val-auc:0.917706
+[90]	train-auc:0.93932	val-auc:0.917593
+[100]	train-auc:0.941479	val-auc:0.917477
+[110]	train-auc:0.94369	val-auc:0.918228
+[120]	train-auc:0.945532	val-auc:0.918546
+[130]	train-auc:0.946772	val-auc:0.918986
+[140]	train-auc:0.947745	val-auc:0.919176
+[150]	train-auc:0.948828	val-auc:0.919036
+[160]	train-auc:0.949787	val-auc:0.919131
+[170]	train-auc:0.950644	val-auc:0.919139
+[180]	train-auc:0.951614	val-auc:0.919273
+[190]	train-auc:0.952402	val-auc:0.919236
+[200]	train-auc:0.953183	val-auc:0.919056
+[210]	train-auc:0.953886	val-auc:0.919186
+[220]	train-auc:0.954662	val-auc:0.91921
+Stopping. Best iteration:
+[176]	train-auc:0.951263	val-auc:0.919321
+
+xgb mcc: 0.441005328516
+the auc is 0.919182822425
+the true positive is  356.0
+the false positive is  114.0
+the accuracy rate is  0.757446808511
+the mcc is 0.441005328516
+the best threshold is 0.5341113805770874,and the total predicted positive is 470,the total number of positives are 1376.0
+the auc is 0.911462606592
+rf mcc: 0.412664348199
+the best threshold is 0.257390015609
+final mcc: 0.435533226249
+the auc is 0.917852854072
+the best threshold is 0.356834635265
+
+this is fold 1
+0.009299218100757102
+this is fold 2
+0.009461125093445839
+this is fold 3
+0.009554424483687646
+this is fold 4
+0.009720329017279554
+this is fold 5
+0.009562113959664319

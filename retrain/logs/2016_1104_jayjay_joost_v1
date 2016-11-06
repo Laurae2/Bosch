@@ -1,0 +1,368 @@
+this is fold 1
+[0]	train-auc:0.916828	val-auc:0.898432
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 100 rounds.
+[10]	train-auc:0.931274	val-auc:0.910511
+[20]	train-auc:0.933062	val-auc:0.91197
+[30]	train-auc:0.935781	val-auc:0.91243
+[40]	train-auc:0.938123	val-auc:0.912977
+[50]	train-auc:0.940507	val-auc:0.913193
+[60]	train-auc:0.942174	val-auc:0.913375
+[70]	train-auc:0.944326	val-auc:0.913966
+[80]	train-auc:0.94597	val-auc:0.914313
+[90]	train-auc:0.947829	val-auc:0.91481
+[100]	train-auc:0.949473	val-auc:0.915034
+[110]	train-auc:0.950633	val-auc:0.91528
+[120]	train-auc:0.951858	val-auc:0.915753
+[130]	train-auc:0.952931	val-auc:0.916262
+[140]	train-auc:0.953906	val-auc:0.91632
+[150]	train-auc:0.954906	val-auc:0.916323
+[160]	train-auc:0.95576	val-auc:0.916374
+[170]	train-auc:0.956957	val-auc:0.916285
+[180]	train-auc:0.957625	val-auc:0.916243
+[190]	train-auc:0.958128	val-auc:0.916366
+[200]	train-auc:0.958441	val-auc:0.916475
+[210]	train-auc:0.958917	val-auc:0.916542
+[220]	train-auc:0.959279	val-auc:0.9168
+[230]	train-auc:0.95971	val-auc:0.916953
+[240]	train-auc:0.960096	val-auc:0.917083
+[250]	train-auc:0.960475	val-auc:0.917121
+[260]	train-auc:0.960843	val-auc:0.91711
+[270]	train-auc:0.961276	val-auc:0.917145
+[280]	train-auc:0.96174	val-auc:0.917145
+[290]	train-auc:0.962058	val-auc:0.917193
+[300]	train-auc:0.962645	val-auc:0.917171
+[310]	train-auc:0.96319	val-auc:0.917143
+[320]	train-auc:0.963578	val-auc:0.917143
+[330]	train-auc:0.963936	val-auc:0.917197
+[340]	train-auc:0.964357	val-auc:0.9171
+[350]	train-auc:0.964792	val-auc:0.917108
+[360]	train-auc:0.965062	val-auc:0.917178
+[370]	train-auc:0.965425	val-auc:0.917192
+[380]	train-auc:0.965911	val-auc:0.917103
+[390]	train-auc:0.966253	val-auc:0.917206
+[400]	train-auc:0.966664	val-auc:0.917256
+[410]	train-auc:0.96692	val-auc:0.917185
+[420]	train-auc:0.967293	val-auc:0.917112
+[430]	train-auc:0.967601	val-auc:0.917135
+[440]	train-auc:0.967933	val-auc:0.917015
+[450]	train-auc:0.9682	val-auc:0.917017
+[460]	train-auc:0.968445	val-auc:0.917003
+[470]	train-auc:0.968696	val-auc:0.916963
+[480]	train-auc:0.968976	val-auc:0.916893
+[490]	train-auc:0.969181	val-auc:0.916924
+Stopping. Best iteration:
+[397]	train-auc:0.966538	val-auc:0.917305
+
+the auc is 0.917011650753
+xgb mcc: 0.473217929195
+the best threshold is 0.5599159598350525,and the total positive is 380
+the true positive is  343.0
+the false positive is  37.0
+the accuracy rate is  0.902631578947
+the mcc is 0.473217929195
+the auc is 0.903225458392
+rf mcc: 0.450047222475
+the best threshold is 0.24639725399563084,and the total positive is 352
+the true positive is  314.0
+the false positive is  38.0
+the accuracy rate is  0.892045454545
+the mcc is 0.450047222475
+final mcc: 0.476290354955
+the auc is 0.915001606348
+the true positive is  356.0
+the false positive is  48.0
+the accuracy rate is  0.881188118812
+the mcc is 0.476290354955
+the best threshold is 0.4020573947916906,and the total positive is 404
+[('L3_S33_F3857', 211), ('sameL0_Number1', 179), ('S24.311', 176), ('DATE_S33max', 165), ('Kurtosis', 163), ('S29', 158), ('L3_S29_F3373', 158), ('L3_S30_F3754', 152), ('L3_S33_F3859', 148), ('L3_S30_F3759', 147), ('L3_S30_F3744', 146), ('L3_S29_F3348', 136), ('L3_S33_F3865', 135), ('FOR100_Sum', 134), ('sameL3', 129), ('L0_Max', 125), ('S30', 121), ('sameL3_Number1', 121), ('S33', 121), ('Range', 120), ('FOR165_Sum', 118), ('L3_S29_F3351', 116), ('FOR165_log_lag_L3', 114), ('sameL1_Number1', 114), ('L3_S30_F3749', 111), ('S0', 110), ('BAC165_log_lag_L3', 109), ('L0_S1_F24', 107), ('L0_S2_F44', 104), ('BAC165_Sum', 103), ('BAC100_Sum', 99), ('L0_S7_F138', 98), ('S11', 98), ('BAC30_Sum_S', 96), ('L3_S30_F3809', 96), ('L3_S30_F3774', 96), ('Response_Minus1', 96), ('L3_S29_F3321', 94), ('L0_S11_F310', 94), ('L3_S30_F3704', 93), ('L3_S29_F3345', 93), ('FOR60_log_lag_S34', 92), ('L3_S29_F3479', 92), ('L3_S29_F3379', 91), ('L3_S30_F3574', 90), ('L0_S0_F20_Mult_L0_S0_F20', 88), ('DATE_S32max', 88), ('L3_S30_F3604', 87), ('L0_S1_F28', 85)]
+this is fold 2
+[0]	train-auc:0.914238	val-auc:0.907822
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 100 rounds.
+[10]	train-auc:0.928448	val-auc:0.915852
+[20]	train-auc:0.930745	val-auc:0.918662
+[30]	train-auc:0.933828	val-auc:0.920112
+[40]	train-auc:0.935907	val-auc:0.921902
+[50]	train-auc:0.938372	val-auc:0.922569
+[60]	train-auc:0.940344	val-auc:0.923176
+[70]	train-auc:0.943022	val-auc:0.923678
+[80]	train-auc:0.944984	val-auc:0.92392
+[90]	train-auc:0.946412	val-auc:0.924266
+[100]	train-auc:0.94827	val-auc:0.924822
+[110]	train-auc:0.950014	val-auc:0.924591
+[120]	train-auc:0.951679	val-auc:0.924479
+[130]	train-auc:0.952896	val-auc:0.924591
+[140]	train-auc:0.954347	val-auc:0.924641
+[150]	train-auc:0.95548	val-auc:0.924814
+[160]	train-auc:0.956623	val-auc:0.924619
+[170]	train-auc:0.957429	val-auc:0.924731
+[180]	train-auc:0.957867	val-auc:0.924659
+[190]	train-auc:0.95842	val-auc:0.924818
+[200]	train-auc:0.958838	val-auc:0.925071
+[210]	train-auc:0.959416	val-auc:0.925371
+[220]	train-auc:0.959852	val-auc:0.925339
+[230]	train-auc:0.960338	val-auc:0.925301
+[240]	train-auc:0.960688	val-auc:0.925397
+[250]	train-auc:0.961149	val-auc:0.925216
+[260]	train-auc:0.961686	val-auc:0.925223
+[270]	train-auc:0.962058	val-auc:0.924987
+[280]	train-auc:0.962413	val-auc:0.924867
+[290]	train-auc:0.962754	val-auc:0.924787
+[300]	train-auc:0.963344	val-auc:0.924623
+[310]	train-auc:0.963598	val-auc:0.924644
+Stopping. Best iteration:
+[216]	train-auc:0.959594	val-auc:0.925412
+
+the auc is 0.924589106538
+xgb mcc: 0.474192749841
+the best threshold is 0.3201182186603546,and the total positive is 542
+the true positive is  411.0
+the false positive is  131.0
+the accuracy rate is  0.758302583026
+the mcc is 0.474192749841
+the auc is 0.914486215916
+rf mcc: 0.422627427402
+the best threshold is 0.2502043714798755,and the total positive is 340
+the true positive is  290.0
+the false positive is  50.0
+the accuracy rate is  0.852941176471
+the mcc is 0.422627427402
+final mcc: 0.472322223769
+the auc is 0.924648764136
+the true positive is  421.0
+the false positive is  152.0
+the accuracy rate is  0.734729493892
+the mcc is 0.472322223769
+the best threshold is 0.22968538441711547,and the total positive is 573
+[('S29', 179), ('sameL0_Number1', 158), ('L3_S30_F3754', 146), ('S33', 138), ('DATE_S33max', 138), ('S24.311', 132), ('L3_S33_F3859', 129), ('L3_S33_F3857', 128), ('Kurtosis', 127), ('DATE_S32max', 119), ('sameL1_Number1', 117), ('L3_S30_F3744', 110), ('BAC100_log_lag_L3', 108), ('sameL3', 106), ('BAC165_log_lag_L3', 105), ('L3_S29_F3373', 103), ('FOR165_Sum', 101), ('sameL3_Number1', 96), ('L0_Max', 95), ('S30', 93), ('L3_S30_F3759', 90), ('L3_S30_F3749', 89), ('L3_S29_F3351', 88), ('L3_S33_F3865', 88), ('BAC30_Sum_S', 87), ('FOR165_log_lag', 86), ('FOR100_Sum', 85), ('L3_S30_F3604', 84), ('L3_S30_F3809', 84), ('S24.308', 82), ('L3_S29_F3321', 82), ('BAC100_Sum', 80), ('BAC165_Sum', 78), ('L3_S30_F3704', 76), ('FOR30_Sum_S', 75), ('DATE_S36max', 74), ('Response_Minus1_Number1', 74), ('FOR60_log_lag_S34', 74), ('S24.211', 72), ('L3_S30_F3574', 71), ('FOR165_log_lag_L3', 71), ('L0_S2_F44', 69), ('S1', 68), ('BAC60_log_lag_S34', 67), ('L3_S36_F3920', 67), ('L3_S29_F3379', 67), ('L3_S29_F3479', 67), ('Range', 66), ('CATEGORICAL_Last_____1', 66)]
+this is fold 3
+[0]	train-auc:0.916675	val-auc:0.909969
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 100 rounds.
+[10]	train-auc:0.929357	val-auc:0.918047
+[20]	train-auc:0.931102	val-auc:0.919684
+[30]	train-auc:0.934175	val-auc:0.920066
+[40]	train-auc:0.93647	val-auc:0.919807
+[50]	train-auc:0.938871	val-auc:0.919795
+[60]	train-auc:0.940277	val-auc:0.919835
+[70]	train-auc:0.942902	val-auc:0.920231
+[80]	train-auc:0.944436	val-auc:0.920567
+[90]	train-auc:0.945999	val-auc:0.920766
+[100]	train-auc:0.947829	val-auc:0.920799
+[110]	train-auc:0.949371	val-auc:0.920762
+[120]	train-auc:0.951024	val-auc:0.920734
+[130]	train-auc:0.952104	val-auc:0.920548
+[140]	train-auc:0.953547	val-auc:0.920286
+[150]	train-auc:0.954907	val-auc:0.920041
+[160]	train-auc:0.955873	val-auc:0.919956
+[170]	train-auc:0.956758	val-auc:0.919682
+[180]	train-auc:0.957347	val-auc:0.919781
+[190]	train-auc:0.95787	val-auc:0.91997
+[200]	train-auc:0.958322	val-auc:0.920098
+[210]	train-auc:0.958993	val-auc:0.92009
+Stopping. Best iteration:
+[114]	train-auc:0.949956	val-auc:0.920979
+
+the auc is 0.919963783578
+xgb mcc: 0.480882007414
+the best threshold is 0.3739345371723175,and the total positive is 502
+the true positive is  401.0
+the false positive is  101.0
+the accuracy rate is  0.798804780876
+the mcc is 0.480882007414
+the auc is 0.911368057659
+rf mcc: 0.433045787136
+the best threshold is 0.24226585834712502,and the total positive is 370
+the true positive is  310.0
+the false positive is  60.0
+the accuracy rate is  0.837837837838
+the mcc is 0.433045787136
+final mcc: 0.479740853408
+the auc is 0.919584116599
+the true positive is  415.0
+the false positive is  125.0
+the accuracy rate is  0.768518518519
+the mcc is 0.479740853408
+the best threshold is 0.2589412994814044,and the total positive is 540
+[('S29', 157), ('sameL0_Number1', 152), ('S24.311', 127), ('DATE_S32max', 126), ('DATE_S33max', 124), ('FOR100_Sum', 116), ('sameL3', 116), ('L3_S33_F3857', 112), ('BAC100_log_lag_L3', 106), ('S33', 106), ('S30', 102), ('L3_S30_F3704', 102), ('sameL1_Number1', 102), ('Kurtosis', 102), ('L0_Max', 101), ('FOR165_log_lag', 99), ('FOR30_Sum_S', 96), ('sameL3_Number1', 92), ('L3_S30_F3744', 91), ('L3_S33_F3859', 89), ('BAC30_Sum_S', 89), ('FOR165_Sum', 88), ('S0', 86), ('L3_S30_F3759', 85), ('L3_S29_F3351', 85), ('L3_S30_F3754', 81), ('BAC165_log_lag_L3', 75), ('L0_S2_F44', 75), ('Range', 70), ('DATE_S38max', 70), ('L0_S1_F28', 70), ('GF0', 70), ('FOR165_log_lag_L3', 67), ('BAC165_log_lag', 65), ('S1', 65), ('FOR60_log_lag_S34', 65), ('L0_S1_F24', 64), ('L3_S29_F3379', 63), ('S24.308', 63), ('BAC100_Sum', 63), ('L3_S33_F3865', 63), ('L3_S30_F3574', 62), ('Response_Minus1', 61), ('BAC165_Sum', 59), ('Response_Minus1_Number1', 58), ('L3_S30_F3609', 57), ('L3_S30_F3809', 57), ('L0_S0_F20_Mult_L0_S0_F20', 56), ('BAC60_Sum_S3', 56)]
+this is fold 4
+[0]	train-auc:0.9145	val-auc:0.90625
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 100 rounds.
+[10]	train-auc:0.929465	val-auc:0.917379
+[20]	train-auc:0.93152	val-auc:0.917875
+[30]	train-auc:0.934567	val-auc:0.918246
+[40]	train-auc:0.937004	val-auc:0.918648
+[50]	train-auc:0.93865	val-auc:0.919
+[60]	train-auc:0.940589	val-auc:0.919339
+[70]	train-auc:0.943106	val-auc:0.920503
+[80]	train-auc:0.944921	val-auc:0.920973
+[90]	train-auc:0.947133	val-auc:0.921423
+[100]	train-auc:0.948843	val-auc:0.92192
+[110]	train-auc:0.95023	val-auc:0.922218
+[120]	train-auc:0.951648	val-auc:0.922447
+[130]	train-auc:0.952908	val-auc:0.922656
+[140]	train-auc:0.954042	val-auc:0.922534
+[150]	train-auc:0.955226	val-auc:0.922691
+[160]	train-auc:0.95626	val-auc:0.922539
+[170]	train-auc:0.957326	val-auc:0.922319
+[180]	train-auc:0.957785	val-auc:0.922226
+[190]	train-auc:0.958405	val-auc:0.922312
+[200]	train-auc:0.959084	val-auc:0.922247
+[210]	train-auc:0.959557	val-auc:0.922162
+[220]	train-auc:0.959914	val-auc:0.92241
+[230]	train-auc:0.960384	val-auc:0.922531
+[240]	train-auc:0.960775	val-auc:0.922469
+[250]	train-auc:0.961235	val-auc:0.922841
+[260]	train-auc:0.961626	val-auc:0.92287
+[270]	train-auc:0.96221	val-auc:0.922673
+[280]	train-auc:0.962671	val-auc:0.922653
+[290]	train-auc:0.963184	val-auc:0.922682
+[300]	train-auc:0.963528	val-auc:0.922677
+[310]	train-auc:0.963875	val-auc:0.922694
+[320]	train-auc:0.964229	val-auc:0.922696
+[330]	train-auc:0.964729	val-auc:0.922726
+[340]	train-auc:0.965124	val-auc:0.922629
+[350]	train-auc:0.965478	val-auc:0.922657
+[360]	train-auc:0.965853	val-auc:0.922613
+Stopping. Best iteration:
+[262]	train-auc:0.961771	val-auc:0.922877
+
+the auc is 0.922615585962
+xgb mcc: 0.477273013737
+the best threshold is 0.3559238612651825,and the total positive is 507
+the true positive is  400.0
+the false positive is  107.0
+the accuracy rate is  0.788954635108
+the mcc is 0.477273013737
+the auc is 0.912663064952
+rf mcc: 0.415579931887
+the best threshold is 0.22524473532184433,and the total positive is 381
+the true positive is  302.0
+the false positive is  79.0
+the accuracy rate is  0.792650918635
+the mcc is 0.415579931887
+final mcc: 0.476613718481
+the auc is 0.922461280881
+the true positive is  403.0
+the false positive is  113.0
+the accuracy rate is  0.781007751938
+the mcc is 0.476613718481
+the best threshold is 0.27022008789374646,and the total positive is 516
+[('S29', 172), ('sameL0_Number1', 172), ('DATE_S33max', 165), ('L3_S33_F3857', 155), ('S24.311', 139), ('L3_S33_F3859', 132), ('S30', 131), ('L3_S30_F3744', 131), ('L3_S30_F3749', 129), ('S33', 127), ('L0_Max', 124), ('BAC100_log_lag_L3', 120), ('L3_S30_F3809', 117), ('FOR100_Sum', 115), ('L3_S29_F3373', 113), ('sameL1_Number1', 113), ('sameL3', 113), ('DATE_S32max', 113), ('L3_S30_F3754', 111), ('FOR165_Sum', 110), ('L3_S29_F3479', 110), ('Kurtosis', 109), ('L3_S33_F3865', 106), ('L3_S30_F3759', 105), ('L3_S36_F3920', 103), ('sameL3_Number1', 101), ('L3_S29_F3345', 100), ('L3_S29_F3351', 99), ('DATE_S38max', 97), ('L3_S29_F3348', 96), ('L0_S2_F44', 94), ('BAC60_Sum_S3', 93), ('L3_S29_F3379', 91), ('BAC165_Sum', 90), ('S0', 90), ('L3_S30_F3609', 87), ('L3_S30_F3704', 87), ('L3_S30_F3574', 86), ('FOR30_Sum_S', 85), ('GF0', 85), ('L3_S30_F3604', 84), ('BAC100_Sum', 82), ('FOR60_log_lag_S34', 81), ('L3_S30_F3554', 79), ('BAC30_Sum_S', 78), ('L3_S30_F3494', 75), ('FOR165_log_lag_L3', 75), ('L3_S30_F3819', 74), ('L3_S29_F3321', 74)]
+this is fold 5
+[0]	train-auc:0.917162	val-auc:0.908886
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 100 rounds.
+[10]	train-auc:0.930259	val-auc:0.913029
+[20]	train-auc:0.93187	val-auc:0.914054
+[30]	train-auc:0.935192	val-auc:0.91575
+[40]	train-auc:0.937102	val-auc:0.917038
+[50]	train-auc:0.939584	val-auc:0.917787
+[60]	train-auc:0.941035	val-auc:0.918278
+[70]	train-auc:0.943405	val-auc:0.918053
+[80]	train-auc:0.945742	val-auc:0.918966
+[90]	train-auc:0.947438	val-auc:0.919572
+[100]	train-auc:0.94832	val-auc:0.920035
+[110]	train-auc:0.94956	val-auc:0.920076
+[120]	train-auc:0.950981	val-auc:0.920334
+[130]	train-auc:0.95255	val-auc:0.920361
+[140]	train-auc:0.95387	val-auc:0.920385
+[150]	train-auc:0.955095	val-auc:0.920424
+[160]	train-auc:0.956176	val-auc:0.92038
+[170]	train-auc:0.957268	val-auc:0.920315
+[180]	train-auc:0.957571	val-auc:0.920258
+[190]	train-auc:0.95807	val-auc:0.920427
+[200]	train-auc:0.958537	val-auc:0.920555
+[210]	train-auc:0.959109	val-auc:0.920681
+[220]	train-auc:0.959701	val-auc:0.920969
+[230]	train-auc:0.960065	val-auc:0.921049
+[240]	train-auc:0.960547	val-auc:0.921193
+[250]	train-auc:0.960891	val-auc:0.921224
+[260]	train-auc:0.961349	val-auc:0.921386
+[270]	train-auc:0.961741	val-auc:0.921412
+[280]	train-auc:0.962158	val-auc:0.921386
+[290]	train-auc:0.962479	val-auc:0.921447
+[300]	train-auc:0.96289	val-auc:0.921327
+[310]	train-auc:0.963347	val-auc:0.921468
+[320]	train-auc:0.9638	val-auc:0.921476
+[330]	train-auc:0.964162	val-auc:0.921663
+[340]	train-auc:0.964473	val-auc:0.921654
+[350]	train-auc:0.964895	val-auc:0.921647
+[360]	train-auc:0.965146	val-auc:0.921737
+[370]	train-auc:0.965485	val-auc:0.921731
+[380]	train-auc:0.965894	val-auc:0.921747
+[390]	train-auc:0.966214	val-auc:0.921783
+[400]	train-auc:0.966533	val-auc:0.921839
+[410]	train-auc:0.966888	val-auc:0.921905
+[420]	train-auc:0.967255	val-auc:0.921961
+[430]	train-auc:0.967432	val-auc:0.921927
+[440]	train-auc:0.96784	val-auc:0.921964
+[450]	train-auc:0.968094	val-auc:0.921999
+[460]	train-auc:0.968405	val-auc:0.921966
+[470]	train-auc:0.968633	val-auc:0.921976
+[480]	train-auc:0.968937	val-auc:0.921978
+[490]	train-auc:0.969233	val-auc:0.921942
+[500]	train-auc:0.969461	val-auc:0.92194
+[510]	train-auc:0.969854	val-auc:0.922039
+[520]	train-auc:0.970138	val-auc:0.92201
+[530]	train-auc:0.970535	val-auc:0.922019
+[540]	train-auc:0.970765	val-auc:0.921919
+[550]	train-auc:0.971057	val-auc:0.921988
+[560]	train-auc:0.971333	val-auc:0.922075
+[570]	train-auc:0.97158	val-auc:0.922093
+[580]	train-auc:0.97174	val-auc:0.922103
+[590]	train-auc:0.971982	val-auc:0.922065
+[600]	train-auc:0.972327	val-auc:0.921887
+[610]	train-auc:0.972577	val-auc:0.921825
+[620]	train-auc:0.972846	val-auc:0.9218
+[630]	train-auc:0.973063	val-auc:0.921874
+[640]	train-auc:0.973358	val-auc:0.921906
+[650]	train-auc:0.973529	val-auc:0.92188
+[660]	train-auc:0.973783	val-auc:0.921817
+[670]	train-auc:0.974079	val-auc:0.921794
+Stopping. Best iteration:
+[575]	train-auc:0.971626	val-auc:0.922134
+
+the auc is 0.921816583877
+xgb mcc: 0.481187705537
+the best threshold is 0.2865901291370392,and the total positive is 614
+the true positive is  444.0
+the false positive is  170.0
+the accuracy rate is  0.723127035831
+the mcc is 0.481187705537
+the auc is 0.908679653149
+rf mcc: 0.415060273087
+the best threshold is 0.2508175525882493,and the total positive is 367
+the true positive is  296.0
+the false positive is  71.0
+the accuracy rate is  0.806539509537
+the mcc is 0.415060273087
+final mcc: 0.477037555689
+the auc is 0.92034228807
+the true positive is  442.0
+the false positive is  177.0
+the accuracy rate is  0.714054927302
+the mcc is 0.477037555689
+the best threshold is 0.21798280068670578,and the total positive is 619
+[('S29', 258), ('DATE_L3kurt', 253), ('L3_S33_F3859', 230), ('Kurtosis', 206), ('DATE_S33max', 201), ('L3_S30_F3744', 190), ('L3_S30_F3759', 189), ('sameL0_Number1', 184), ('L3_S30_F3704', 181), ('S33', 177), ('L3_S33_F3865', 173), ('L3_S30_F3754', 165), ('S30', 160), ('L3_S30_F3749', 158), ('FOR100_Sum', 157), ('S24.311', 148), ('FOR165_Sum', 146), ('L3_S30_F3774', 141), ('BAC165_Sum', 137), ('DATE_S36max', 134), ('L3_S29_F3373', 132), ('L0_S1_F28', 131), ('DATE_S32max', 131), ('L0_S2_F44', 131), ('sameL3', 130), ('Range', 128), ('L3_S30_F3804', 128), ('BAC100_Sum', 125), ('L3_S30_F3604', 124), ('L3_S36_F3920', 124), ('sameL1_Number1', 121), ('L3_S30_F3534', 121), ('L3_S29_F3348', 118), ('L3_S30_F3574', 116), ('L3_S29_F3333', 115), ('L3_S29_F3351', 115), ('sameL3_Number1', 113), ('BAC165_log_lag_L3', 113), ('L3_S29_F3354', 111), ('L3_S29_F3345', 111), ('S24.211', 108), ('BAC60_Sum_S3', 107), ('L3_S29_F3379', 107), ('FOR30_Sum_S', 105), ('BAC100_log_lag_L3', 105), ('BAC30_Sum_S', 105), ('L3_S30_F3609', 105), ('L0_S1_F24', 104), ('L3_S30_F3494', 104)]
+
+the xgb: 0.472583440504 2838
+the rf: 0.425495405123 1771
+the xgb,rf: 0.471507482376 2482
+
+In[11]: threshold3
+
+Out[11]: 0.27577739345413249
+In[12]: threshold1
+
+Out[12]: 0.37929654121398926
+In[13]: threshold2
+
+Out[13]: 0.24298595434654499
