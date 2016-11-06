@@ -411,9 +411,9 @@ for (i in 1:how_many_folds) {
   best_iter <- best_iter + (0.2 * temp_model[[i]]$best_iteration)
   
   gc(verbose = FALSE)
-  predictions1[folds[[i]]] <- predict(temp_model, dval2, ntreelimit = temp_model[[i]]$best_iteration)
+  predictions1[folds[[i]]] <- predict(temp_model[[i]], dval2, ntreelimit = temp_model[[i]]$best_iteration)
   gc(verbose = FALSE)
-  predictions2 <- predictions2 + (0.2 * predict(temp_model, dtest, ntreelimit = temp_model[[i]]$best_iteration))
+  predictions2 <- predictions2 + (0.2 * predict(temp_model[[i]], dtest, ntreelimit = temp_model[[i]]$best_iteration))
   gc(verbose = FALSE)
   
   mimi_fold <- list()
@@ -435,37 +435,39 @@ for (i in 1:how_many_folds) {
 
 # NEED FULL MODEL? RUN FROM THIS
 
-gc()
-set.seed(11111)
-best_model <- xgb.train(data = dtrain,
-                        nthread = my_threads,
-                        nrounds = floor(best_iter * 1.1),
-                        eta = eta,
-                        max_depth = 7,
-                        subsample = subsample,
-                        colsample_bytree = colsample_bytree,
-                        min_child_weight = hessian_sum,
-                        gamma = loss_red,
-                        booster = "gbtree",
-                        #feval = mcc_eval_nofail,
-                        eval_metric = "auc",
-                        maximize = TRUE,
-                        objective = "binary:logistic",
-                        verbose = TRUE,
-                        prediction = TRUE,
-                        watchlist = list(test = dtrain))
 
-
-
-
-
-
-
-
-AnalysisFunc(lgbm = temp_model,
-             diag_file = "Laurae/diagnostics.txt",
-             label = label,
-             folds = folds,
-             validationValues = predictions1,
-             predictedValuesCV = predictions2,
-             predictedValues = predict(best_model, dtest))
+if (how_many_folds == 5) {
+  
+  gc()
+  set.seed(11111)
+  best_model <- xgb.train(data = dtrain,
+                          nthread = my_threads,
+                          nrounds = floor(best_iter * 1.1),
+                          eta = eta,
+                          max_depth = 7,
+                          subsample = subsample,
+                          colsample_bytree = colsample_bytree,
+                          min_child_weight = hessian_sum,
+                          gamma = loss_red,
+                          booster = "gbtree",
+                          #feval = mcc_eval_nofail,
+                          eval_metric = "auc",
+                          maximize = TRUE,
+                          objective = "binary:logistic",
+                          verbose = TRUE,
+                          prediction = TRUE,
+                          watchlist = list(test = dtrain))
+  
+  AnalysisFunc(lgbm = temp_model,
+               diag_file = "Laurae/diagnostics.txt",
+               label = label,
+               folds = folds,
+               validationValues = predictions1,
+               predictedValuesCV = predictions2,
+               predictedValues = predict(best_model, dtest))
+  
+} else {
+  
+  cat("\nI NEED A FULL CV OF 5 PLEASE. how_many_folds = 5\n")
+  
+}
