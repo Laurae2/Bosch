@@ -101,16 +101,32 @@ gc()
 # Shrink train
 train <- readRDS("Laurae/jayjay_clean/train.rds")
 train <- train[, smaller_data[1:how_many], with = FALSE]
+gc()
+setDF(train)
+train <- as.matrix(train)
+gc()
 
 # Shrink test
 test <- readRDS("Laurae/jayjay_clean/test.rds")
 test <- test[, smaller_data[1:how_many], with = FALSE]
+gc()
+setDF(test)
+train <- as.matrix(test)
+gc()
 
+
+gc()
+dtrain <- xgb.DMatrix(data = train, label = label)
+gc()
+dtest <- xgb.DMatrix(data = test)
+gc()
 
 
 # HOW MANY FOLDS
 
 how_many_folds <- 1 # set to 5 for full CV
+
+temp_model <- list()
 
 for (i in 1:how_many_folds) {
   
@@ -121,27 +137,30 @@ for (i in 1:how_many_folds) {
   
   gc()
   set.seed(11111)
-  temp_model <- xgb.train(data = dval1,
-                          nthread = my_threads,
-                          nrounds = 1000000,
-                          eta = 0.10,
-                          subsample = 1.0,
-                          colsample_bytree = 1.0,
-                          booster = "gbtree",
-                          #feval = mcc_eval_nofail,
-                          eval_metric = "auc",
-                          maximize = TRUE,
-                          early_stopping_rounds = 25,
-                          objective = "binary:logistic",
-                          verbose = TRUE,
-                          prediction = TRUE,
-                          watchlist = list(test = dval2))
-  best_iter <- best_iter + (0.2 * temp_model$niter)
+  temp_model[[i]] <- xgb.train(data = dval1,
+                               nthread = my_threads,
+                               nrounds = 1000000,
+                               eta = 0.10,
+                               max_depth = 7,
+                               subsample = 1.0,
+                               colsample_bytree = 1.0,
+                               min_child_weight = 1,
+                               gamma = 0,
+                               booster = "gbtree",
+                               #feval = mcc_eval_nofail,
+                               eval_metric = "auc",
+                               maximize = TRUE,
+                               early_stopping_rounds = 25,
+                               objective = "binary:logistic",
+                               verbose = TRUE,
+                               prediction = TRUE,
+                               watchlist = list(test = dval2))
+  best_iter <- best_iter + (0.2 * temp_model[[i]]$best_iteration)
   
   gc(verbose = FALSE)
-  predictions1[folds[[i]]] <- predict(temp_model, dval2, ntreelimit = temp_model$best_iteration)
+  predictions1[folds[[i]]] <- predict(temp_model, dval2, ntreelimit = temp_model[[i]]$best_iteration)
   gc(verbose = FALSE)
-  predictions2 <- predictions2 + (0.2 * predict(temp_model, dtest, ntreelimit = temp_model$best_iteration))
+  predictions2 <- predictions2 + (0.2 * predict(temp_model, dtest, ntreelimit = temp_model[[i]]$best_iteration))
   gc(verbose = FALSE)
   
 }
@@ -152,9 +171,11 @@ best_model <- xgb.train(data = dtrain,
                         nthread = my_threads,
                         nrounds = floor(best_iter * 1.1),
                         eta = 0.10,
-                        #gamma = 20,
+                        max_depth = 7,
                         subsample = 1.0,
                         colsample_bytree = 1.0,
+                        min_child_weight = 1,
+                        gamma = 0,
                         booster = "gbtree",
                         #feval = mcc_eval_nofail,
                         eval_metric = "auc",
@@ -255,6 +276,20 @@ AnalysisFunc <- function(lgbm, diag_file, label, folds, validationValues, predic
   # Setup tee
   sink(file = diag_file, append = FALSE, split = TRUE)
   cat("```r\n")
+  
+  if (length(lgbm) > 1) {
+    
+    # Get iteration information
+    temp_iter <- numeric(5)
+    best_iter <- 0
+    for (j in 1:5) {
+      temp_iter[j] <- lgbm[[i]]$best_iteration
+      best_iter <- best_iter + (temp_iter[j] / length(folds))
+      cat("Fold ", j, " converged after ", sprintf("%04d", temp_iter[j]), " iterations.\n", sep = "")
+    }
+    cat("Iterations: ", sprintf("%06.2f", mean(temp_iter)), " + ", sprintf("%06.3f", sd(temp_iter)), "\n\n\n", sep = "")
+    
+  }
   
   # Get AUC metric information
   temp_auc <- numeric(length(folds))
@@ -390,12 +425,12 @@ AnalysisFunc <- function(lgbm, diag_file, label, folds, validationValues, predic
 }
 
 
-AnalysisFunc(lgbm = NA,
+AnalysisFunc(lgbm = temp_model,
              diag_file = "Laurae/diagnostics.txt",
              label = label,
              folds = folds,
              validationValues <- predictions1
              predictedValuesCV <- predictions2
-             predictedValues <- predict(best_model, dtest, ntreelimit = 0))
+             predictedValues <- predict(best_model, dtest))
 
 
