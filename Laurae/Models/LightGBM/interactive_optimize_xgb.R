@@ -1,13 +1,9 @@
-library(data.table)
-library(Matrix)
-library(recommenderlab)
-library(Laurae)
-library(fastdigest)
-library(pbapply)
-library(ggplot2)
-library(R.utils)
-library(stringi)
+# MY PACKAGES
 
+library(data.table)
+library(xgboost)
+
+# WHERE I WORK
 setwd("E:/")
 
 # HOW MANY FEATURES
@@ -111,7 +107,7 @@ test <- readRDS("Laurae/jayjay_clean/test.rds")
 test <- test[, smaller_data[1:how_many], with = FALSE]
 gc()
 setDF(test)
-train <- as.matrix(test)
+test <- as.matrix(test)
 gc()
 
 
@@ -120,95 +116,6 @@ dtrain <- xgb.DMatrix(data = train, label = label)
 gc()
 dtest <- xgb.DMatrix(data = test)
 gc()
-
-
-# HOW MANY FOLDS
-
-how_many_folds <- 1 # set to 5 for full CV
-
-# MY PARAMETERS
-
-eta <- 0.10
-subsample <- 1.0
-colsample_bytree <- 1.0
-hessian_sum <- 1 # This is 10 in my LightGBM, because it is unlimited depth it must be regularized strongly
-loss_red <- 1
-early_stop <- 25
-
-temp_model <- list()
-
-for (i in 1:how_many_folds) {
-  
-  gc(verbose = FALSE)
-  dval1 <- dtrain[(1:1183747)[-folds[[i]]]]
-  gc(verbose = FALSE)
-  dval2 <- dtrain[(1:1183747)[folds[[i]]]]
-  
-  gc()
-  set.seed(11111)
-  temp_model[[i]] <- xgb.train(data = dval1,
-                               nthread = my_threads,
-                               nrounds = 1000000,
-                               eta = eta,
-                               max_depth = 7,
-                               subsample = subsample,
-                               colsample_bytree = colsample_bytree,
-                               min_child_weight = hessian_sum,
-                               gamma = loss_red,
-                               booster = "gbtree",
-                               #feval = mcc_eval_nofail,
-                               eval_metric = "auc",
-                               maximize = TRUE,
-                               early_stopping_rounds = early_stop,
-                               objective = "binary:logistic",
-                               verbose = TRUE,
-                               prediction = TRUE,
-                               watchlist = list(test = dval2))
-  best_iter <- best_iter + (0.2 * temp_model[[i]]$best_iteration)
-  
-  gc(verbose = FALSE)
-  predictions1[folds[[i]]] <- predict(temp_model, dval2, ntreelimit = temp_model[[i]]$best_iteration)
-  gc(verbose = FALSE)
-  predictions2 <- predictions2 + (0.2 * predict(temp_model, dtest, ntreelimit = temp_model[[i]]$best_iteration))
-  gc(verbose = FALSE)
-  
-  mimi_fold <- list()
-  mimi_fold[[i]] <- 1:length(folds[[i]])
-  mimi_preds <- predictions1[folds[[i]]]
-  mimi_label <- label[folds[[i]]]
-  
-  AnalysisFunc(lgbm = temp_model,
-             diag_file = "Laurae/diagnostics.txt",
-             label = mimi_label,
-             folds = mimi_fold,
-             validationValues = mimi_preds,
-             predictedValuesCV = NA
-             predictedValues = NA)
-  
-}
-
-gc()
-set.seed(11111)
-best_model <- xgb.train(data = dtrain,
-                        nthread = my_threads,
-                        nrounds = floor(best_iter * 1.1),
-                        eta = eta,
-                        max_depth = 7,
-                        subsample = subsample,
-                        colsample_bytree = colsample_bytree,
-                        min_child_weight = hessian_sum,
-                        gamma = loss_red,
-                        booster = "gbtree",
-                        #feval = mcc_eval_nofail,
-                        eval_metric = "auc",
-                        maximize = TRUE,
-                        objective = "binary:logistic",
-                        verbose = TRUE,
-                        prediction = TRUE,
-                        watchlist = list(test = dtrain))
-
-
-
 
 
 
@@ -447,12 +354,118 @@ AnalysisFunc <- function(lgbm, diag_file, label, folds, validationValues, predic
 }
 
 
+
+
+
+############# START LOOKING THERE
+
+
+# HOW MANY FOLDS
+
+how_many_folds <- 1 # set to 5 for full CV
+
+# MY PARAMETERS
+
+eta <- 0.10
+subsample <- 1.0
+colsample_bytree <- 1.0
+hessian_sum <- 1 # This is 10 in my LightGBM, because it is unlimited depth it must be regularized strongly
+loss_red <- 1
+early_stop <- 25
+
+
+
+# RUN FROM THIS
+temp_model <- list()
+best_iter <- 0
+predictions1 <- numeric(1183747)
+predictions2 <- numeric(1183748)
+
+for (i in 1:how_many_folds) {
+  
+  gc(verbose = FALSE)
+  dval1 <- dtrain[(1:1183747)[-folds[[i]]]]
+  gc(verbose = FALSE)
+  dval2 <- dtrain[(1:1183747)[folds[[i]]]]
+  
+  gc()
+  set.seed(11111)
+  temp_model[[i]] <- xgb.train(data = dval1,
+                               nthread = my_threads,
+                               nrounds = 1000000,
+                               eta = eta,
+                               max_depth = 7,
+                               subsample = subsample,
+                               colsample_bytree = colsample_bytree,
+                               min_child_weight = hessian_sum,
+                               gamma = loss_red,
+                               booster = "gbtree",
+                               #feval = mcc_eval_nofail,
+                               eval_metric = "auc",
+                               maximize = TRUE,
+                               early_stopping_rounds = early_stop,
+                               objective = "binary:logistic",
+                               verbose = TRUE,
+                               prediction = TRUE,
+                               watchlist = list(test = dval2))
+  best_iter <- best_iter + (0.2 * temp_model[[i]]$best_iteration)
+  
+  gc(verbose = FALSE)
+  predictions1[folds[[i]]] <- predict(temp_model, dval2, ntreelimit = temp_model[[i]]$best_iteration)
+  gc(verbose = FALSE)
+  predictions2 <- predictions2 + (0.2 * predict(temp_model, dtest, ntreelimit = temp_model[[i]]$best_iteration))
+  gc(verbose = FALSE)
+  
+  mimi_fold <- list()
+  mimi_fold[[i]] <- 1:length(folds[[i]])
+  mimi_preds <- predictions1[folds[[i]]]
+  mimi_label <- label[folds[[i]]]
+  
+  AnalysisFunc(lgbm = temp_model,
+               diag_file = "Laurae/diagnostics.txt",
+               label = mimi_label,
+               folds = mimi_fold,
+               validationValues = mimi_preds,
+               predictedValuesCV = NA,
+               predictedValues = NA)
+  
+}
+
+
+
+# NEED FULL MODEL? RUN FROM THIS
+
+gc()
+set.seed(11111)
+best_model <- xgb.train(data = dtrain,
+                        nthread = my_threads,
+                        nrounds = floor(best_iter * 1.1),
+                        eta = eta,
+                        max_depth = 7,
+                        subsample = subsample,
+                        colsample_bytree = colsample_bytree,
+                        min_child_weight = hessian_sum,
+                        gamma = loss_red,
+                        booster = "gbtree",
+                        #feval = mcc_eval_nofail,
+                        eval_metric = "auc",
+                        maximize = TRUE,
+                        objective = "binary:logistic",
+                        verbose = TRUE,
+                        prediction = TRUE,
+                        watchlist = list(test = dtrain))
+
+
+
+
+
+
+
+
 AnalysisFunc(lgbm = temp_model,
              diag_file = "Laurae/diagnostics.txt",
              label = label,
              folds = folds,
-             validationValues = predictions1
-             predictedValuesCV = predictions2
+             validationValues = predictions1,
+             predictedValuesCV = predictions2,
              predictedValues = predict(best_model, dtest))
-
-
