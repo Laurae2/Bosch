@@ -1,0 +1,226 @@
+#################################################################################
+this is fold 1
+[0]	train-auc:0.92076	val-auc:0.910149
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 60 rounds.
+[10]	train-auc:0.93067	val-auc:0.917714
+[20]	train-auc:0.933007	val-auc:0.916557
+[30]	train-auc:0.934324	val-auc:0.916099
+[40]	train-auc:0.935745	val-auc:0.915708
+[50]	train-auc:0.936721	val-auc:0.916144
+[60]	train-auc:0.937855	val-auc:0.916416
+Stopping. Best iteration:
+[7]	train-auc:0.929875	val-auc:0.917901
+
+the auc is 0.916324779663
+xgb mcc: 0.485398396484
+the best threshold is 0.3628912568092346,and the total positive is 469
+the true positive is  391.0
+the false positive is  78.0
+the accuracy rate is  0.83368869936
+the auc is 0.91630010857
+rf mcc: 0.484372543863
+the best threshold is 0.4937304349861132,and the total positive is 438
+the true positive is  377.0
+the false positive is  61.0
+the accuracy rate is  0.860730593607
+final mcc: 0.483631360041
+the auc is 0.916715144975
+the true positive is  382.0
+the false positive is  69.0
+the accuracy rate is  0.847006651885
+the best threshold is 0.42123529718420366,and the total positive is 451,the total number of positives 1375.0
+[('V1', 261), ('rf_jay_joost_v2', 138), ('xgb_jay_joost_v1', 128), ('xgb_jay', 83), ('xgb_jay_joost_v2', 83), ('cnt', 80), ('gbm_jay', 78), ('song_v1', 78), ('gbm_joost_jay', 78), ('Euc_dist_NF', 63), ('gbm_song', 57), ('gbm_jay_joost_v2', 52), ('max_num_feat', 51), ('Man_dist_NF', 49), ('path', 39), ('start_time', 37), ('end_time', 36), ('sta_33m3', 36), ('tot_time', 36), ('xgb_song', 34), ('rf_jay', 34), ('mean_num_value', 32), ('sta_36m3', 32), ('sta_10m3', 30), ('sta_30m3', 29), ('min_num_feat', 29), ('sta_10m4', 29), ('sta_8m3', 28), ('max_num_value', 27), ('sta_33m4', 26), ('sta_0m4', 26), ('cluster_n100', 25), ('sta_35m3', 25), ('sta_34m3', 24), ('sta_29m3', 23), ('sta_8m4', 22), ('sta_34m4', 22), ('sta_27m4', 21), ('magic5', 21), ('magic6', 21), ('sta_32m3', 20), ('sta_36m4', 18), ('sta_9m3', 18), ('sta_37m3', 17), ('sta_5m4', 17), ('sta_2m4', 17), ('magic2', 17), ('sta_7m3', 16), ('sta_11m3', 16)]
+#################################################################################
+this is fold 2
+[0]	train-auc:0.915056	val-auc:0.911094
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 60 rounds.
+[10]	train-auc:0.928578	val-auc:0.922707
+[20]	train-auc:0.931069	val-auc:0.923882
+[30]	train-auc:0.932369	val-auc:0.924768
+[40]	train-auc:0.934212	val-auc:0.92422
+[50]	train-auc:0.935576	val-auc:0.923442
+[60]	train-auc:0.936477	val-auc:0.922074
+[70]	train-auc:0.937429	val-auc:0.921425
+[80]	train-auc:0.938098	val-auc:0.921431
+[90]	train-auc:0.939131	val-auc:0.921673
+Stopping. Best iteration:
+[34]	train-auc:0.932911	val-auc:0.924999
+
+the auc is 0.921580165522
+xgb mcc: 0.486375913922
+the best threshold is 0.40480199456214905,and the total positive is 486
+the true positive is  399.0
+the false positive is  87.0
+the accuracy rate is  0.820987654321
+the auc is 0.924785627864
+rf mcc: 0.480664807815
+the best threshold is 0.35870125545548703,and the total positive is 580
+the true positive is  431.0
+the false positive is  149.0
+the accuracy rate is  0.743103448276
+final mcc: 0.485529047389
+the auc is 0.923888523822
+the true positive is  402.0
+the false positive is  93.0
+the accuracy rate is  0.812121212121
+the best threshold is 0.4122301263932244,and the total positive is 495,the total number of positives 1376.0
+[('V1', 238), ('xgb_jay_joost_v1', 221), ('gbm_jay', 143), ('gbm_joost_jay', 139), ('rf_jay_joost_v2', 114), ('gbm_jay_joost_v2', 109), ('xgb_jay', 99), ('Euc_dist_NF', 96), ('xgb_jay_joost_v2', 87), ('song_v1', 81), ('rf_jay', 81), ('end_time', 76), ('cnt', 76), ('xgb_song', 69), ('sta_30m3', 66), ('start_time', 63), ('gbm_song', 57), ('Man_dist_NF', 56), ('tot_time', 56), ('sta_36m3', 55), ('sta_36m4', 53), ('sta_34m3', 53), ('sta_33m3', 51), ('sta_25m3', 51), ('max_num_feat', 49), ('magic6', 47), ('mean_num_value', 46), ('magic2', 44), ('path', 43), ('max_num_value', 41), ('sta_34m4', 40), ('min_num_value', 39), ('min_num_feat', 37), ('sta_35m3', 37), ('sta_29m3', 36), ('sta_33m4', 35), ('cluster_n100', 32), ('cluster_n50', 31), ('sta_1m3', 29), ('sta_11m3', 29), ('sta_8m3', 27), ('magic5', 27), ('sta_30m4', 26), ('magic1', 26), ('sta_7m3', 23), ('sta_37m3', 22), ('sta_4m3', 22), ('sta_0m4', 20), ('sta_38m3', 20)]
+#################################################################################
+this is fold 3
+[0]	train-auc:0.921291	val-auc:0.914105
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 60 rounds.
+[10]	train-auc:0.930622	val-auc:0.921901
+[20]	train-auc:0.933158	val-auc:0.920853
+[30]	train-auc:0.935259	val-auc:0.921494
+[40]	train-auc:0.936204	val-auc:0.920777
+[50]	train-auc:0.937506	val-auc:0.920475
+[60]	train-auc:0.938691	val-auc:0.920196
+Stopping. Best iteration:
+[5]	train-auc:0.92896	val-auc:0.922151
+
+the auc is 0.920436955876
+xgb mcc: 0.48863601432
+the best threshold is 0.2999098300933838,and the total positive is 593
+the true positive is  443.0
+the false positive is  150.0
+the accuracy rate is  0.747048903879
+the auc is 0.914991399573
+rf mcc: 0.494858335554
+the best threshold is 0.4447826966833153,and the total positive is 465
+the true positive is  397.0
+the false positive is  68.0
+the accuracy rate is  0.85376344086
+final mcc: 0.495377962808
+the auc is 0.918182640638
+the true positive is  413.0
+the false positive is  89.0
+the accuracy rate is  0.822709163347
+the best threshold is 0.37303944811615275,and the total positive is 502,the total number of positives 1376.0
+[('V1', 223), ('xgb_jay_joost_v2', 125), ('xgb_jay_joost_v1', 123), ('gbm_jay', 104), ('gbm_joost_jay', 79), ('gbm_jay_joost_v2', 78), ('rf_jay_joost_v2', 76), ('Euc_dist_NF', 76), ('end_time', 75), ('song_v1', 69), ('start_time', 67), ('cnt', 64), ('xgb_jay', 60), ('xgb_song', 51), ('tot_time', 48), ('sta_36m3', 48), ('sta_33m4', 45), ('path', 44), ('sta_34m3', 41), ('max_num_feat', 39), ('gbm_song', 39), ('max_num_value', 38), ('cluster_n100', 38), ('sta_30m3', 35), ('rf_jay', 34), ('magic2', 33), ('magic6', 28), ('sta_11m3', 28), ('sta_33m3', 27), ('sta_36m4', 27), ('magic5', 26), ('mean_num_value', 24), ('sta_34m4', 23), ('sta_8m4', 21), ('sta_7m3', 21), ('sta_1m3', 20), ('min_num_value', 19), ('sta_29m4', 19), ('sta_27m4', 18), ('sta_8m3', 16), ('sta_30m4', 16), ('sta_4m3', 15), ('sta_7m4', 14), ('sta_20m4', 14), ('sta_9m3', 14), ('sta_24m3', 13), ('sta_37m3', 13), ('sta_4m4', 13), ('sta_3m3', 13)]
+#################################################################################
+this is fold 4
+[0]	train-auc:0.918346	val-auc:0.90644
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 60 rounds.
+[10]	train-auc:0.930022	val-auc:0.922152
+[20]	train-auc:0.932778	val-auc:0.922321
+[30]	train-auc:0.934563	val-auc:0.921305
+[40]	train-auc:0.93574	val-auc:0.920759
+[50]	train-auc:0.937118	val-auc:0.921099
+[60]	train-auc:0.938474	val-auc:0.922188
+[70]	train-auc:0.93941	val-auc:0.922256
+Stopping. Best iteration:
+[17]	train-auc:0.931431	val-auc:0.923147
+
+the auc is 0.922029352939
+xgb mcc: 0.483237932031
+the best threshold is 0.19189561903476715,and the total positive is 711
+the true positive is  480.0
+the false positive is  231.0
+the accuracy rate is  0.675105485232
+the auc is 0.923487092956
+rf mcc: 0.485727880726
+the best threshold is 0.3869964860938304,and the total positive is 532
+the true positive is  417.0
+the false positive is  115.0
+the accuracy rate is  0.783834586466
+final mcc: 0.485227592694
+the auc is 0.922955365592
+the true positive is  484.0
+the false positive is  233.0
+the accuracy rate is  0.675034867503
+the best threshold is 0.22770749926002012,and the total positive is 717,the total number of positives 1376.0
+[('V1', 252), ('xgb_jay_joost_v1', 159), ('xgb_jay', 139), ('rf_jay_joost_v2', 126), ('gbm_joost_jay', 82), ('xgb_jay_joost_v2', 82), ('song_v1', 72), ('gbm_jay', 69), ('cnt', 67), ('rf_jay', 64), ('gbm_jay_joost_v2', 61), ('gbm_song', 58), ('start_time', 56), ('Euc_dist_NF', 54), ('mean_num_value', 54), ('sta_35m3', 54), ('sta_34m3', 53), ('xgb_song', 52), ('sta_29m3', 52), ('max_num_feat', 50), ('magic5', 48), ('sta_36m3', 47), ('sta_30m3', 46), ('sta_33m3', 46), ('max_num_value', 43), ('magic2', 42), ('sta_37m3', 40), ('min_num_feat', 40), ('path', 39), ('magic6', 39), ('end_time', 37), ('sta_6m4', 36), ('min_num_value', 34), ('tot_time', 33), ('cluster_n100', 32), ('sta_36m4', 27), ('Man_dist_NF', 26), ('sta_0m4', 24), ('sta_33m4', 24), ('sta_1m4', 24), ('sta_32m3', 24), ('sta_10m4', 24), ('sta_34m4', 24), ('sta_21m3', 23), ('sta_8m4', 23), ('sta_37m4', 22), ('sta_8m3', 20), ('sta_29m4', 18), ('sta_30m4', 18)]
+#################################################################################
+this is fold 5
+[0]	train-auc:0.916959	val-auc:0.914931
+Multiple eval metrics have been passed: 'val-auc' will be used for early stopping.
+
+Will train until val-auc hasn't improved in 60 rounds.
+[10]	train-auc:0.928895	val-auc:0.921344
+[20]	train-auc:0.930519	val-auc:0.922036
+[30]	train-auc:0.9331	val-auc:0.922563
+[40]	train-auc:0.934527	val-auc:0.922632
+[50]	train-auc:0.9355	val-auc:0.922656
+[60]	train-auc:0.937008	val-auc:0.922597
+[70]	train-auc:0.937912	val-auc:0.922664
+[80]	train-auc:0.938763	val-auc:0.92253
+Stopping. Best iteration:
+[27]	train-auc:0.932484	val-auc:0.922745
+
+the auc is 0.922467165875
+xgb mcc: 0.495666012017
+the best threshold is 0.3115939497947693,and the total positive is 616
+the true positive is  458.0
+the false positive is  158.0
+the accuracy rate is  0.743506493506
+the auc is 0.922273316171
+rf mcc: 0.493559604732
+the best threshold is 0.29032388733337255,and the total positive is 654
+the true positive is  470.0
+the false positive is  184.0
+the accuracy rate is  0.718654434251
+final mcc: 0.496154218158
+the auc is 0.922468385482
+the true positive is  449.0
+the false positive is  142.0
+the accuracy rate is  0.75972927242
+the best threshold is 0.3201244780410596,and the total positive is 591,the total number of positives 1376.0
+[('V1', 268), ('xgb_jay_joost_v1', 213), ('rf_jay_joost_v2', 156), ('gbm_jay', 131), ('xgb_jay', 131), ('gbm_joost_jay', 126), ('rf_jay', 125), ('xgb_jay_joost_v2', 115), ('song_v1', 94), ('cnt', 72), ('gbm_jay_joost_v2', 68), ('max_num_feat', 66), ('path', 66), ('Euc_dist_NF', 65), ('tot_time', 59), ('end_time', 57), ('start_time', 56), ('sta_7m3', 56), ('sta_30m3', 54), ('sta_36m3', 53), ('gbm_song', 50), ('xgb_song', 46), ('cluster_n100', 43), ('mean_num_value', 43), ('sta_11m3', 43), ('sta_4m3', 40), ('sta_33m3', 36), ('sta_35m4', 36), ('min_num_feat', 35), ('magic5', 35), ('sta_34m3', 33), ('max_num_value', 31), ('magic6', 30), ('Man_dist_NF', 29), ('min_num_value', 29), ('sta_36m4', 27), ('sta_6m4', 27), ('sta_3m3', 25), ('sta_1m4', 25), ('sta_8m4', 24), ('sta_33m4', 22), ('sta_37m3', 20), ('sta_5m4', 20), ('magic2', 20), ('sta_5m3', 19), ('sta_29m3', 19), ('sta_20m4', 18), ('sta_1m3', 17), ('sta_32m3', 17)]
+In[23]: feature_importance.columns = ['feature', 'score']
+a = feature_importance.groupby('feature')['score'].sum()
+a.sort(ascending=False)
+a = a.reset_index()
+a.to_csv('../log/stack_20161108_v4.csv', index=False)
+
+/home/shubinli/software/pycharm-community-2016.2/helpers/pydev/pydevconsole.py:3: FutureWarning: sort is deprecated, use sort_values(inplace=True) for INPLACE sorting
+  '''
+In[24]: threshold3 = threshold3 / 5
+threshold1 = threshold1 / 5
+threshold2 = threshold2 / 5
+
+In[25]: threshold3
+
+Out[25]: 0.35086736979893213
+In[26]: threshold1
+
+Out[26]: 0.3142185300588608
+In[27]: threshold2
+
+Out[27]: 0.3949069521104237
+In[28]: xgb_result_set1_test = xgb_result_set1_test/float(5)
+rf_result_set1_test = rf_result_set1_test/float(5)
+
+In[29]: best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, xgb_result_set1['pred'], True)
+print("the xgb mcc:",best_mcc)
+print("the xgb auc :", roc_auc_score(train.Y.values,xgb_result_set1['pred']))
+print("the best threshold is {},and the total positive is {},the total number of positives {}".format(best_proba,sum(y_pred),sum(train.Y.values)))
+best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, rf_result_set1['pred'], True)
+print("the rf:",best_mcc)
+print("the rf auc :", roc_auc_score(train.Y.values, xgb_result_set1['pred']))
+print("the best threshold is {},and the total positive is {},the total number of positives {}".format(best_proba,sum(y_pred),sum(train.Y.values)))
+best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, final_result_set1['pred'], True)
+print("the xgb,rf:",best_mcc)
+print("the best threshold is {},and the total positive is {},the total number of positives {}".format(best_proba,sum(y_pred),sum(train.Y.values)))
+final_result_set2['pred'] = xgb_result_set1['pred']*0.4+ 0.6*rf_result_set1['pred']
+best_proba, best_mcc, y_pred = eval_mcc(train.Y.values, final_result_set2['pred'], True)
+print("the xgb,rf:",best_mcc)
+print("the best threshold is {},and the total positive is {},the total number of positives {}".format(best_proba,sum(y_pred),sum(train.Y.values)))
+
+the xgb mcc: 0.481477212672
+the xgb auc : 0.91706674214
+the best threshold is 0.31462380290031433,and the total positive is 2939,the total number of positives 6879.0
+the rf: 0.484294330447
+the rf auc : 0.91706674214
+the best threshold is 0.41779057998536345,and the total positive is 2478,the total number of positives 6879.0
+the xgb,rf: 0.483544703432
+the best threshold is 0.39389014107616543,and the total positive is 2461,the total number of positives 6879.0
+the xgb,rf: 0.484053633504
+the best threshold is 0.3900226152001662,and the total positive is 2515,the total number of positives 6879.0
