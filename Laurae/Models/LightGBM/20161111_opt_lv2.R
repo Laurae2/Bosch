@@ -308,4 +308,30 @@ AnalysisFunc <- function(label, folds, validationValues, predictedValuesCV, pred
     
     if (!is.na(manual)) {
       
-      # 
+      # Create submissions using full trained model using manual positive count
+      best_mcc_extra <- mini_preds[manual + 1]
+      submission0_extra <- fread("datasets/sample_submission.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+      submission0_extra$Response <- as.numeric(predictedValues > best_mcc_extra)
+      best_count_extra <- sum(submission0_extra$Response == 1)
+      cat("Submission on selected amount of positives: ", best_count_extra, ". Threshold=", best_mcc_extra, "\nIt needs ", sprintf("%05.2f", 100 * (sum(predictedValues > best_mcc_extra) - sum(predictedValues > best_mcc1_all)) / sum(predictedValues > best_mcc_extra)), "% TP to hold true.\n\n", sep = "")
+      write.csv(submission0_extra, file = file.path(my_script_is_using, paste(my_script_subbed, "_manual_", sprintf("%.06f", best_mcc_extra), "_", best_count_extra, ".csv", sep = "")), row.names = FALSE)
+      
+    }
+    
+  }
+  
+  
+  cat("```")
+  sink()
+  
+}
+
+
+x <- best_weights$optimizer$continuous
+
+AnalysisFunc(label = label,
+             folds = folds,
+             validationValues = ((predictions_xgb * x[1] + predictions_rf * x[2]) / sum(x)),
+             predictedValuesCV = ((predictions_trained_xgb * x[1] + predictions_trained_rf * x[2]) / sum(x)),
+             predictedValues = ((predictions_all_xgb * x[1] + predictions_all_rf * x[2]) / sum(x)),
+             manual = 3164)
